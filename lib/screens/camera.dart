@@ -3,9 +3,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bluetooth/screens/otp.dart';
-import 'package:flutter_bluetooth/screens/camera_options.dart';
+import 'package:flutter_bluetooth/screens/cameragroup.dart';
 
 class Camera extends StatefulWidget {
+
   @override
   _Camera createState() => new _Camera();
 }
@@ -29,6 +30,12 @@ class _Camera extends State<Camera> {
       print(pickedImage);
       print(filename);
     });
+  }
+  void _removeImage(File pickedFile) {
+    setState(() {
+      attachmentList.remove(pickedFile);
+    });
+    // widget.removeImage(pickedFile);
   }
 
   @override
@@ -287,9 +294,60 @@ class _Camera extends State<Camera> {
               },
             ),
           ),
+          ListView.builder(
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+            itemCount: attachmentList != null ? attachmentList.length : 0,
+            itemBuilder: (BuildContext context, int index) {
 
+              return GestureDetector(
+                child: Stack(
+                  children: [
+
+                        new Container(
+                      width: 100.0,
+                      height: 100.0,
+                      decoration: new BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        image: new DecorationImage(
+                            fit: BoxFit.fill,
+                            image: FileImage(attachmentList[index])
+                          // image: new FileImage(attachFile),
+                        ),
+                      ),
+                    ),
+
+                    // Positioned(
+                    //   top: 0,
+                    //   right: 0,
+                    //   child: widget.removeImage != null
+                    //       ? GestureDetector(
+                    //     onTap: () =>
+                    //         _removeImage(_filePathList[index]),
+                    //     child: Card(
+                    //       elevation: 10,
+                    //       color: Colors.white,
+                    //       shape: CircleBorder(),
+                    //       child: Icon(
+                    //         Icons.clear,
+                    //         size: 18,
+                    //       ),
+                    //     ),
+                    //   )
+                    //       : SizedBox(),
+                    // ),
+                  ],
+                ),
+                onTap: () async {
+
+                },
+              );
+            },
+          ),
         ],
+
       ),
+
     );
   }
 }
