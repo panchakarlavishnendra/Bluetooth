@@ -16,9 +16,9 @@ import 'package:path/path.dart' as path;
 
 class CameraGroup extends StatefulWidget {
 
-  final Function onSelectImage;
+  final Function selectImage;
 
-  CameraGroup(this.onSelectImage);
+  CameraGroup(this.selectImage);
   @override
   _CustomDialogBoxState createState() => _CustomDialogBoxState();
 }
@@ -29,15 +29,20 @@ class _CustomDialogBoxState extends State<CameraGroup> {
   List<File> attachmentList = [];
   PickedFile _imageFile;
   final ImagePicker _picker = ImagePicker();
+  File pickedImage;
+  String fileName;
   void onImageButtonPressed(ImageSource source, {BuildContext context}) async {
               final pickedFile = await _picker.getImage(
                 source: source,
 
               );
-              print(pickedFile);
+              print(pickedFile.path);
               setState(() {
-                _imageFile = pickedFile;
+                pickedImage = File(pickedFile.path);
+                fileName = path.basename(pickedFile.path);
+                print(_imageFile );
               });
+              widget.selectImage(pickedImage ,fileName );
 
   }
 

@@ -15,19 +15,19 @@ class _Camera extends State<Camera> {
   File filePathList;
   List<String> _locations = ['A', 'B', 'C', 'D']; // Option 2
   String _selectedLocation;
+  List<File> attachmentList = [];
   String onSelectImage;
   @override
   void initState() {
     super.initState();
   }
-  void _selectImage(File pickedImage, filename) {
 
+  void selectImage(File pickedImage, filename) {
     setState(() {
       filePathList = pickedImage;
+      attachmentList.add(pickedImage);
       print(pickedImage);
       print(filename);
-
-
     });
   }
 
@@ -50,8 +50,8 @@ class _Camera extends State<Camera> {
                         width: 310,
                         child: new Theme(
                           data: new ThemeData(
-                            primaryColor: Colors.black,
-                            primaryColorDark: Colors.black,
+                            primaryColor: Colors.white,
+                            primaryColorDark: Colors.white,
                           ),
                           child: new TextField(
                             decoration:
@@ -82,9 +82,9 @@ class _Camera extends State<Camera> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => CameraGroup(_selectImage)),
+                                  builder: (context) =>
+                                      CameraGroup(selectImage)),
                             );
-
                           }),
                     ),
                   ],
@@ -92,7 +92,23 @@ class _Camera extends State<Camera> {
               ),
             ],
           ),
-          Divider(),
+          filePathList != null
+              ? Row(
+                  children: <Widget>[
+                  Container(
+                    width: 55.0,
+                    height: 55.0,
+                    decoration: new BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      image: new DecorationImage(
+                          fit: BoxFit.fill, image: FileImage(filePathList)
+                          // image: new FileImage(attachFile),
+                          ),
+                    ),
+                  ),
+              ]
+              )
+              : SizedBox(),
           Row(
             children: <Widget>[
               Padding(
@@ -152,7 +168,8 @@ class _Camera extends State<Camera> {
                 child: Column(
                   children: <Widget>[
                     DropdownButton(
-                      hint: Text('Please choose a location'), // Not necessary for Option 1
+                      hint: Text(
+                          'Please choose a location'), // Not necessary for Option 1
                       value: _selectedLocation,
                       onChanged: (newValue) {
                         setState(() {
@@ -226,12 +243,11 @@ class _Camera extends State<Camera> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left:5 , top:5.0),
+                padding: const EdgeInsets.only(left: 5, top: 5.0),
                 child: Container(
                   height: 70,
                   width: 100,
                   child: DropdownButton(
-
                     hint: Text('ML'), // Not necessary for Option 1
                     value: _selectedLocation,
                     onChanged: (newValue) {
@@ -248,43 +264,30 @@ class _Camera extends State<Camera> {
                   ),
                 ),
               ),
-
             ],
           ),
           SizedBox(
-            width:250,
+            width: 250,
             height: 50,
             child: RaisedButton(
               elevation: 5,
               textColor: Colors.white,
               color: Colors.blueAccent,
-              child: Text("Continue Document Upload",style: TextStyle(fontSize: 15),),
+              child: Text(
+                "Continue Document Upload",
+                style: TextStyle(fontSize: 15),
+              ),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(1)),
               onPressed: () {
                 Navigator.push(
-                    context,
-
-                         MaterialPageRoute(
-                             builder: (context) => OTPPage()),
-                      );
+                  context,
+                  MaterialPageRoute(builder: (context) => OTPPage()),
+                );
               },
             ),
           ),
-          filePathList != null ?
-          Container(
-            width: 100.0,
-            height: 100.0,
-            decoration: new BoxDecoration(
-              shape: BoxShape.rectangle,
-              image: new DecorationImage(
-                  fit: BoxFit.fill,
-                  image: FileImage(filePathList)
-                //   image: new FileImage(attachFile),
-              ),
-            ),
-          )
-              : SizedBox()
+
         ],
       ),
     );
