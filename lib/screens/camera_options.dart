@@ -41,20 +41,6 @@ class _CustomDialogBoxState extends State<CameraGroup> {
 
   }
 
-  // void _showCamera() async {
-  //   final cameras = await availableCameras();
-  //   final camera = cameras.first;
-  //
-  //   final pickedImage = await Navigator.push(
-  //       context,
-  //       MaterialPageRoute(
-  //           builder: (context) => TakePicturePage(camera: camera)));
-  //   setState(() {
-  //     attachmentList.add(File(pickedImage));
-  //     print(attachmentList);
-  //   });
-  //   // return result;
-  // }
 
 
   String _retrieveDataError;

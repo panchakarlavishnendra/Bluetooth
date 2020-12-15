@@ -27,9 +27,7 @@ class _Camera extends State<Camera> {
       print(pickedImage);
       print(filename);
 
-      // _incident.incidentFile.add(pickedImage);
-      // attachmentList.add(pickedImage);
-      // fileattachmentList.add(pickedImage.path);
+
     });
   }
 
