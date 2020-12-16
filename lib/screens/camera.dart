@@ -62,7 +62,7 @@ class _Camera extends State<Camera> {
                           ),
                           child: new TextField(
                             decoration:
-                                InputDecoration(labelText: 'GatePass Number'),
+                            InputDecoration(labelText: 'GatePass Number'),
                             keyboardType: TextInputType.number,
                             inputFormatters: <TextInputFormatter>[
                               FilteringTextInputFormatter.digitsOnly
@@ -101,20 +101,20 @@ class _Camera extends State<Camera> {
           ),
           filePathList != null
               ? Row(
-                  children: <Widget>[
-                  Container(
-                    width: 55.0,
-                    height: 55.0,
-                    decoration: new BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      image: new DecorationImage(
-                          fit: BoxFit.fill, image: FileImage(filePathList)
-                          // image: new FileImage(attachFile),
-                          ),
+              children: <Widget>[
+                Container(
+                  width: 55.0,
+                  height: 55.0,
+                  decoration: new BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    image: new DecorationImage(
+                        fit: BoxFit.fill, image: FileImage(filePathList)
+                      // image: new FileImage(attachFile),
                     ),
                   ),
+                ),
               ]
-              )
+          )
               : SizedBox(),
           Row(
             children: <Widget>[
@@ -132,7 +132,7 @@ class _Camera extends State<Camera> {
                           ),
                           child: new TextField(
                             decoration:
-                                InputDecoration(labelText: 'Vehicle Number'),
+                            InputDecoration(labelText: 'Vehicle Number'),
                           ),
                         )),
                   ],
@@ -211,7 +211,7 @@ class _Camera extends State<Camera> {
                           ),
                           child: new TextField(
                             decoration:
-                                InputDecoration(labelText: 'GatePass Number'),
+                            InputDecoration(labelText: 'GatePass Number'),
                             keyboardType: TextInputType.number,
                             inputFormatters: <TextInputFormatter>[
                               FilteringTextInputFormatter.digitsOnly
@@ -307,7 +307,7 @@ class _Camera extends State<Camera> {
                   child: Stack(
                     children: [
 
-                          new Container(
+                      new Container(
                         width: 100.0,
                         height: 100.0,
                         decoration: new BoxDecoration(
