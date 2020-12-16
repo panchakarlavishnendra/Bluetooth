@@ -99,23 +99,60 @@ class _Camera extends State<Camera> {
               ),
             ],
           ),
-          filePathList != null
-              ? Row(
-              children: <Widget>[
-                Container(
-                  width: 55.0,
-                  height: 55.0,
-                  decoration: new BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    image: new DecorationImage(
-                        fit: BoxFit.fill, image: FileImage(filePathList)
-                      // image: new FileImage(attachFile),
-                    ),
+          Container(
+            height: 50,
+            width: 100,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              shrinkWrap: true,
+              itemCount:  attachmentList.length,
+              itemBuilder: (BuildContext context, int index) {
+
+                return attachmentList.length != 0 ? GestureDetector(
+                  child: Stack(
+                    children: [
+
+                      new Container(
+                        width: 100.0,
+                        height: 100.0,
+                        decoration: new BoxDecoration(
+                          shape: BoxShape.rectangle,
+                          image: new DecorationImage(
+                              fit: BoxFit.fill,
+                              image: FileImage(attachmentList[index])
+                            // image: new FileImage(attachFile),
+                          ),
+                        ),
+                      ),
+
+                      // Positioned(
+                      //   top: 0,
+                      //   right: 0,
+                      //   child: widget.removeImage != null
+                      //       ? GestureDetector(
+                      //     onTap: () =>
+                      //         _removeImage(_filePathList[index]),
+                      //     child: Card(
+                      //       elevation: 10,
+                      //       color: Colors.white,
+                      //       shape: CircleBorder(),
+                      //       child: Icon(
+                      //         Icons.clear,
+                      //         size: 18,
+                      //       ),
+                      //     ),
+                      //   )
+                      //       : SizedBox(),
+                      // ),
+                    ],
                   ),
-                ),
-              ]
-          )
-              : SizedBox(),
+                  onTap: () async {
+
+                  },
+                ):SizedBox();
+              },
+            ),
+          ),
           Row(
             children: <Widget>[
               Padding(
@@ -294,60 +331,7 @@ class _Camera extends State<Camera> {
               },
             ),
           ),
-          Container(
-            height: 50,
-            width: 100,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              shrinkWrap: true,
-              itemCount:  attachmentList.length,
-              itemBuilder: (BuildContext context, int index) {
 
-                return attachmentList.length != 0 ? GestureDetector(
-                  child: Stack(
-                    children: [
-
-                      new Container(
-                        width: 100.0,
-                        height: 100.0,
-                        decoration: new BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          image: new DecorationImage(
-                              fit: BoxFit.fill,
-                              image: FileImage(attachmentList[index])
-                            // image: new FileImage(attachFile),
-                          ),
-                        ),
-                      ),
-
-                      // Positioned(
-                      //   top: 0,
-                      //   right: 0,
-                      //   child: widget.removeImage != null
-                      //       ? GestureDetector(
-                      //     onTap: () =>
-                      //         _removeImage(_filePathList[index]),
-                      //     child: Card(
-                      //       elevation: 10,
-                      //       color: Colors.white,
-                      //       shape: CircleBorder(),
-                      //       child: Icon(
-                      //         Icons.clear,
-                      //         size: 18,
-                      //       ),
-                      //     ),
-                      //   )
-                      //       : SizedBox(),
-                      // ),
-                    ],
-                  ),
-                  onTap: () async {
-
-                  },
-                ):SizedBox();
-              },
-            ),
-          ),
         ],
 
       ),
