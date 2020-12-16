@@ -99,7 +99,7 @@ class _Camera extends State<Camera> {
               ),
             ],
           ),
-          Container(
+          attachmentList.length != 0 ?   Container(
             height: 50,
             width: 100,
             child: ListView.builder(
@@ -125,25 +125,6 @@ class _Camera extends State<Camera> {
                         ),
                       ),
 
-                      // Positioned(
-                      //   top: 0,
-                      //   right: 0,
-                      //   child: widget.removeImage != null
-                      //       ? GestureDetector(
-                      //     onTap: () =>
-                      //         _removeImage(_filePathList[index]),
-                      //     child: Card(
-                      //       elevation: 10,
-                      //       color: Colors.white,
-                      //       shape: CircleBorder(),
-                      //       child: Icon(
-                      //         Icons.clear,
-                      //         size: 18,
-                      //       ),
-                      //     ),
-                      //   )
-                      //       : SizedBox(),
-                      // ),
                     ],
                   ),
                   onTap: () async {
@@ -152,7 +133,7 @@ class _Camera extends State<Camera> {
                 ):SizedBox();
               },
             ),
-          ),
+          ):SizedBox(),
           Row(
             children: <Widget>[
               Padding(
