@@ -314,6 +314,25 @@ class _Camera extends State<Camera> {
                                             ),
                                           ),
                                         ),
+                                        Positioned(
+                                          top: 0,
+                                          right: 0,
+                                          child: attachmentList.length != 0
+                                              ? GestureDetector(
+                                            onTap: () =>
+                                                _removeImage(attachmentList[index]),
+                                            child: Card(
+                                              elevation: 10,
+                                              color: Colors.white,
+                                              shape: CircleBorder(),
+                                              child: Icon(
+                                                Icons.clear,
+                                                size: 18,
+                                              ),
+                                            ),
+                                          )
+                                              : SizedBox(),
+                                        ),
                                       ],
                                     ),
                                     onTap: () async {},
