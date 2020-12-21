@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth/models/place_location.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'package:flutter_bluetooth/screens/connected_devices.dart';
-import 'package:flutter_bluetooth/screens/ChartPage.dart';
 import 'package:geocoder/geocoder.dart';
 import 'package:geocoder/model.dart';
 import 'package:location/location.dart';
@@ -53,7 +52,6 @@ class _MainPage extends State<MainPage> {
     _address = _pickedLocation.address.toString();
     // _incident.location = _pickedLocation;
 
-    print(_pickedLocation.address.toString() + "11111111111");
   }
     @override
     void dispose() {

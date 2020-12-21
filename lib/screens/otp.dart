@@ -66,7 +66,7 @@ class _CustomDialogBoxState extends State<OTPPage> {
             child: ListView(
               children: <Widget>[
                 Positioned(
-                  right: 0.0,
+                  right: 10.0,
                   child: GestureDetector(
                     onTap: (){
                       Navigator.of(context).pop();
@@ -74,7 +74,7 @@ class _CustomDialogBoxState extends State<OTPPage> {
                     child: Align(
                       alignment: Alignment.topRight,
                       child: CircleAvatar(
-                        radius: 14.0,
+                        radius: 6.0,
                         backgroundColor: Colors.white,
                         child: Icon(Icons.close, color: Colors.black),
                       ),
@@ -82,17 +82,22 @@ class _CustomDialogBoxState extends State<OTPPage> {
                   ),
                 ),
 
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: Text(
-                    'Moisture Value',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
-                    textAlign: TextAlign.center,
-                  ),
+                Text(
+                  'Moisture Value',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+                  textAlign: TextAlign.center,
                 ),
 
                 SizedBox(
-                  height: 2,
+                  height: 22,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left : 18.0),
+                  child: Text(
+                    'Enter OTP',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    // textAlign: TextAlign.left,
+                  ),
                 ),
                 Form(
                   key: formKey,
@@ -108,7 +113,7 @@ class _CustomDialogBoxState extends State<OTPPage> {
                         length: 4,
                         obscureText: false,
                         obscuringCharacter: '*',
-                        animationType: AnimationType.fade,
+                        animationType: AnimationType.none,
                         validator: (v) {
                           if (v.length < 3) {
                             return "I'm from validator";
@@ -121,24 +126,26 @@ class _CustomDialogBoxState extends State<OTPPage> {
                           borderRadius: BorderRadius.circular(5),
                           fieldHeight: 60,
                           fieldWidth: 50,
-                          activeFillColor:
-                          hasError ? Colors.orange : Colors.white,
+                          activeFillColor: Colors.white,
+                            inactiveFillColor :Colors.white24,
+                          inactiveColor:Colors.black87
                         ),
                         cursorColor: Colors.black,
                         animationDuration: Duration(milliseconds: 300),
                         textStyle: TextStyle(fontSize: 20, height: 1.6),
                         backgroundColor: Colors.white,
-                        enableActiveFill: true,
+                        // enableActiveFill: true,
+                        // enablePinAutofill: true,
                         errorAnimationController: errorController,
                         controller: textEditingController,
                         keyboardType: TextInputType.number,
-                        boxShadows: [
-                          BoxShadow(
-                            offset: Offset(0, 1),
-                            color: Colors.black12,
-                            blurRadius: 10,
-                          )
-                        ],
+                        // boxShadows: [
+                        //   BoxShadow(
+                        //     offset: Offset(0, 1),
+                        //     color: Colors.black12,
+                        //     blurRadius: 10,
+                        //   )
+                        // ],
                         onCompleted: (v) {
                           print("Completed");
                         },
@@ -164,7 +171,7 @@ class _CustomDialogBoxState extends State<OTPPage> {
                   child: Text(
                     hasError ? "*Please fill up all the cells properly" : "",
                     style: TextStyle(
-                        color: Colors.red,
+                        color: Colors.black87,
                         fontSize: 12,
                         fontWeight: FontWeight.w400),
                   ),
@@ -192,18 +199,9 @@ class _CustomDialogBoxState extends State<OTPPage> {
                     ),
                   ),
                   decoration: BoxDecoration(
-                      color: Colors.green.shade300,
+                      color:  Colors.teal[900],
                       borderRadius: BorderRadius.circular(5),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.green.shade200,
-                            offset: Offset(1, -2),
-                            blurRadius: 5),
-                        BoxShadow(
-                            color: Colors.green.shade200,
-                            offset: Offset(-1, 2),
-                            blurRadius: 5)
-                      ]),
+                     ),
                 ),
                 SizedBox(
                   height: 1,
@@ -226,18 +224,9 @@ class _CustomDialogBoxState extends State<OTPPage> {
                     ),
                   ),
                   decoration: BoxDecoration(
-                      color: Colors.green.shade300,
+                      color:  Colors.teal[900],
                       borderRadius: BorderRadius.circular(5),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.green.shade200,
-                            offset: Offset(1, -2),
-                            blurRadius: 5),
-                        BoxShadow(
-                            color: Colors.green.shade200,
-                            offset: Offset(-1, 2),
-                            blurRadius: 5)
-                      ]),
+                      ),
                 ),
 
               ],

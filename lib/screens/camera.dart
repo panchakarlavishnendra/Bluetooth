@@ -13,7 +13,7 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:path/path.dart' as path;
 
 enum SingingCharacter {  CaptureFontNumberPlate,
-CaptureRearNumbePlate,
+CaptureRearNumberPlate,
 CaptureFrontView,
 CaptureRearView,
 CaptureRightSideView,
@@ -44,18 +44,7 @@ class _Camera extends State<Camera> {
   File pickedImage;
   String fileName;
 
-  List<String> _status = [
-    "Capture Font Number Plate",
-    "Capture Rear Number Plate",
-    "Capture Front View",
-    "Capture Rear View",
-    "Capture Right Side View",
-    "Capture Left Side View",
-    "Capture Top View",
-    "Gate Pass"
-
-  ];
-  SingingCharacter _character = SingingCharacter.GatePass;
+  SingingCharacter character = SingingCharacter.GatePass;
 
   void onImageButtonPressed(ImageSource source, {BuildContext context}) async {
     final pickedFile = await _picker.getImage(
@@ -82,14 +71,6 @@ class _Camera extends State<Camera> {
     super.initState();
   }
 
-  // void selectImage(File pickedImage, filename) {
-  //   setState(() {
-  //     filePathList = pickedImage;
-  //     attachmentList.add(pickedImage);
-  //     print(pickedImage);
-  //     print(filename);
-  //   });
-  // }
 
   void _removeImage(File pickedFile) {
     setState(() {
@@ -121,8 +102,8 @@ class _Camera extends State<Camera> {
                               width: 310,
                               child: new Theme(
                                 data: new ThemeData(
-                                  primaryColor: Colors.black87,
-                                  primaryColorDark: Colors.black87,
+                                  // primaryColor: Colors.black87,
+                                  // primaryColorDark: Colors.black87,
                                 ),
                                 child: new TextField(
                                   decoration: InputDecoration(
@@ -150,12 +131,6 @@ class _Camera extends State<Camera> {
                                   color: Colors.blueGrey[700],
                                 ),
                                 onPressed: () {
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //       builder: (context) =>
-                                  //           CameraGroup(selectImage)),
-                                  // );
                                   showDialog(
                                     context: context,
                                     builder: (_) => Material(
@@ -215,80 +190,67 @@ class _Camera extends State<Camera> {
                                                 height: 2,
                                               ),
 
-                                              Column(
-                                                children: <Widget>[
-                                                  RadioListTile<SingingCharacter>(
-                                                    title: const Text('Capture Font Number Plate', style: TextStyle(
-                                                      color: Colors.white
-                                                    ),),
-                                                    value: SingingCharacter.CaptureFontNumberPlate,
-                                                    groupValue: _character,
-                                                    activeColor: Colors.white,
-                                                    onChanged: (SingingCharacter value) { setState(() { _character = value;
+                                              Theme(
+                                                data:  Theme.of(context).copyWith(
+                                                unselectedWidgetColor: Colors.white,
+                                                disabledColor: Colors.blue),
+                                                child: Column(
+                                                  children: <Widget>[
+                                                    RadioListTile<SingingCharacter>(
+                                                      title: const Text('Capture Font Number Plate', style: TextStyle(
+                                                        color: Colors.white
+                                                      ),),
+                                                      value: SingingCharacter.CaptureFontNumberPlate,
+                                                      groupValue: character,
+                                                      activeColor: Colors.white,
+                                                      onChanged: (SingingCharacter value) { setState(() { character = value;
 
-                                                    }); },
-                                                  ),
-                                                   RadioListTile<SingingCharacter>(
-                                                    title: const Text("Capture Rear Number Plate", style: TextStyle(
-                                                      color: Colors.white
-                                                    ),),
-                                                    value: SingingCharacter.CaptureRearNumbePlate,
-                                                    groupValue: _character,
-                                                    onChanged: (SingingCharacter value) { setState(() { _character = value; }); },
-                                                  ),
-                                                   RadioListTile<SingingCharacter>(
-                                                     activeColor: Colors.white,
-                                                    title: const Text("Capture Front View", style: TextStyle(
-                                                      color: Colors.white
-                                                    ),),
-                                                    value: SingingCharacter.CaptureFrontView,
-                                                    groupValue: _character,
-                                                    onChanged: (SingingCharacter value) { setState(() { _character = value; }); },
-                                                  ),
-                                                   RadioListTile<SingingCharacter>(
-                                                    title: const Text("Capture Rear View", style: TextStyle(
-                                                      color: Colors.white
-                                                    ),),
-                                                    value: SingingCharacter.CaptureRearView,
-                                                    groupValue: _character,
-                                                    onChanged: (SingingCharacter value) { setState(() { _character = value; }); },
-                                                  ),
-                                                   RadioListTile<SingingCharacter>(
-                                                    title: const Text("Capture Top View", style: TextStyle(
-                                                      color: Colors.white
-                                                    ),),
-                                                    value: SingingCharacter.CaptureTopView,
-                                                    groupValue: _character,
-                                                    onChanged: (SingingCharacter value) { setState(() { _character = value; }); },
-                                                  ),
-                                                   RadioListTile<SingingCharacter>(
-                                                    title: const Text("Gate Pass", style: TextStyle(
-                                                      color: Colors.white
-                                                    ),),
-                                                    value: SingingCharacter.GatePass,
-                                                    groupValue: _character,
-                                                    onChanged: (SingingCharacter value) { setState(() { _character = value; }); },
-                                                  ),
+                                                      }); },
+                                                    ),
+                                                     RadioListTile<SingingCharacter>(
+                                                      title: const Text("Capture Rear Number Plate", style: TextStyle(
+                                                        color: Colors.white
+                                                      ),),
+                                                      value: SingingCharacter.CaptureRearNumberPlate,
+                                                      groupValue: character,
+                                                      onChanged: (SingingCharacter value) { setState(() { character = value; }); },
+                                                    ),
+                                                     RadioListTile<SingingCharacter>(
+                                                       activeColor: Colors.white,
+                                                      title: const Text("Capture Front View", style: TextStyle(
+                                                        color: Colors.white
+                                                      ),),
+                                                      value: SingingCharacter.CaptureFrontView,
+                                                      groupValue: character,
+                                                      onChanged: (SingingCharacter value) { setState(() { character = value; }); },
+                                                    ),
+                                                     RadioListTile<SingingCharacter>(
+                                                      title: const Text("Capture Rear View", style: TextStyle(
+                                                        color: Colors.white
+                                                      ),),
+                                                      value: SingingCharacter.CaptureRearView,
+                                                      groupValue: character,
+                                                      onChanged: (SingingCharacter value) { setState(() { character = value; }); },
+                                                    ),
+                                                     RadioListTile<SingingCharacter>(
+                                                      title: const Text("Capture Top View", style: TextStyle(
+                                                        color: Colors.white
+                                                      ),),
+                                                      value: SingingCharacter.CaptureTopView,
+                                                      groupValue: character,
+                                                      onChanged: (SingingCharacter value) { setState(() { character = value; }); },
+                                                    ),
+                                                     RadioListTile<SingingCharacter>(
+                                                      title: const Text("Gate Pass", style: TextStyle(
+                                                        color: Colors.white
+                                                      ),),
+                                                      value: SingingCharacter.GatePass,
+                                                      groupValue: character,
+                                                      onChanged: (SingingCharacter value) { setState(() { character = value; }); },
+                                                    ),
 
-                                                  // RadioGroup<String>.builder(
-                                                  //
-                                                  //   groupValue: _verticalGroupValue,
-                                                  //   onChanged: (value) => setState(() {
-                                                  //     _verticalGroupValue = value;
-                                                  //
-                                                  //
-                                                  //
-                                                  //   }),
-                                                  //   items: _status,
-                                                  //
-                                                  //   itemBuilder: (item) => RadioButtonBuilder(
-                                                  //     item,
-                                                  //     textPosition: RadioButtonTextPosition.right,
-                                                  //
-                                                  //   ),
-                                                  //
-                                                  // ),
-                                                ],
+                                                  ],
+                                                ),
                                               ),
                                               SizedBox(height: 15),
                                               RaisedButton.icon(
@@ -301,6 +263,7 @@ class _Camera extends State<Camera> {
                                                 onPressed: () {
                                                   isVideo = false;
                                                   onImageButtonPressed(ImageSource.camera, context: context);
+                                                  Navigator.of(context).pop();
                                                 },
                                               )
 
@@ -347,6 +310,7 @@ class _Camera extends State<Camera> {
                                                       attachmentList[index])
                                                   // image: new FileImage(attachFile),
                                                   ),
+
                                             ),
                                           ),
                                         ),
@@ -499,49 +463,7 @@ class _Camera extends State<Camera> {
         ));
   }
 
-  contentBox(context) {
-    TextEditingController textEditingController = TextEditingController();
-    // ..text = "123456";
 
-    List<String> _status = [
-      "Capture Font Number Plate",
-      "Capture Rear Number Plate",
-      "Capture Front View",
-      "Capture Rear View",
-      "Capture Right Side View",
-      "Capture Left Side View",
-      "Capture Top View",
-      "Gate Pass"
-
-    ];
-
-    return Container(
-
-      //
-      // padding: EdgeInsets.only(left: 20,top: 0,
-      //   right:20,bottom: 20,
-      // ),
-      margin: EdgeInsets.only(top: Constants.avatarRadius),
-      decoration: BoxDecoration(
-          shape: BoxShape.rectangle,
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(Constants.padding),
-          boxShadow: [
-            BoxShadow(color: Colors.transparent,offset: Offset(0,10),
-                blurRadius: 10
-            ),
-          ]
-      ),
-
-      child: Text("hi"),
-
-
-
-
-
-    );
-
-  }
 }
 class Constants{
   Constants._();

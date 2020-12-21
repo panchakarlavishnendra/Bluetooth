@@ -7,7 +7,6 @@ import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bluetooth/widgets/take_pictures_page.dart';
 import 'package:group_radio_button/group_radio_button.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
