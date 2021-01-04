@@ -1,14 +1,19 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth/models/place_location.dart';
+import 'package:flutter_bluetooth/screens/camera.dart';
+import 'package:flutter_bluetooth/screens/chat.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'package:flutter_bluetooth/screens/connected_devices.dart';
 import 'package:geocoder/geocoder.dart';
 import 'package:geocoder/model.dart';
 import 'package:location/location.dart';
+import '';
 
 
 class MainPage extends StatefulWidget {
+  static const routeName = '/MainPage';
+
   @override
   _MainPage createState() => new _MainPage();
 }
@@ -25,9 +30,12 @@ class _MainPage extends State<MainPage> {
 
   bool _autoAcceptPairingRequests = false;
 
+
+
   @override
   void initState() {
     super.initState();
+
     setCurrentLocation();
     // Get current state
     FlutterBluetoothSerial.instance.state.then((state) {
@@ -88,7 +96,7 @@ class _MainPage extends State<MainPage> {
                       decoration:BoxDecoration(
 
                       ),
-                      child: Text(_address.toString()),
+                      child: _address != null ?Text(_address.toString()) : Text("Unable To Fetch The Location"),
                     ),
                   ]
               ),
@@ -102,18 +110,57 @@ class _MainPage extends State<MainPage> {
                   await Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) {
-                        return SelectBondedDevicePage(
-                            checkAvailability: false);
+                        return SelectBondedDevicePage(checkAvailability: false);
                       },
                     ),
+                  );
+
+                  if (selectedDevice != null) {
+                    print('Connect -> selected ' + selectedDevice.address);
+                    _startChat(context, selectedDevice);
+                  } else {
+                    print('Connect -> no device selected');
+                   String address = selectedDevice.name;
+                  }
+                },
+              ),
+            ),
+            ListTile(
+              title: RaisedButton(
+                child: const Text('Verify'),
+                onPressed: () {
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Camera()),
                   );
                 },
               ),
             ),
+            // new ListView.builder
+            //   (
+            //     itemCount: litems.length,
+            //     itemBuilder: (BuildContext ctxt, int index) {
+            //       return new Text(litems[index]);
+            //     }
+            // )
+
 
 
           ],
         ),
       );
     }
+  void _startChat(BuildContext context, BluetoothDevice server) {
+    ChatPage msgdata = new ChatPage();
+    msgdata.onDataReceived();
+   print(msgdata);
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) {
+          return ChatPage(server: server);
+        },
+      ),
+    );
+  }
 }

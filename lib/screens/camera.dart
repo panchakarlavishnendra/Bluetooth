@@ -22,7 +22,7 @@ CaptureTopView,
 GatePass }
 
 class Camera extends StatefulWidget {
-
+  static const routeName = '/Camera';
   Camera({Key key}) : super(key: key);
   @override
   _Camera createState() => new _Camera();

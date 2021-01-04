@@ -6,8 +6,8 @@ import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
 class ChatPage extends StatefulWidget {
   final BluetoothDevice server;
-
-  const ChatPage({this.server});
+  final Function onDataReceived;
+  const ChatPage({this.server, this.onDataReceived});
 
   @override
   _ChatPage createState() => new _ChatPage();
@@ -48,7 +48,7 @@ class _ChatPage extends State<ChatPage> {
         isDisconnecting = false;
       });
 
-      connection.input.listen(_onDataReceived).onDone(() {
+      connection.input.listen(onDataReceived).onDone(() {
         // Example: Detect which side closed the connection
         // There should be `isDisconnecting` flag to show are we are (locally)
         // in middle of disconnecting process, should be set before calling
@@ -160,7 +160,7 @@ class _ChatPage extends State<ChatPage> {
     );
   }
 
-  void _onDataReceived(Uint8List data) {
+  void onDataReceived(Uint8List data) {
     // Allocate buffer for parsed data
     int backspacesCounter = 0;
     data.forEach((byte) {
