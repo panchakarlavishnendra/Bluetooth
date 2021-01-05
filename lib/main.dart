@@ -1,5 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bluetooth/screens/ContactSummary.dart';
 import 'package:flutter_bluetooth/screens/SelectWarehouseContactScreen.dart';
 import 'package:flutter_bluetooth/screens/camera.dart';
 import 'package:flutter_bluetooth/screens/mainpage.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SelectWarehouseContacts(),
+      home: ContactSummary(),
       // routes: {
       //   '/LaunchScreen': (BuildContext context) => new MainPage(),
       // },
