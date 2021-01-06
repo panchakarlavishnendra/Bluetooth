@@ -4,7 +4,8 @@ import 'package:flutter_bluetooth/screens/ContactSummary.dart';
 import 'package:flutter_bluetooth/screens/SelectWarehouseContactScreen.dart';
 import 'package:flutter_bluetooth/screens/camera.dart';
 import 'package:flutter_bluetooth/screens/mainpage.dart';
-
+import 'package:get/get.dart';
+import './routes.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,13 +22,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget initialScreen = MainPage();
 
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Native Demo',
+      initialRoute: '/main',
+      getPages : Routes.route,
       theme: ThemeData(
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: ContactSummary(),
+      home: SelectWarehouseContacts(),
+
       // routes: {
       //   '/LaunchScreen': (BuildContext context) => new MainPage(),
       // },

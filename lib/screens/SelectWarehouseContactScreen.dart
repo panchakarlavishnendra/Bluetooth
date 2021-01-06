@@ -223,7 +223,7 @@ class _SelectWarehouseContacts extends State<SelectWarehouseContacts> {
             borderRadius: BorderRadius.circular(3.0),
           ),
           onPressed: () {
-            Get.toNamed('/contractSummary');
+            Get.toNamed('/selectWareHouse');
           },
           color: Colors.cyan[900],
           textColor: Colors.white,

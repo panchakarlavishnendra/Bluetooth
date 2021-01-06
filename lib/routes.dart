@@ -1,6 +1,7 @@
 import 'package:flutter_bluetooth/screens/SelectWarehouseContactScreen.dart';
 
 import 'screens/contract_summary_screen.dart';
+import 'screens/select_warehouse_screen.dart';
 import 'screens/mainpage.dart';
 import 'package:get/get.dart';
 
@@ -16,8 +17,16 @@ class Routes {
       page: () => MainPage(),
     ),
     GetPage(
-      name: '/selectWareHouse',
+      name: '/selectWareHouseContact',
       page: () => SelectWarehouseContacts(),
     ),
+    GetPage(
+      name: '/selectWareHouse',
+      page: () => SelectWareHouse(),
+    ),
+    GetPage(
+      name: '/contactsummary',
+      page: () => ContractSummary(),
+    )
   ];
 }
