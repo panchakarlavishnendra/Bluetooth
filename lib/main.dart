@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bluetooth/screens/SelectWarehouseContactScreen.dart';
+import 'package:flutter_bluetooth/screens/select_warehouse_contact_screen.dart';
 import 'package:get/get.dart';
 import './routes.dart';
 
