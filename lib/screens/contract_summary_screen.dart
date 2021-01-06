@@ -31,7 +31,7 @@ class _ContractSummary extends State<ContractSummary> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-
+      appBar: AppBar(title: Text('Contact Summary')),
       body: Column(
           children: <Widget>[
             Container(
@@ -245,6 +245,145 @@ class _ContractSummary extends State<ContractSummary> {
           ]
 
       ),
+      endDrawer: Theme(
+        data: Theme.of(context)
+            .copyWith(canvasColor: Colors.black87.withOpacity(0.8)),
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.55,
+          child: Drawer(
+            child: Column(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    GestureDetector(
+                      child: Icon(
+                        Icons.close,
+                        color: Colors.white,
+                        size: 75,
+                      ),
+                      onTap: _closeEndDrawer,
+                    ),
+                    const Text(
+                      'Menu',
+                      style: TextStyle(color: Colors.white, fontSize: 26),
+                    ),
+                  ],
+                ),
+                Divider(
+                  height: 8,
+                  color: Colors.white70,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    GestureDetector(
+                      child: Icon(
+                        Icons.car_rental,
+                        color: Colors.white,
+                        size: 75,
+                      ),
+                      onTap: _closeEndDrawer,
+                    ),
+                    const Text(
+                      'Menu',
+                      style: TextStyle(color: Colors.white, fontSize: 26),
+                    ),
+                  ],
+                ),
+                Divider(
+                  height: 8,
+                  color: Colors.white70,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    GestureDetector(
+                      child: Icon(
+                        Icons.close,
+                        color: Colors.white,
+                        size: 75,
+                      ),
+                      onTap: _closeEndDrawer,
+                    ),
+                    const Text(
+                      'Menu',
+                      style: TextStyle(color: Colors.white, fontSize: 26),
+                    ),
+                  ],
+                ),
+                Divider(
+                  height: 8,
+                  color: Colors.white70,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    GestureDetector(
+                      child: Icon(
+                        Icons.close,
+                        color: Colors.white,
+                        size: 75,
+                      ),
+                      onTap: _closeEndDrawer,
+                    ),
+                    const Text(
+                      'Menu',
+                      style: TextStyle(color: Colors.white, fontSize: 26),
+                    ),
+                  ],
+                ),
+
+                Divider(
+                  height: 8,
+                  color: Colors.white70,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    GestureDetector(
+                      child: Icon(
+                        Icons.close,
+                        color: Colors.white,
+                        size: 75,
+                      ),
+                      onTap: _closeEndDrawer,
+                    ),
+                    const Text(
+                      'Menu',
+                      style: TextStyle(color: Colors.white, fontSize: 26),
+                    ),
+                  ],
+                ),
+                Divider(
+                  height: 8,
+                  color: Colors.white70,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    GestureDetector(
+                      child: Icon(
+                        Icons.close,
+                        color: Colors.white,
+                        size: 75,
+                      ),
+                      onTap: _closeEndDrawer,
+                    ),
+                    const Text(
+                      'Menu',
+                      style: TextStyle(color: Colors.white, fontSize: 26),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+      // Disable opening the end drawer with a swipe gesture.
+      endDrawerEnableOpenDragGesture: false,
 
     );
 

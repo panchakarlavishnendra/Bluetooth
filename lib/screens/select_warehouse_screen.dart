@@ -25,7 +25,7 @@ class _SelectWareHouse extends State<SelectWareHouse> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      appBar: AppBar(title: Text('Drawer Demo')),
+      appBar: AppBar(title: Text('Select Warehouse and Contact')),
       body: Column(children: <Widget>[
         Container(
           height: MediaQuery.of(context).size.height * 0.75,
