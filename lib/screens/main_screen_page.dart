@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth/models/place_location.dart';
-import 'package:flutter_bluetooth/screens/camera.dart';
+import 'package:flutter_bluetooth/screens/camera_screen.dart';
 import 'package:flutter_bluetooth/screens/chat.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'package:flutter_bluetooth/screens/connected_devices.dart';
