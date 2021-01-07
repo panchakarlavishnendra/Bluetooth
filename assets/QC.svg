@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <g id="QC" transform="translate(-292 -256)">
+    <g id="Ellipse_24" data-name="Ellipse 24" transform="translate(292 256)" fill="none" stroke="#e2574c" stroke-width="3">
+      <circle cx="18" cy="18" r="18" stroke="none"/>
+      <circle cx="18" cy="18" r="16.5" fill="none"/>
+    </g>
+    <text id="QC-2" data-name="QC" transform="translate(309.273 279.273)" fill="#7f7f7f" font-size="15" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="-10.074" y="0">QC</tspan></text>
+  </g>
+</svg>

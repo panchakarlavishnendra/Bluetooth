@@ -124,122 +124,164 @@ class _SelectWarehouseContacts extends State<SelectWarehouseContacts> {
         )
       ]),
 
-      endDrawer: Theme(
+     endDrawer: Theme(
         data: Theme.of(context)
             .copyWith(canvasColor: Colors.black87.withOpacity(0.8)),
         child: Container(
-          width: MediaQuery.of(context).size.width * 0.55,
+          width: MediaQuery.of(context).size.width * 0.6,
           child: Drawer(
-            child: Column(
-              // mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    GestureDetector(
-                      child: Icon(
-                        Icons.close,
-                        color: Colors.white,
-                        size: 75,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical:10,horizontal:20),
+              child: Column(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      GestureDetector(
+                        child: Icon(
+                          Icons.close,
+                          color: Colors.white,
+                          size: 65,
+                        ),
+                        onTap: _closeEndDrawer,
                       ),
-                      onTap: _closeEndDrawer,
-                    ),
-                    const Text(
-                      'Menu',
-                      style: TextStyle(color: Colors.white, fontSize: 26),
-                    ),
-                  ],
-                ),
-                Divider(
-                  height: 8,
-                  color: Colors.white70,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    GestureDetector(
-                      child: Icon(
-                        Icons.car_rental,
-                        color: Colors.white,
-                        size: 75,
+                      const Text(
+                        'Menu',
+                        style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
-                      onTap: _closeEndDrawer,
+                    ],
+                  ),
+                  // SizedBox(
+                  //       height: 30,
+                  // ),
+                  Divider(
+                    height: 20,
+                    color: Colors.white70,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        GestureDetector(
+                          child: Icon(
+                            Icons.car_rental,
+                            color: Colors.white,
+                            size: 35,
+                          ),
+                          onTap: _closeEndDrawer,
+                        ),
+                        const Text(
+                          'All weightment',
+                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        ),
+                      ],
                     ),
-                    const Text(
-                      'Menu',
-                      style: TextStyle(color: Colors.white, fontSize: 26),
+                  ),
+                  Divider(
+                    height: 8,
+                    color: Colors.white70,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        GestureDetector(
+                          child: Icon(
+                            Icons.close,
+                            color: Colors.white,
+                            size: 45,
+                          ),
+                          onTap: _closeEndDrawer,
+                        ),
+                        const Text(
+                          'Inward weightment',
+                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    GestureDetector(
-                      child: Icon(
-                        Icons.close,
-                        color: Colors.white,
-                        size: 75,
-                      ),
-                      onTap: _closeEndDrawer,
+                  ),
+                  Divider(
+                    height: 8,
+                    color: Colors.white70,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        GestureDetector(
+                          child: Icon(
+                            Icons.close,
+                            color: Colors.white,
+                            size: 45,
+                          ),
+                          onTap: _closeEndDrawer,
+                        ),
+                        const Text(
+                          'Outward weightment',
+                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        ),
+                      ],
                     ),
-                    const Text(
-                      'Menu',
-                      style: TextStyle(color: Colors.white, fontSize: 26),
+                  ),
+
+                  Divider(
+                    height: 8,
+                    color: Colors.white70,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        GestureDetector(
+                          child: Icon(
+                            Icons.assignment,
+                            color: Colors.white,
+                            size: 30,
+                          ),
+                          onTap: _closeEndDrawer,
+                        ),
+                        const Text(
+                          'Daily Transaction Register',
+                          style: TextStyle(color: Colors.white, fontSize: 15),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    GestureDetector(
-                      child: Icon(
-                        Icons.close,
-                        color: Colors.white,
-                        size: 75,
-                      ),
-                      onTap: _closeEndDrawer,
+                  ),
+                  Divider(
+                    height: 12,
+                    color: Colors.white70,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        GestureDetector(
+                          child: Icon(
+                            Icons.close,
+                            color: Colors.white,
+                            size: 35,
+                          ),
+                          onTap: _closeEndDrawer,
+                        ),
+                        const Text(
+                          'Approve Pending',
+                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        ),
+                      ],
                     ),
-                    const Text(
-                      'Menu',
-                      style: TextStyle(color: Colors.white, fontSize: 26),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    GestureDetector(
-                      child: Icon(
-                        Icons.close,
-                        color: Colors.white,
-                        size: 75,
-                      ),
-                      onTap: _closeEndDrawer,
-                    ),
-                    const Text(
-                      'Menu',
-                      style: TextStyle(color: Colors.white, fontSize: 26),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    GestureDetector(
-                      child: Icon(
-                        Icons.close,
-                        color: Colors.white,
-                        size: 75,
-                      ),
-                      onTap: _closeEndDrawer,
-                    ),
-                    const Text(
-                      'Menu',
-                      style: TextStyle(color: Colors.white, fontSize: 26),
-                    ),
-                  ],
-                ),
-              ],
+                  ),
+              Divider(
+                    height: 12,
+                    color: Colors.white70,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
