@@ -57,6 +57,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  cupertino_stepper:
+    dependency: "direct main"
+    description:
+      name: cupertino_stepper
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.2"
   fake_async:
     dependency: transitive
     description:
@@ -343,6 +350,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.19-nullsafety.2"
+  timeline_tile:
+    dependency: "direct main"
+    description:
+      name: timeline_tile
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
+  timelines:
+    dependency: "direct main"
+    description:
+      name: timelines
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2+1"
   typed_data:
     dependency: transitive
     description:

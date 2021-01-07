@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bluetooth/screens/deleverey_orders.dart';
+import 'package:flutter_bluetooth/screens/pending_approvals.dart';
 import 'package:flutter_bluetooth/screens/select_warehouse_contact_screen.dart';
 import 'package:get/get.dart';
 import './routes.dart';
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SelectWarehouseContacts(),
+      home: PendingApprovals(),
     );
   }
 }
