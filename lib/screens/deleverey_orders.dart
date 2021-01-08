@@ -25,6 +25,7 @@ class _SelectWarehouseContacts extends State<PendingApprovals> {
 
   @override
   Widget build(BuildContext context) {
+    var style = TextStyle(fontSize: 17,fontWeight: FontWeight.bold);
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(title: Text('Delevery Options')),
@@ -33,7 +34,7 @@ class _SelectWarehouseContacts extends State<PendingApprovals> {
           Container(
 
             child: Padding(
-              padding: const EdgeInsets.only(left:28.0),
+              padding: const EdgeInsets.symmetric(horizontal:25.0,vertical: 15),
               child: TextField(
 //             onChanged: (value) {
 //               setState(() {
@@ -51,8 +52,12 @@ class _SelectWarehouseContacts extends State<PendingApprovals> {
 //             },
 //             controller: editingController,
                 decoration: InputDecoration(
-                  border: InputBorder.none,
-                  labelText: "Search",
+                  hintText:'Search',
+                  enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black,),
+                  ),
+                  // borderSide: ,
+                  // labelText: "Search",
                   // prefixIcon: Icon(Icons.search),
                 ),
               ),
@@ -85,8 +90,8 @@ class _SelectWarehouseContacts extends State<PendingApprovals> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Padding(
-                                    padding: const EdgeInsets.only(left:18.0),
-                                    child: Text('Kamesh Cotton Ltd'),
+                                    padding: const EdgeInsets.symmetric(horizontal:10.0),
+                                    child: Text('Kamesh Cotton Ltd',style: TextStyle(color: Colors.white),),
                                   ),
 
                                 ],
@@ -122,27 +127,29 @@ class _SelectWarehouseContacts extends State<PendingApprovals> {
                                   ]),
                                   TableRow( children: [
                                     Column(
-
-                                        children:[Text('Contract')]),
+                                      children:[Text('Contract',style: style)]
+                                    ),
                                     Column(children:[Text(':')]),
                                     Column(children:[Text('john doe')]),
                                   ]),
+                                  
                                   TableRow( children: [
-                                    Column(children:[Text('Commodity')]),
+                                    Column(children:[Text('Commodity',style: style)]),
                                     Column(children:[Text(':')]),
                                     Column(children:[Text("paddy")]),
                                   ]),
                                   TableRow( children: [
-                                    Column(children:[Text('Date')]),
+                                    Column(children:[Text('Date',style: style,)]),
                                     Column(children:[Text(':')]),
                                     Column(children:[Text('20-01-2020')]),
-                                  ]),TableRow( children: [
-                                    Column(children:[Text('Toatal Trucks')]),
+                                  ]),
+                                  TableRow( children: [
+                                    Column(children:[Text('Toatal Trucks',style: style,)]),
                                     Column(children:[Text(':')]),
                                     Column(children:[Text('5')]),
                                   ]),
                                   TableRow( children: [
-                                    Column(children:[Text('Total Weights')]),
+                                    Column(children:[Text('Total Weights',style: style,)]),
                                     Column(children:[Text(':')]),
                                     Column(children:[Text('5680MT')]),
                                   ]),TableRow( children: [

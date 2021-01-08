@@ -33,8 +33,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 }return null;
               },
               onSaved:widget.onSaved,
-              
-          );
+              );
 
   }
 }
