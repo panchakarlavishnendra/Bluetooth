@@ -1,5 +1,5 @@
 import 'dart:ui';
-
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -278,7 +278,9 @@ class _ContractSummary extends State<ContractSummary> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(3.0),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed('/camera');
+              },
               color: Colors.cyan[900],
               textColor: Colors.white,
               child: Padding(

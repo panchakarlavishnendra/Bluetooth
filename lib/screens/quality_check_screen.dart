@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth/widgets/text_field.dart';
+import 'package:get/get.dart';
 // import 'package:flutter/rendering.dart';
 // import 'package:flutter_svg/avd.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
@@ -144,7 +145,9 @@ class _QualityCheckState extends State<QualityCheck> {
               // color: Colors.blueAccent,
               child: RaisedButton(
                 color:  Colors.teal,
-                onPressed: (){},
+                onPressed: (){
+                  Get.toNamed('/truckstacking');
+                },
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical:15.0),
                   child: Text('Validate Quality',style: TextStyle(fontSize: 18,color: Colors.white),),

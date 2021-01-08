@@ -84,6 +84,20 @@ class _MyHomePageState extends State<TruckStackingSummary> {
 
         ),
       ),
+            //       Container(
+            //   width: MediaQuery.of(context).size.width*0.9,
+            //   // color: Colors.blueAccent,
+            //   child: RaisedButton(
+            //     color:  Colors.teal,
+            //     onPressed: (){
+            //       Get.toNamed('/pendingapprovals');
+            //     },
+            //     child: Padding(
+            //       padding: const EdgeInsets.symmetric(vertical:15.0),
+            //       child: Text('Continue',style: TextStyle(fontSize: 18,color: Colors.white),),
+            //     ),
+            //     ),
+            // ),
 
     );
   }
