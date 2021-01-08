@@ -40,11 +40,11 @@ class _ContractSummary extends State<ContractSummary> {
               child: ListView(
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical:20),
+                      padding: EdgeInsets.symmetric(vertical:5),
                         child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+                        padding: EdgeInsets.symmetric(horizontal: 20,),
                         child: Container(
-                          height: 60,
+
                           width:MediaQuery.of(context).size.width*0.85,
                           child: DropdownButton(
                             hint: Text(
@@ -69,7 +69,7 @@ class _ContractSummary extends State<ContractSummary> {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Container(
-                        height: 60,
+
                         width:MediaQuery.of(context).size.width*0.85,
                         child: DropdownButton(
                           hint: Text(
@@ -115,7 +115,10 @@ class _ContractSummary extends State<ContractSummary> {
                       ),
                     ),
                     SizedBox(height: 30),
-                    Text("Current Balance:"),
+                    Padding(
+                      padding: EdgeInsets.only(left: 8),
+                      child: Text("Current Balance:"),
+                    ),
                     Row(
                       children: <Widget>[
                         Padding(
@@ -222,49 +225,52 @@ class _ContractSummary extends State<ContractSummary> {
 
                       ],
                     ),
-                    SizedBox(),
-                    Row(
-                      children: [
-                        Text("Select Action:"),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 40),
-                          child: RaisedButton( 
-                          shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                          ),
-                          padding: const EdgeInsets.all(20), 
-                          textColor: Colors.white, 
-                          color: Colors.green, 
-                          onPressed: () { 
-                            // setState(() { 
-                            //   // istapped = 'Button tapped'; 
-                            // }); 
-                          }, 
+                    SizedBox(height: 8,),
+                    Padding(
+                      padding: const EdgeInsets.only(left:8.0),
+                      child: Row(
+                        children: [
+                          Text("Select Action:"),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 40),
+                            child: RaisedButton(
+                            shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                            ),
+                            padding: const EdgeInsets.all(10),
+                            textColor: Colors.white,
+                            color: Colors.green,
+                            onPressed: () {
+                              // setState(() {
+                              //   // istapped = 'Button tapped';
+                              // });
+                            },
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal:12.0),
                 child: Text('Inward'),
-              ), 
+              ),
             ),
-                        ),
-           
-          RaisedButton( 
-                        shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                        ),
-                        padding: const EdgeInsets.all(20), 
-                        textColor: Colors.green, 
-                        color: Colors.white, 
-                        onPressed: () { 
-                          // setState(() { 
-                          //   // istapped = 'Button tapped'; 
-                          // }); 
-                        }, 
+                          ),
+
+          RaisedButton(
+                          shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                          ),
+                          padding: const EdgeInsets.all(10),
+                          textColor: Colors.green,
+                          color: Colors.white,
+                          onPressed: () {
+                            // setState(() {
+                            //   // istapped = 'Button tapped';
+                            // });
+                          },
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal:12.0),
+                padding: const EdgeInsets.all(1),
                 child: Text('Outward'),
-              ), 
+              ),
             ),
-                      ],
+                        ],
+                      ),
                     ),
                   ]
 
