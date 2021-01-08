@@ -86,20 +86,23 @@ class _MyHomePageState extends State<TruckStackingSummary> {
             ),
 
           ),
-                  Container(
+                  Padding(
+                    padding: const EdgeInsets.only(top:28.0),
+                    child: Container(
               width: MediaQuery.of(context).size.width*0.9,
               // color: Colors.blueAccent,
               child: RaisedButton(
                 color:  Colors.teal,
                 onPressed: (){
-                  Get.toNamed('/pendingapprovals');
+                    Get.toNamed('/pendingapprovals');
                 },
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical:15.0),
-                  child: Text('Continue',style: TextStyle(fontSize: 18,color: Colors.white),),
+                    padding: const EdgeInsets.symmetric(vertical:15.0),
+                    child: Text('Continue',style: TextStyle(fontSize: 18,color: Colors.white),),
                 ),
                 ),
             ),
+                  ),
       ],
         ),
       ),
