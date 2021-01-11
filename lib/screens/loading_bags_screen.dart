@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
+import 'package:flutter_bluetooth/widgets/text_field.dart';
 
 import '../const.dart';
 
@@ -11,6 +12,7 @@ class LoadBags extends StatefulWidget {
 class _LoadBagsState extends State<LoadBags> {
   List<String> _locations = ['A', 'B', 'C', 'D'];
   String _selectedLocation;
+  final noOfBagsController = TextEditingController();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   void _openEndDrawer() {
@@ -195,7 +197,11 @@ class _LoadBagsState extends State<LoadBags> {
                           padding: EdgeInsets.symmetric(
                               vertical: 4.0, horizontal: 15.0),
                           // width: MediaQuery.of(context).size.width*0.80,
-                          child: TextField()),
+                          child: CustomTextField(
+                            label: "No of Bag's",
+                            controller: noOfBagsController,
+                            keyboardType: TextInputType.number,
+                          )),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 20),
                         child: Container(
@@ -224,6 +230,10 @@ class _LoadBagsState extends State<LoadBags> {
                   )
                   // child: ,
                   ),
+            ),
+            RaisedButton(
+              child: Text('Continue'),
+              onPressed: () {},
             )
           ],
         ),

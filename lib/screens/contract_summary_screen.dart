@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
+import 'package:flutter_bluetooth/widgets/text_field.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,6 +18,7 @@ class _ContractSummary extends State<ContractSummary> {
 
   List<String> _locations = ['A', 'B', 'C', 'D'];
   String _selectedLocation;
+  final _noOfMadeupBagsController = TextEditingController();
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -152,21 +154,21 @@ class _ContractSummary extends State<ContractSummary> {
                             children: <Widget>[
                               Container(
                                   height: 70,
-                                  width: 150,
-                                  child: new Theme(
-                                    data: new ThemeData(
-                                      primaryColor: Colors.black,
-                                      primaryColorDark: Colors.black,
-                                    ),
-                                    child: new TextField(
-                                      decoration: InputDecoration(
-                                          labelText: 'No of Made Up Bags'),
-                                      keyboardType: TextInputType.number,
-                                      inputFormatters: <TextInputFormatter>[
-                                        FilteringTextInputFormatter.digitsOnly
-                                      ],
-                                    ),
-                                  )),
+                          width: 150,
+                          child: Theme(
+                            data: ThemeData(
+                              primaryColor: Colors.black,
+                              primaryColorDark: Colors.black,
+                            ),
+                            child: CustomTextField(
+                              label: 'No of Made Up Bags',
+                              keyboardType: TextInputType.number,
+                              controller: _noOfMadeupBagsController,
+                              // inputFormatters: <TextInputFormatter>[
+                              //   FilteringTextInputFormatter.digitsOnly
+                              // ],
+                            ),
+                          )),
                             ],
                           ),
                         ),
