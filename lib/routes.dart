@@ -1,4 +1,5 @@
 
+import 'package:flutter_bluetooth/screens/loading_bags_screen.dart';
 import 'package:flutter_bluetooth/screens/main_screen_page.dart';
 import 'package:flutter_bluetooth/screens/select_warehouse_contact_screen.dart';
 import 'screens/camera_screen.dart';
@@ -48,6 +49,10 @@ class Routes {
     GetPage(
       name: '/pendingapprovals',
       page: () => PendingApprovals(),
+    ),
+    GetPage(
+      name: '/loadbags',
+      page: () => LoadBags(),
     )
   ];
 }

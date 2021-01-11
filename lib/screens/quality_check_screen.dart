@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:flutter_bluetooth/widgets/text_field.dart';
 import 'package:get/get.dart';
 // import 'package:flutter/rendering.dart';
@@ -13,17 +14,28 @@ class QualityCheck extends StatefulWidget {
 }
 
 class _QualityCheckState extends State<QualityCheck> {
-  final _moistureController = TextEditingController(text: '15'); 
-  final _damageController = TextEditingController(); 
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void _openEndDrawer() {
+    _scaffoldKey.currentState.openEndDrawer();
+  }
+
+  void _closeEndDrawer() {
+    Navigator.of(context).pop();
+  }
+
+  final _moistureController = TextEditingController(text: '15');
+  final _damageController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    var style = TextStyle(fontWeight: FontWeight.bold,fontSize: 20);
+    var style = TextStyle(fontWeight: FontWeight.bold, fontSize: 20);
     return Scaffold(
       appBar: AppBar(
         title: Text('Quality Check'),
       ),
       body:  SingleChildScrollView(
-              child: Column(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Row(
@@ -53,8 +65,8 @@ class _QualityCheckState extends State<QualityCheck> {
                 ),
                 Text('Value',style: style,)
               ],
-              ),
-  Padding(
+            ),
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Container(height: 2,color: Colors.black,),
             ),
@@ -72,31 +84,31 @@ class _QualityCheckState extends State<QualityCheck> {
                     color: Colors.green,
                     child: TextField(
                       controller: _moistureController,
-                      
+
                       keyboardType: TextInputType.number,
-                        style: TextStyle(fontSize: 22.0, color: Colors.white),
-                        decoration: new InputDecoration(
-                          fillColor: Colors.white,
-                          enabledBorder: OutlineInputBorder(
-                           // borderRadius:
+                      style: TextStyle(fontSize: 22.0, color: Colors.white),
+                      decoration: new InputDecoration(
+                        fillColor: Colors.white,
+                        enabledBorder: OutlineInputBorder(
+                          // borderRadius:
                             borderSide:BorderSide(
-                              color: Colors.green
+                                color: Colors.green
                             )
-                          ),
-                              focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),),
-                          ),
-                      ) ,
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white),),
+                      ),
+                    ) ,
                   ),
                   RaisedButton(
-                      child:Text('Manual Entry'),
-                      onPressed:(){},
+                    child:Text('Manual Entry'),
+                    onPressed:(){},
 
                   )
                 ],
               ),
             ),
-              Padding(
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Container(height: 0.5,color: Colors.black,),
             ),
@@ -111,28 +123,28 @@ class _QualityCheckState extends State<QualityCheck> {
                   width: 30,
                   child: TextFormField(
                     controller: _damageController,
-                     keyboardType: TextInputType.number,
-                        style: TextStyle(fontSize: 22.0, color: Colors.white),
-                        decoration: new InputDecoration(
-                          fillColor: Colors.white,
-                          enabledBorder: OutlineInputBorder(
-                           // borderRadius:
-                            // borderSide:BorderSide(
-                            //   color: Colors.green
-                            // )
-                          ),
-                              focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),),
-                          ),
+                    keyboardType: TextInputType.number,
+                    style: TextStyle(fontSize: 22.0, color: Colors.white),
+                    decoration: new InputDecoration(
+                      fillColor: Colors.white,
+                      enabledBorder: OutlineInputBorder(
+                        // borderRadius:
+                        // borderSide:BorderSide(
+                        //   color: Colors.green
+                        // )
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),),
+                    ),
                   ),
                 )
               ],
             ),
-                        Padding(
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Container(height: 0.5,color: Colors.black,),
             ),
-            Row(children: 
+            Row(children:
             [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal:20.0,vertical: 10),
@@ -146,28 +158,29 @@ class _QualityCheckState extends State<QualityCheck> {
               child: RaisedButton(
                 color:  Colors.teal,
                 onPressed: (){
-                  Get.toNamed('/truckstacking');
+                  Get.toNamed('/loadbags');
                 },
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical:15.0),
                   child: Text('Validate Quality',style: TextStyle(fontSize: 18,color: Colors.white),),
                 ),
-                ),
+              ),
             ),
             SizedBox(height: 15,),
             Container(
               width: MediaQuery.of(context).size.width*0.9,
               child: RaisedButton(
-                onPressed: (){},
+                onPressed: () {},
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical:15.0),
+                  padding: const EdgeInsets.symmetric(vertical: 15.0),
                   child: Text('Reset'),
                 ),
-                ),
+              ),
             ),
           ],
         ),
       ),
+      endDrawer: EndDrawer(_openEndDrawer, _closeEndDrawer),
     );
   }
 }

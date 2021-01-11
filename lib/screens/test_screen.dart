@@ -6,8 +6,7 @@
 // close it.
 
 import 'package:flutter/material.dart';
-
-
+import 'package:flutter_bluetooth/widgets/side_nav.dart';
 
 /// This is the stateful widget that the main application instantiates.
 class TestScreen extends StatefulWidget {
@@ -40,20 +39,7 @@ class _TestScreenState extends State<TestScreen> {
           child: Text('Open End Drawer'),
         ),
       ),
-      endDrawer: Drawer(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text('This is the Drawer'),
-              ElevatedButton(
-                onPressed: _closeEndDrawer,
-                child: const Text('Close Drawer'),
-              ),
-            ],
-          ),
-        ),
-      ),
+      endDrawer: EndDrawer(_openEndDrawer, _closeEndDrawer),
       // Disable opening the end drawer with a swipe gesture.
       endDrawerEnableOpenDragGesture: false,
     );
