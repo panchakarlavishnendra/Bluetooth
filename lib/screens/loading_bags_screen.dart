@@ -22,20 +22,30 @@ class _LoadBagsState extends State<LoadBags> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Text(
-                      'Vehicle',
-                      style: style,
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'VEHICLE NO',
+                          style: style,
+                        ),
+                        Text(
+                          'Ap-06-PQ-2255',
+                          style: style,
+                        )
+                      ],
                     ),
-                    Text(
-                      'Quantity',
-                      style: style,
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'QUANTITY',
+                          style: style,
+                        ),
+                      ],
                     )
                   ],
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [Text(''), Text('')],
-                )
               ],
             ),
           )
