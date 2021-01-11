@@ -19,6 +19,8 @@ class _ContractSummary extends State<ContractSummary> {
   List<String> _locations = ['A', 'B', 'C', 'D'];
   String _selectedLocation;
   final _noOfMadeupBagsController = TextEditingController();
+  final _noOfMotherBagsControler = TextEditingController();
+  final _totalCommodityController = TextEditingController();
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -30,24 +32,28 @@ class _ContractSummary extends State<ContractSummary> {
     Navigator.of(context).pop();
   }
 
+  void dispose() {
+    _totalCommodityController.dispose();
+    _noOfMotherBagsControler.dispose();
+    _noOfMadeupBagsController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(title: Text('Contact Summary')),
-      body: Column(
-          children: <Widget>[
-            Container(
-              height: MediaQuery.of(context).size.height*0.75,
-              width:MediaQuery.of(context).size.width*1,
-              child: ListView(
+      body: Column(children: <Widget>[
+        Container(
+          height: MediaQuery.of(context).size.height * 0.75,
+          width: MediaQuery.of(context).size.width * 1,
+          child: ListView(
                   children: <Widget>[
                     Padding(
                       padding: EdgeInsets.symmetric(vertical:5),
                         child: Padding(
                         padding: EdgeInsets.symmetric(horizontal: 20,),
                         child: Container(
-
                           width:MediaQuery.of(context).size.width*0.85,
                           child: DropdownButton(
                             hint: Text(
@@ -133,18 +139,18 @@ class _ContractSummary extends State<ContractSummary> {
                                   width: 200,
                                   child: new Theme(
                                     data: new ThemeData(
-                                      primaryColor: Colors.black,
-                                      primaryColorDark: Colors.black,
-                                    ),
-                                    child: new TextField(
-                                      decoration: InputDecoration(
-                                          labelText: 'No of Mother Bags'),
-                                      keyboardType: TextInputType.number,
-                                      inputFormatters: <TextInputFormatter>[
-                                        FilteringTextInputFormatter.digitsOnly
-                                      ],
-                                    ),
-                                  )),
+                              primaryColor: Colors.black,
+                              primaryColorDark: Colors.black,
+                            ),
+                            child: CustomTextField(
+                              label: 'No of Mother Bags',
+                              keyboardType: TextInputType.number,
+                              controller: _noOfMotherBagsControler,
+                              // inputFormatters: <TextInputFormatter>[
+                              //   FilteringTextInputFormatter.digitsOnly
+                              // ],
+                            ),
+                          )),
                             ],
                           ),
                         ),
@@ -186,18 +192,17 @@ class _ContractSummary extends State<ContractSummary> {
                                   width: 200,
                                   child: new Theme(
                                     data: new ThemeData(
-                                      primaryColor: Colors.black,
-                                      primaryColorDark: Colors.black,
-                                    ),
-                                    child: new TextField(
-                                      decoration: InputDecoration(
-                                          labelText: 'Total Commodity Weight'),
-                                      keyboardType: TextInputType.number,
-                                      inputFormatters: <TextInputFormatter>[
-                                        FilteringTextInputFormatter.digitsOnly
-                                      ],
-                                    ),
-                                  )),
+                              primaryColor: Colors.black,
+                              primaryColorDark: Colors.black,
+                            ),
+                            child: CustomTextField(
+                              label: 'Total Commodity Weight',
+                              keyboardType: TextInputType.number,
+                              controller: _totalCommodityController,
+                              // inputFormatters: <TextInputFormatter>[
+                              //   FilteringTextInputFormatter.digitsOnly
+                            ),
+                          )),
                             ],
                           ),
                         ),
@@ -283,7 +288,6 @@ class _ContractSummary extends State<ContractSummary> {
 
             ),
             RaisedButton(
-
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(3.0),
               ),
