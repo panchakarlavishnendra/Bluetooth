@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth/screens/loading_bags_screen.dart';
-import 'package:flutter_bluetooth/screens/select_warehouse_contact_screen.dart';
 import 'package:get/get.dart';
 import './routes.dart';
-import 'screens/success_screen.dart';
 
 Future<void> main() async {
   runApp(MyApp());
