@@ -17,7 +17,7 @@ class _EndDrawerState extends State<EndDrawer> {
       data: Theme.of(context)
           .copyWith(canvasColor: Colors.black87.withOpacity(0.8)),
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.6,
+        width: MediaQuery.of(context).size.width * 0.70,
         child: Drawer(
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
@@ -63,7 +63,7 @@ class _EndDrawerState extends State<EndDrawer> {
                       ),
                       const Text(
                         'All weightment',
-                        style: TextStyle(color: Colors.white, fontSize: 16),
+                        style: TextStyle(color: Colors.white, fontSize: 14),
                       ),
                     ],
                   ),
@@ -81,13 +81,13 @@ class _EndDrawerState extends State<EndDrawer> {
                         child: Icon(
                           Icons.close,
                           color: Colors.white,
-                          size: 45,
+                          size: 40,
                         ),
                         onTap: widget._closeEndDrawer,
                       ),
                       const Text(
                         'Inward weightment',
-                        style: TextStyle(color: Colors.white, fontSize: 16),
+                        style: TextStyle(color: Colors.white, fontSize: 14),
                       ),
                     ],
                   ),
@@ -105,13 +105,13 @@ class _EndDrawerState extends State<EndDrawer> {
                         child: Icon(
                           Icons.close,
                           color: Colors.white,
-                          size: 45,
+                          size: 40,
                         ),
                         onTap: widget._closeEndDrawer,
                       ),
                       const Text(
                         'Outward weightment',
-                        style: TextStyle(color: Colors.white, fontSize: 16),
+                        style: TextStyle(color: Colors.white, fontSize: 14),
                       ),
                     ],
                   ),
@@ -136,7 +136,7 @@ class _EndDrawerState extends State<EndDrawer> {
                       ),
                       const Text(
                         'Daily Transaction Register',
-                        style: TextStyle(color: Colors.white, fontSize: 15),
+                        style: TextStyle(color: Colors.white, fontSize: 14),
                       ),
                     ],
                   ),
@@ -160,7 +160,7 @@ class _EndDrawerState extends State<EndDrawer> {
                       ),
                       const Text(
                         'Approve Pending',
-                        style: TextStyle(color: Colors.white, fontSize: 16),
+                        style: TextStyle(color: Colors.white, fontSize: 14),
                       ),
                     ],
                   ),

@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
-import 'package:flutter_bluetooth/widgets/text_field.dart';
 import 'package:get/get.dart';
-// import 'package:flutter/rendering.dart';
-// import 'package:flutter_svg/avd.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
 
 const List<String> assetNames = <String>['assets/bluetooth.svg'];
 
@@ -24,151 +20,217 @@ class _QualityCheckState extends State<QualityCheck> {
     Navigator.of(context).pop();
   }
 
-  final _moistureController = TextEditingController(text: '15');
+  final _moistureController = TextEditingController();
+
   final _damageController = TextEditingController();
+
+  void dispose() {
+    _moistureController.dispose();
+    _damageController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     var style = TextStyle(fontWeight: FontWeight.bold, fontSize: 20);
+    _moistureController.text = '15';
     return Scaffold(
       appBar: AppBar(
         title: Text('Quality Check'),
       ),
-      body:  SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal:20.0,vertical: 15.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0, vertical: 15.0),
                   child: Icon(
                     Icons.home,
                     size: 50,
                   ),
                 ),
-                Text('Address',style: TextStyle(fontSize: 15),)
+                Text(
+                  'Address',
+                  style: TextStyle(fontSize: 15),
+                )
               ],
             ),
             Text('Assayer'),
             Text('Loremepsum'),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Divider(height: 20,color: Colors.black,),
+              child: Divider(
+                height: 20,
+                color: Colors.black,
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal:35.0,vertical: 18),
-                  child: Text('QC Parameter',style: style),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 35.0, vertical: 18),
+                  child: Text('QC Parameter', style: style),
                 ),
-                Text('Value',style: style,)
+                Text(
+                  'Value',
+                  style: style,
+                )
               ],
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Container(height: 2,color: Colors.black,),
+              child: Container(
+                height: 2,
+                color: Colors.black,
+              ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical:15.0),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text('Moisture',style: TextStyle(fontSize: 22),),
-                  GestureDetector(child: Icon(Icons.bluetooth,size:30,),onTap: (){},),
-                  GestureDetector(child: Icon(Icons.mail,size:30,),onTap: (){},),
+                  Text(
+                    'Moisture',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  GestureDetector(
+                    child: Icon(
+                      Icons.bluetooth,
+                      size: 25,
+                    ),
+                    onTap: () {},
+                  ),
+                  GestureDetector(
+                    child: Icon(
+                      Icons.mail,
+                      size: 25,
+                    ),
+                    onTap: () {},
+                  ),
                   Container(
-                    width:30,
-                    height: 30,
-                    color: Colors.green,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(12.0))),
+                    width: MediaQuery.of(context).size.width * 0.12,
+                    height: MediaQuery.of(context).size.width * 0.10,
                     child: TextField(
                       controller: _moistureController,
-
                       keyboardType: TextInputType.number,
-                      style: TextStyle(fontSize: 22.0, color: Colors.white),
+                      style: TextStyle(fontSize: 14.0, color: Colors.white),
                       decoration: new InputDecoration(
-                        fillColor: Colors.white,
+                        filled: true,
+                        fillColor: Colors.green,
                         enabledBorder: OutlineInputBorder(
-                          // borderRadius:
-                            borderSide:BorderSide(
-                                color: Colors.green
-                            )
-                        ),
+                            borderSide: BorderSide(color: Colors.green)),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white),),
+                          borderSide: BorderSide(color: Colors.white),
+                        ),
                       ),
-                    ) ,
+                    ),
                   ),
-                  RaisedButton(
-                    child:Text('Manual Entry'),
-                    onPressed:(){},
-
+                  Text(
+                    '%',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.30,
+                    child: RaisedButton(
+                      child: Text(
+                        'Manual Entry',
+                        style: TextStyle(fontSize: 12.5),
+                      ),
+                      onPressed: () {},
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Container(
+                height: 0.5,
+                color: Colors.black,
+              ),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 15.0, horizontal: 25),
+              child: Row(
+                children: [
+                  Text(
+                    'Damaged',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.15,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(12.0))),
+                    width: MediaQuery.of(context).size.width * 0.12,
+                    height: MediaQuery.of(context).size.width * 0.10,
+                    child: TextField(
+                      controller: _damageController,
+                      keyboardType: TextInputType.number,
+                      style: TextStyle(fontSize: 14.0),
+                      decoration: new InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.black, width: 1.5)),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.black, width: 1.5),
+                        ),
+                      ),
+                    ),
                   )
                 ],
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Container(height: 0.5,color: Colors.black,),
+              child: Container(
+                height: 0.5,
+                color: Colors.black,
+              ),
             ),
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal:20.0,vertical: 20),
-                  child: Text('Damaged',style: TextStyle(fontSize: 22),),
-                ),
-                Container(
-                  height: 30,
-                  width: 30,
-                  child: TextFormField(
-                    controller: _damageController,
-                    keyboardType: TextInputType.number,
-                    style: TextStyle(fontSize: 22.0, color: Colors.white),
-                    decoration: new InputDecoration(
-                      fillColor: Colors.white,
-                      enabledBorder: OutlineInputBorder(
-                        // borderRadius:
-                        // borderSide:BorderSide(
-                        //   color: Colors.green
-                        // )
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),),
-                    ),
-                  ),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0, vertical: 10),
+                  child: Text('last updated on '),
                 )
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Container(height: 0.5,color: Colors.black,),
+            SizedBox(
+              height: 120,
             ),
-            Row(children:
-            [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal:20.0,vertical: 10),
-                child: Text('last updated on '),
-              )
-            ],),
-            SizedBox(height: 120,),
             Container(
-              width: MediaQuery.of(context).size.width*0.9,
+              width: MediaQuery.of(context).size.width * 0.9,
               // color: Colors.blueAccent,
               child: RaisedButton(
-                color:  Colors.teal,
-                onPressed: (){
+                color: Colors.teal,
+                onPressed: () {
                   Get.toNamed('/loadbags');
                 },
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical:15.0),
-                  child: Text('Validate Quality',style: TextStyle(fontSize: 18,color: Colors.white),),
+                  padding: const EdgeInsets.symmetric(vertical: 15.0),
+                  child: Text(
+                    'Validate Quality',
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  ),
                 ),
               ),
             ),
-            SizedBox(height: 15,),
+            SizedBox(
+              height: 15,
+            ),
             Container(
-              width: MediaQuery.of(context).size.width*0.9,
+              width: MediaQuery.of(context).size.width * 0.9,
               child: RaisedButton(
                 onPressed: () {},
                 child: Padding(

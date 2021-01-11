@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bluetooth/screens/loading_bags_screen.dart';
+
+import 'package:flutter_bluetooth/screens/quality_check_screen.dart';
 import 'package:flutter_bluetooth/screens/select_warehouse_contact_screen.dart';
+
 import 'package:get/get.dart';
 import './routes.dart';
 
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: SelectWarehouseContacts(),
-      // home: LoadBags()
+      // home: QualityCheck()
     );
   }
 }
