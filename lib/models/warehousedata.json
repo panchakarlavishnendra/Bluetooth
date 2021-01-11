@@ -1,0 +1,64 @@
+[
+    {
+      "id": 17,
+      "inventory_id": 2,
+      "log_id": 6,
+      "qty": 1,
+      "created_at": "2018-04-26 16:32:52",
+      "updated_at": "2018-05-23 10:23:27",
+      "inventory": {
+        "id": 2,
+        "name": "Prof. Russel Friesen IV",
+        "quantity_ready": 2,
+        "quantity_broken": 18,
+        "meta": "Sed et aperiam voluptatem. Laudantium voluptates dolorum dolorem nisi omnis voluptatum hic sed. Laborum corrupti consectetur et quis est et quas.",
+        "created_at": "2018-04-26 16:32:52",
+        "updated_at": "2018-05-23 10:23:27",
+        "price": [
+          {
+            "id": 2,
+            "inventory_id": 2,
+            "price_per_3hour": 14194,
+            "price_per_day": 145572,
+            "created_at": "2018-04-26 16:32:52",
+            "updated_at": "2018-04-26 16:32:52"
+          }
+        ],
+        "warehouse": [
+          {
+            "id": 1,
+            "warehouse_name": "Origio Warehouse 1",
+            "contact": "Kamesh Cotton Pvt.Ltd",
+            "warehouse_stack": "1-1-24",
+            "address": "Orgio Ware Houses,Plot #37,1st Floor Sector18",
+            "created_at": "2018-04-26 16:32:52",
+            "updated_at": "2018-04-26 16:32:52"
+          }
+        ],
+        "contact": [
+          {
+            "id": 1,
+            "warehouse_name": "Origio Warehouse 1",
+            "contact_name": "Kamesh Cotton Pvt.Ltd",
+            "contact_name_id": "15656",
+            "address": "Orgio Ware Houses,Plot #37,1st Floor Sector18",
+            "created_at": "2018-04-26 16:32:52",
+            "updated_at": "2018-04-26 16:32:52",
+            "commodity": "paddy",
+            "motherbags": 256,
+            "madeupbags": 26,
+            "commodityweight": 256
+          }
+        ],
+        "truckweighment": [
+          {
+           "gate_pass_number": "0256987",
+            "vehical_no": "AP-06-PQ-3212",
+            "weigh_bridge_name": "north gate",
+            "truck_gross_weight": "6,220.00"
+
+          }
+        ]
+      }
+    }
+  ]
