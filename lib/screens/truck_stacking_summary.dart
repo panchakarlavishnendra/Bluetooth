@@ -31,11 +31,11 @@ class _MyHomePageState extends State<TruckStackingSummary> {
           children: <Widget>[
            Container(
             child:
+
             DataTable(
               columnSpacing: 14,
               dataRowHeight: 42,
               headingRowHeight: 35,
-
 
               columns: [
                 DataColumn(label: Text('Warehouse Stack', style: TextStyle(
