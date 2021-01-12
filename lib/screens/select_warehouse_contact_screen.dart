@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bluetooth/widgets/drop_down.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 // import 'package:group_radio_button/group_radio_button.dart';
 import 'package:get/get.dart';
@@ -11,7 +12,11 @@ class SelectWarehouseContacts extends StatefulWidget {
 
 class _SelectWarehouseContacts extends State<SelectWarehouseContacts> {
   List<String> _locations = ['A', 'B', 'C', 'D'];
+  List<String> _locations2 = ['loc', 'Boc', 'C', 'D'];
+  List<String> _locations3 = ['locA', 'BocK', 'C', 'D'];
   String _selectedLocation;
+  String _selectedLocation2;
+  String _selectedLocation3;
 
   var _value;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -42,72 +47,24 @@ class _SelectWarehouseContacts extends State<SelectWarehouseContacts> {
                   child: Container(
                     height: 60,
                     width: MediaQuery.of(context).size.width * 0.85,
-                    child: DropdownButton(
-                      hint: Text('Select Warehouse'),
-                      // Not necessary for Option 1
-                      value: _selectedLocation,
-                      isExpanded: true,
-                      onChanged: (newValue) {
-                        setState(() {
-                          _selectedLocation = newValue;
-                        });
-                      },
-                      items: _locations.map((location) {
-                        return DropdownMenuItem(
-                          child: new Text(location),
-                          value: location,
-                        );
-                      }).toList(),
-                    ),
-                  ),
+                      child: CustomDropDown(
+                          _selectedLocation, _locations, 'Select Warehouse')),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Container(
                     height: 60,
                     width: MediaQuery.of(context).size.width * 0.85,
-                    child: DropdownButton(
-                      hint: Text('Select Contract'),
-                      // Not necessary for Option 1
-                      value: _selectedLocation,
-                      isExpanded: true,
-                      onChanged: (newValue) {
-                        setState(() {
-                          _selectedLocation = newValue;
-                        });
-                      },
-                      items: _locations.map((location) {
-                        return DropdownMenuItem(
-                          child: new Text(location),
-                          value: location,
-                        );
-                      }).toList(),
-                    ),
-                  ),
+                      child: CustomDropDown(
+                          _selectedLocation2, _locations2, 'Select Contract')),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Container(
                     height: 60,
                     width: MediaQuery.of(context).size.width * 0.85,
-                    child: DropdownButton(
-                      hint: Text('Select Weigh Bridge'),
-                      // Not necessary for Option 1
-                      value: _selectedLocation,
-                      isExpanded: true,
-                      onChanged: (newValue) {
-                        setState(() {
-                          _selectedLocation = newValue;
-                        });
-                      },
-                      items: _locations.map((location) {
-                        return DropdownMenuItem(
-                          child: new Text(location),
-                          value: location,
-                        );
-                      }).toList(),
-                    ),
-                  ),
+                      child: CustomDropDown(_selectedLocation3, _locations3,
+                          'Select Weigh Bridge')),
                 ),
                 SizedBox(height: 30),
               ]),
