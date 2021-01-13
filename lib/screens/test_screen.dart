@@ -37,122 +37,261 @@ class _TestScreenState extends State<TestScreen> {
       body: ListView(
         children: <Widget>[
           Container(
-            height: 220,
+            height: 150,
             color: Colors.white,
             child: TimelineTile(
-              alignment: TimelineAlign.manual,
+              alignment: TimelineAlign.center,
               isFirst: true,
-              lineXY: 0.25,
+              lineXY: 0.7,
               hasIndicator: true,
               indicatorStyle: IndicatorStyle(
                 width: 25,
                 color: Colors.green,
                 // indicatorXY: 0.5,
-                drawGap: true,
-                padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
+
+                padding: const EdgeInsets.only(top: 0, left: 0, right: 0),
                 iconStyle: IconStyle(
                   color: Colors.white,
                   iconData: Icons.radio_button_checked_rounded,
                 ),
               ),
-              startChild: Column(
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('26/8/2021'),
-                  Text("26/8/2021"),
-                ],
-              ),
               endChild: Container(
-                  height: 120,
+                  height: 400,
+                  color: Colors.red,
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 16.0),
+                    // padding: const EdgeInsets.only(top: 116.0),
+                    padding: const EdgeInsets.only(top: 6.0),
+
                     child: Column(
                       children: <Widget>[
-                        Text("Manual Weighment (Gross)"),
-                        Text("Weight Entered :515.00 MIN"),
-                        _CustomButton()
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("Manual Weighment (Gross)"),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("Weight Entered :515.00 MIN"),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: _CustomButton(),
+                        )
+                        //       Container(
+                        //           height: 25,
+                        //           width: 160,
+                        //           child:
+                        //           RaisedButton(
+                        //   child: Text('enter otp to validate'),
+                        //   onPressed: () {},
+                        // )),
                       ],
                     ),
                   )),
+              startChild: Container(
+                color: Colors.blue,
+                child: Padding(
+                  // padding: const EdgeInsets.only(left: 108.0, top: 131),
+                  padding: const EdgeInsets.only(left: 8.0, top: 1),
+
+                  child: Column(
+                    children: <Widget>[
+                      Text("26/8/2021"),
+                      Text("26/8/2021"),
+                    ],
+                  ),
+                ),
+              ),
             ),
           ),
+          // Container(
+          //   height: 280,
+          //   color: Colors.white,
+          //   child: TimelineTile(
+          //     alignment: TimelineAlign.center,
+          //     // isFirst: true,
+          //     lineXY: 0.7,
+          //     hasIndicator: true,
+          //     indicatorStyle: IndicatorStyle(
+          //       width: 25,
+          //       color: Colors.green,
+          //       // indicatorXY: 0.5,
+          //       drawGap: true,
+          //       padding: const EdgeInsets.only( left: 8, right: 8),
+          //       iconStyle: IconStyle(
+          //         color: Colors.white,
+          //         iconData: Icons.radio_button_checked_rounded,
+          //       ),
+          //     ),
+          //     endChild: Container(
+          //         height: 400,
+          //         child: Padding(
+          //           padding: const EdgeInsets.only(top: 116.0),
+          //           child: Column(
+          //             children: <Widget>[
+          //               Padding(
+          //                 padding: const EdgeInsets.all(8.0),
+          //                 child: Text("Manual Weighment (Gross)"),
+          //               ),
+          //               Padding(
+          //                 padding: const EdgeInsets.all(8.0),
+          //                 child: Text("Weight Entered :515.00 MIN"),
+          //               ),
+          //               Padding(
+          //                 padding: const EdgeInsets.all(8.0),
+          //                 child: _CustomButton(),
+          //               )
+          //               //       Container(
+          //               //           height: 25,
+          //               //           width: 160,
+          //               //           child:
+          //               //           RaisedButton(
+          //               //   child: Text('enter otp to validate'),
+          //               //   onPressed: () {},
+          //               // )),
+          //             ],
+          //           ),
+          //         )),
+          //     startChild: Padding(
+          //       padding: const EdgeInsets.only(left: 108.0, top: 131),
+          //       child: Column(
+          //         children: <Widget>[
+          //           Text("26/8/2021"),
+          //           Text("26/8/2021"),
+          //         ],
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          // Container(
+          //   height: 280,
+          //   color: Colors.white,
+          //   child: TimelineTile(
+          //     alignment: TimelineAlign.center,
+          //     // isFirst: true,
+          //     lineXY: 0.7,
+          //     hasIndicator: true,
+          //     indicatorStyle: IndicatorStyle(
+          //       width: 25,
+          //       color: Colors.green,
+          //       // indicatorXY: 0.5,
+          //       drawGap: true,
+          //       padding: const EdgeInsets.only( left: 8, right: 8),
+          //       iconStyle: IconStyle(
+          //         color: Colors.white,
+          //         iconData: Icons.radio_button_checked_rounded,
+          //       ),
+          //     ),
+          //     endChild: Container(
+          //         height: 400,
+          //         child: Padding(
+          //           padding: const EdgeInsets.only(top: 116.0),
+          //           child: Column(
+          //             children: <Widget>[
+          //               Padding(
+          //                 padding: const EdgeInsets.all(8.0),
+          //                 child: Text("Manual Weighment (Gross)"),
+          //               ),
+          //               Padding(
+          //                 padding: const EdgeInsets.all(8.0),
+          //                 child: Text("Weight Entered :515.00 MIN"),
+          //               ),
+          //               Padding(
+          //                 padding: const EdgeInsets.all(8.0),
+          //                 child: _CustomButton(),
+          //               )
+          //               //       Container(
+          //               //           height: 25,
+          //               //           width: 160,
+          //               //           child:
+          //               //           RaisedButton(
+          //               //   child: Text('enter otp to validate'),
+          //               //   onPressed: () {},
+          //               // )),
+          //             ],
+          //           ),
+          //         )),
+          //     startChild: Padding(
+          //       padding: const EdgeInsets.only(left: 108.0, top: 131),
+          //       child: Column(
+          //         children: <Widget>[
+          //           Text("26/8/2021"),
+          //           Text("26/8/2021"),
+          //         ],
+          //       ),
+          //     ),
+          //   ),
+          // ),
           Container(
-            height: 120,
-            color: Colors.white,
+            height: 180,
+            color: Colors.blueGrey,
             child: TimelineTile(
-              alignment: TimelineAlign.manual,
-              lineXY: 0.25,
+              alignment: TimelineAlign.center,
+              // isFirst: true,
+              isLast: true,
+              lineXY: 0.7,
               hasIndicator: true,
               indicatorStyle: IndicatorStyle(
                 width: 25,
                 color: Colors.green,
                 // indicatorXY: 0.5,
                 drawGap: true,
-                padding: const EdgeInsets.only(left: 8, right: 8),
+                padding: const EdgeInsets.only( left: 8, right: 8),
                 iconStyle: IconStyle(
                   color: Colors.white,
                   iconData: Icons.radio_button_checked_rounded,
                 ),
               ),
-              endChild: Column(
-                children: [
-                  Container(
-                      height: 40,
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 16.0),
-                        child: Text("02/01/2021"),
-                      )),
-                  _CustomButton()
-                ],
-              ),
-              startChild: Column(
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('26/8/2021'),
-                  Text("26/8/2021"),
-                ],
-              ),
-            ),
-          ),
-          Container(
-            color: Colors.white,
-            child: TimelineTile(
-              alignment: TimelineAlign.manual,
-              lineXY: 0.25,
-              hasIndicator: true,
-              indicatorStyle: IndicatorStyle(
-                width: 25,
-                color: Colors.green,
-                // indicatorXY: 0.5,
-                drawGap: true,
-                padding: const EdgeInsets.only(left: 8, right: 8),
-                iconStyle: IconStyle(
-                  color: Colors.white,
-                  iconData: Icons.radio_button_checked_rounded,
+              endChild: Container(
+                // height: 400,
+                  child: Padding(
+                    // padding: const EdgeInsets.only(top: 116.0),
+                    padding: const EdgeInsets.only(top: 6.0),
+
+                    child: Column(
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("Manual Weighment (Gross)"),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("Weight Entered :515.00 MIN"),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: _CustomButton(),
+                        )
+                        //       Container(
+                        //           height: 25,
+                        //           width: 160,
+                        //           child:
+                        //           RaisedButton(
+                        //   child: Text('enter otp to validate'),
+                        //   onPressed: () {},
+                        // )),
+                      ],
+                    ),
+                  )),
+              startChild: Container(
+                color: Colors.pink,
+                child: Padding(
+                  // padding: const EdgeInsets.only(left: 108.0, top: 131),
+                  padding: const EdgeInsets.only(left: 108),
+                  child: Column(
+                    children: <Widget>[
+                      Text("26/8/2021"),
+                      Text("26/8/2021"),
+                    ],
+                  ),
                 ),
-              ),
-              startChild: Column(
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('26/8/2021'),
-                  Text("26/8/2021"),
-                ],
-              ),
-              endChild: Column(
-                children: [
-                  Container(
-                      height: 40,
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 16.0),
-                        child: Text("02/01/2021"),
-                      )),
-                  _CustomButton()
-                ],
               ),
             ),
           ),
         ],
       ),
+
+
+
       endDrawer: EndDrawer(_openEndDrawer, _closeEndDrawer),
       // Disable opening the end drawer with a swipe gesture.
       endDrawerEnableOpenDragGesture: false,
