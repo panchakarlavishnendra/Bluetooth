@@ -189,7 +189,7 @@ class _CustomDialogBoxState extends State<OTPPage> {
                     height: 10,
                     child: FlatButton(
                     onPressed: () {
-                      Get.toNamed('');
+                      Get.toNamed('/pending');
                     },
                     child: Center(
                         child: Text(
