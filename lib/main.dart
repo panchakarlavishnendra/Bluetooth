@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bluetooth/screens/quality_check_screen.dart';
 import 'package:flutter_bluetooth/screens/select_warehouse_contact_screen.dart';
+import 'package:flutter_bluetooth/screens/test_screen.dart';
 
 import 'package:get/get.dart';
 import './routes.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SelectWarehouseContacts(),
+      home: TestScreen(),
       // home: QualityCheck()
     );
   }
