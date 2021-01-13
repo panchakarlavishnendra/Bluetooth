@@ -71,30 +71,25 @@ class _CustomDialogBoxState extends State<OTPPage> {
 
             child: ListView(
               children: <Widget>[
-                Positioned(
-                  right: 10.0,
-                  child: GestureDetector(
-                    onTap: (){
-                      Navigator.of(context).pop();
-                    },
-                    child: Align(
-                      alignment: Alignment.topRight,
-                      child: CircleAvatar(
-                        radius: 6.0,
-                        backgroundColor: Colors.white,
-                        child: Icon(Icons.close, color: Colors.black),
-                      ),
-                    ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: CircleAvatar(
+                    radius: 6.0,
+                    backgroundColor: Colors.white,
+                    child: Icon(Icons.close, color: Colors.black),
                   ),
                 ),
-
-                Text(
-                  'Moisture Value',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
-                  textAlign: TextAlign.center,
-                ),
-
-                SizedBox(
+              ),
+              Text(
+                'Moisture Value',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
                   height: 22,
                 ),
                 Padding(

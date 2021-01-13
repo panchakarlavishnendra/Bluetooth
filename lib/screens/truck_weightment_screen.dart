@@ -549,7 +549,7 @@ class _TruckWeightment extends State<TruckWeightment> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(1)),
                     onPressed: () {
-                      Get.toNamed('/otpscreen');
+                      Get.toNamed('/pending');
                     },
                   ),
                 ),
