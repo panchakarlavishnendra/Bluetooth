@@ -23,16 +23,16 @@ enum SingingCharacter {
   GatePass
 }
 
-class Camera extends StatefulWidget {
+class TruckWeightment extends StatefulWidget {
   static const routeName = '/Camera';
 
-  Camera({Key key}) : super(key: key);
+  TruckWeightment({Key key}) : super(key: key);
 
   @override
-  _Camera createState() => new _Camera();
+  _TruckWeightment createState() => new _TruckWeightment();
 }
 
-class _Camera extends State<Camera> {
+class _TruckWeightment extends State<TruckWeightment> {
   // String _selectedLocation;
   File filePathList;
   List<String> _locations = ['A', 'B', 'C', 'D']; // Option 2

@@ -20,7 +20,6 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
         title: 'Flutter Native Demo',
         getPages: Routes.route,
-        initialRoute: '/pending',
         theme: ThemeData(
           primarySwatch: Colors.green,
           visualDensity: VisualDensity.adaptivePlatformDensity,

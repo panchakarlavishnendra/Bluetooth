@@ -8,7 +8,7 @@ import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'package:geocoder/geocoder.dart';
 import 'package:geocoder/model.dart';
 import 'package:location/location.dart';
-// import '';
+import 'package:get/get.dart';
 
 class MainPage extends StatefulWidget {
   static const routeName = '/MainPage';
@@ -119,10 +119,7 @@ class _MainPage extends State<MainPage> {
             title: RaisedButton(
               child: const Text('Verify'),
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Camera()),
-                );
+                Get.toNamed('/truckweightment');
               },
             ),
           ),

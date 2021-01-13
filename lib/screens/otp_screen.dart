@@ -194,7 +194,7 @@ class _CustomDialogBoxState extends State<OTPPage> {
                     height: 10,
                     child: FlatButton(
                     onPressed: () {
-                      Get.back();
+                      Get.toNamed('');
                     },
                     child: Center(
                         child: Text(
@@ -221,7 +221,7 @@ class _CustomDialogBoxState extends State<OTPPage> {
                     height: 10,
                     child: FlatButton(
                       onPressed: () {
-                      Get.back();
+                        Get.toNamed('/truckweightment');
                     },
                     child: Center(
                         child: Text(

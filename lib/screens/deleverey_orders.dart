@@ -3,13 +3,14 @@ import 'package:flutter_bluetooth/widgets/side_nav.dart';
 // import 'package:group_radio_button/group_radio_button.dart';
 import 'package:get/get.dart';
 
-class PendingApprovals extends StatefulWidget {
-  PendingApprovals({Key key}) : super(key: key);
+class DelieveryOrders extends StatefulWidget {
+  DelieveryOrders({Key key}) : super(key: key);
+
   @override
-  _SelectWarehouseContacts createState() => new _SelectWarehouseContacts();
+  _DelieveryOrders createState() => new _DelieveryOrders();
 }
 
-class _SelectWarehouseContacts extends State<PendingApprovals> {
+class _DelieveryOrders extends State<DelieveryOrders> {
   List<String> _locations = ['A', 'B', 'C', 'D'];
   String _selectedLocation;
 

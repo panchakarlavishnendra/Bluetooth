@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth/widgets/app_widget.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:timeline_tile/timeline_tile.dart';
-
+import 'package:get/get.dart';
 import '../const.dart';
 
 /// This is the stateful widget that the main application instantiates.
@@ -297,7 +297,9 @@ class _PendingApprovalsState extends State<PendingApprovals> {
                 style: TextStyle(color: Colors.white),
               ),
               color: Colors.cyan[800],
-              onPressed: () {})
+              onPressed: () {
+                Get.toNamed('/success');
+              })
         ],
       ),
 
@@ -313,6 +315,9 @@ class _PendingApprovalsState extends State<PendingApprovals> {
       width: 195,
       child: FlatButton(
         color: Colors.white,
+        onPressed: () {
+          Get.toNamed('/otpscreen');
+        },
         child: Padding(
           padding: const EdgeInsets.all(3.0),
           child: Text(
