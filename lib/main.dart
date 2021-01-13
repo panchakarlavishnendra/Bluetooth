@@ -18,13 +18,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Native Demo',
+        title: 'Flutter Native Demo',
         getPages: Routes.route,
+        initialRoute: '/pending',
         theme: ThemeData(
           primarySwatch: Colors.green,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        // home: UploadWeighmentDocumentScreen(),
-        home: TestScreen());
+        home: SelectWarehouseContacts());
   }
 }

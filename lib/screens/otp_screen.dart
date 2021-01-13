@@ -5,6 +5,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:get/get.dart';
 
 class OTPPage extends StatefulWidget {
   // final String title, descriptions, text;
@@ -45,9 +46,12 @@ class _CustomDialogBoxState extends State<OTPPage> {
       children: <Widget>[
         Container(
           height: 400,
-
-          padding: EdgeInsets.only(left: 20,top: 0,
-              right:20,bottom: 20,
+          width: MediaQuery.of(context).size.width * 0.95,
+          padding: EdgeInsets.only(
+            left: 20,
+            top: 0,
+            right: 20,
+            bottom: 20,
           ),
           margin: EdgeInsets.only(top: Constants.avatarRadius),
           decoration: BoxDecoration(
@@ -55,7 +59,9 @@ class _CustomDialogBoxState extends State<OTPPage> {
               color: Colors.white,
               borderRadius: BorderRadius.circular(Constants.padding),
               boxShadow: [
-                BoxShadow(color: Colors.transparent,offset: Offset(0,10),
+                BoxShadow(
+                    color: Colors.transparent,
+                    offset: Offset(0, 10),
                     blurRadius: 10
                 ),
               ]
@@ -103,18 +109,18 @@ class _CustomDialogBoxState extends State<OTPPage> {
                   key: formKey,
                   child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 8.0, horizontal: 30),
-                      child: PinCodeTextField(
-                        appContext: context,
-                        pastedTextStyle: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        length: 4,
-                        obscureText: false,
-                        obscuringCharacter: '*',
-                        animationType: AnimationType.none,
-                        validator: (v) {
+                        vertical: 8.0, horizontal: 10),
+                    child: PinCodeTextField(
+                      appContext: context,
+                      pastedTextStyle: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      length: 4,
+                      obscureText: false,
+                      obscuringCharacter: '*',
+                      animationType: AnimationType.none,
+                      validator: (v) {
                           if (v.length < 3) {
                             return "I'm from validator";
                           } else {
@@ -187,16 +193,18 @@ class _CustomDialogBoxState extends State<OTPPage> {
                   child: ButtonTheme(
                     height: 10,
                     child: FlatButton(
-
-                      child: Center(
-                          child: Text(
-                            "Continue".toUpperCase(),
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
-                          )),
-                    ),
+                    onPressed: () {
+                      Get.back();
+                    },
+                    child: Center(
+                        child: Text(
+                      "Continue".toUpperCase(),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    )),
+                  ),
                   ),
                   decoration: BoxDecoration(
                       color:  Colors.teal[900],
@@ -212,16 +220,18 @@ class _CustomDialogBoxState extends State<OTPPage> {
                   child: ButtonTheme(
                     height: 10,
                     child: FlatButton(
-
-                      child: Center(
-                          child: Text(
-                            "VERIFY LATER".toUpperCase(),
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
-                          )),
-                    ),
+                      onPressed: () {
+                      Get.back();
+                    },
+                    child: Center(
+                        child: Text(
+                      "VERIFY LATER".toUpperCase(),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    )),
+                  ),
                   ),
                   decoration: BoxDecoration(
                       color:  Colors.teal[900],

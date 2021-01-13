@@ -87,12 +87,13 @@ class _UploadWeighmentDocumentScreenState extends State<UploadWeighmentDocumentS
                   FlatButton(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(0.0),
-                        side: BorderSide(color: Colors.grey)
-                    ),
+                        side: BorderSide(color: Colors.grey)),
                     color: Colors.white,
                     textColor: Colors.green,
                     padding: EdgeInsets.all(8.0),
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.toNamed('/success');
+                    },
                     child: Text(
                       "View Document".toUpperCase(),
                       style: TextStyle(
@@ -101,7 +102,21 @@ class _UploadWeighmentDocumentScreenState extends State<UploadWeighmentDocumentS
                     ),
                   ),
                 ],
-              )
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Get.toNamed('/quality');
+                },
+                color: Colors.cyan[900],
+                child: Center(
+                    child: Text(
+                  "CONTINUE TO QC",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                  ),
+                )),
+              ),
             ],
 
           ),

@@ -6,8 +6,11 @@
 // close it.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bluetooth/widgets/app_widget.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:timeline_tile/timeline_tile.dart';
+
+import '../const.dart';
 
 /// This is the stateful widget that the main application instantiates.
 class TestScreen extends StatefulWidget {
@@ -33,264 +36,270 @@ class _TestScreenState extends State<TestScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      appBar: AppBar(title: Text('Drawer Demo')),
+      appBar: AppBar(
+        title: Text('Drawer Demo'),
+        elevation: 0,
+      ),
       body: ListView(
         children: <Widget>[
+          CustomWidget(),
           Container(
-            height: 150,
+            height: 145,
             color: Colors.white,
             child: TimelineTile(
-              alignment: TimelineAlign.center,
+              alignment: TimelineAlign.manual,
               isFirst: true,
-              lineXY: 0.7,
+              lineXY: 0.25,
               hasIndicator: true,
               indicatorStyle: IndicatorStyle(
                 width: 25,
                 color: Colors.green,
                 // indicatorXY: 0.5,
-
-                padding: const EdgeInsets.only(top: 0, left: 0, right: 0),
+                padding: const EdgeInsets.only(top: 5, left: 5, right: 5),
                 iconStyle: IconStyle(
                   color: Colors.white,
                   iconData: Icons.radio_button_checked_rounded,
                 ),
               ),
               endChild: Container(
-                  height: 400,
-                  color: Colors.red,
-                  child: Padding(
-                    // padding: const EdgeInsets.only(top: 116.0),
-                    padding: const EdgeInsets.only(top: 6.0),
-
-                    child: Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text("Manual Weighment (Gross)"),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text("Weight Entered :515.00 MIN"),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: _CustomButton(),
-                        )
-                        //       Container(
-                        //           height: 25,
-                        //           width: 160,
-                        //           child:
-                        //           RaisedButton(
-                        //   child: Text('enter otp to validate'),
-                        //   onPressed: () {},
-                        // )),
-                      ],
-                    ),
-                  )),
-              startChild: Container(
-                color: Colors.blue,
                 child: Padding(
-                  // padding: const EdgeInsets.only(left: 108.0, top: 131),
-                  padding: const EdgeInsets.only(left: 8.0, top: 1),
+                  // padding: const EdgeInsets.only(top: 116.0),
+                  padding: const EdgeInsets.only(top: 56.0),
 
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text("26/8/2021"),
-                      Text("26/8/2021"),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0),
+                        child: Text("Manual Weighment (Gross)"),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0),
+                        child: Text("Weight Entered :515.00 MIN"),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 0.0),
+                        child: _CustomButton(),
+                      )
                     ],
                   ),
                 ),
               ),
+              startChild: Padding(
+                // padding: const EdgeInsets.only(left: 108.0, top: 131),
+                padding: const EdgeInsets.only(left: 3.0, top: 60),
+
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 5.0),
+                      child: Text("26/8/2021",
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                    ),
+                    Text(
+                      "4:50pm",
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
-          // Container(
-          //   height: 280,
-          //   color: Colors.white,
-          //   child: TimelineTile(
-          //     alignment: TimelineAlign.center,
-          //     // isFirst: true,
-          //     lineXY: 0.7,
-          //     hasIndicator: true,
-          //     indicatorStyle: IndicatorStyle(
-          //       width: 25,
-          //       color: Colors.green,
-          //       // indicatorXY: 0.5,
-          //       drawGap: true,
-          //       padding: const EdgeInsets.only( left: 8, right: 8),
-          //       iconStyle: IconStyle(
-          //         color: Colors.white,
-          //         iconData: Icons.radio_button_checked_rounded,
-          //       ),
-          //     ),
-          //     endChild: Container(
-          //         height: 400,
-          //         child: Padding(
-          //           padding: const EdgeInsets.only(top: 116.0),
-          //           child: Column(
-          //             children: <Widget>[
-          //               Padding(
-          //                 padding: const EdgeInsets.all(8.0),
-          //                 child: Text("Manual Weighment (Gross)"),
-          //               ),
-          //               Padding(
-          //                 padding: const EdgeInsets.all(8.0),
-          //                 child: Text("Weight Entered :515.00 MIN"),
-          //               ),
-          //               Padding(
-          //                 padding: const EdgeInsets.all(8.0),
-          //                 child: _CustomButton(),
-          //               )
-          //               //       Container(
-          //               //           height: 25,
-          //               //           width: 160,
-          //               //           child:
-          //               //           RaisedButton(
-          //               //   child: Text('enter otp to validate'),
-          //               //   onPressed: () {},
-          //               // )),
-          //             ],
-          //           ),
-          //         )),
-          //     startChild: Padding(
-          //       padding: const EdgeInsets.only(left: 108.0, top: 131),
-          //       child: Column(
-          //         children: <Widget>[
-          //           Text("26/8/2021"),
-          //           Text("26/8/2021"),
-          //         ],
-          //       ),
-          //     ),
-          //   ),
-          // ),
-          // Container(
-          //   height: 280,
-          //   color: Colors.white,
-          //   child: TimelineTile(
-          //     alignment: TimelineAlign.center,
-          //     // isFirst: true,
-          //     lineXY: 0.7,
-          //     hasIndicator: true,
-          //     indicatorStyle: IndicatorStyle(
-          //       width: 25,
-          //       color: Colors.green,
-          //       // indicatorXY: 0.5,
-          //       drawGap: true,
-          //       padding: const EdgeInsets.only( left: 8, right: 8),
-          //       iconStyle: IconStyle(
-          //         color: Colors.white,
-          //         iconData: Icons.radio_button_checked_rounded,
-          //       ),
-          //     ),
-          //     endChild: Container(
-          //         height: 400,
-          //         child: Padding(
-          //           padding: const EdgeInsets.only(top: 116.0),
-          //           child: Column(
-          //             children: <Widget>[
-          //               Padding(
-          //                 padding: const EdgeInsets.all(8.0),
-          //                 child: Text("Manual Weighment (Gross)"),
-          //               ),
-          //               Padding(
-          //                 padding: const EdgeInsets.all(8.0),
-          //                 child: Text("Weight Entered :515.00 MIN"),
-          //               ),
-          //               Padding(
-          //                 padding: const EdgeInsets.all(8.0),
-          //                 child: _CustomButton(),
-          //               )
-          //               //       Container(
-          //               //           height: 25,
-          //               //           width: 160,
-          //               //           child:
-          //               //           RaisedButton(
-          //               //   child: Text('enter otp to validate'),
-          //               //   onPressed: () {},
-          //               // )),
-          //             ],
-          //           ),
-          //         )),
-          //     startChild: Padding(
-          //       padding: const EdgeInsets.only(left: 108.0, top: 131),
-          //       child: Column(
-          //         children: <Widget>[
-          //           Text("26/8/2021"),
-          //           Text("26/8/2021"),
-          //         ],
-          //       ),
-          //     ),
-          //   ),
-          // ),
           Container(
-            height: 180,
-            color: Colors.blueGrey,
+            height: 145,
+            color: Colors.white,
             child: TimelineTile(
-              alignment: TimelineAlign.center,
+              alignment: TimelineAlign.manual,
               // isFirst: true,
-              isLast: true,
-              lineXY: 0.7,
+              lineXY: 0.25,
               hasIndicator: true,
               indicatorStyle: IndicatorStyle(
                 width: 25,
                 color: Colors.green,
                 // indicatorXY: 0.5,
-                drawGap: true,
-                padding: const EdgeInsets.only( left: 8, right: 8),
+                padding: const EdgeInsets.only(top: 0, left: 5, right: 5),
                 iconStyle: IconStyle(
                   color: Colors.white,
                   iconData: Icons.radio_button_checked_rounded,
                 ),
               ),
               endChild: Container(
-                // height: 400,
-                  child: Padding(
-                    // padding: const EdgeInsets.only(top: 116.0),
-                    padding: const EdgeInsets.only(top: 6.0),
-
-                    child: Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text("Manual Weighment (Gross)"),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text("Weight Entered :515.00 MIN"),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: _CustomButton(),
-                        )
-                        //       Container(
-                        //           height: 25,
-                        //           width: 160,
-                        //           child:
-                        //           RaisedButton(
-                        //   child: Text('enter otp to validate'),
-                        //   onPressed: () {},
-                        // )),
-                      ],
-                    ),
-                  )),
-              startChild: Container(
-                color: Colors.pink,
                 child: Padding(
-                  // padding: const EdgeInsets.only(left: 108.0, top: 131),
-                  padding: const EdgeInsets.only(left: 108),
+                  // padding: const EdgeInsets.only(top: 116.0),
+                  padding: const EdgeInsets.only(top: 56.0),
+
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text("26/8/2021"),
-                      Text("26/8/2021"),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0),
+                        child: Text("Manual Weighment (Gross)"),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0),
+                        child: Text("Weight Entered :515.00 MIN"),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 0.0),
+                        child: _CustomButton(),
+                      )
+
+                      // )),
                     ],
                   ),
                 ),
               ),
+              startChild: Padding(
+                // padding: const EdgeInsets.only(left: 108.0, top: 131),
+                padding: const EdgeInsets.only(left: 3.0, top: 60),
+
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 5.0),
+                      child: Text("26/8/2021",
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                    ),
+                    Text(
+                      "4:50pm",
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
+          Container(
+            height: 145,
+            color: Colors.white,
+            child: TimelineTile(
+              alignment: TimelineAlign.manual,
+              // isLast: true,
+              lineXY: 0.25,
+              hasIndicator: true,
+              indicatorStyle: IndicatorStyle(
+                width: 25,
+                color: Colors.green,
+                // indicatorXY: 0.5,
+                padding: const EdgeInsets.only(top: 0, left: 5, right: 5),
+                iconStyle: IconStyle(
+                  color: Colors.white,
+                  iconData: Icons.radio_button_checked_rounded,
+                ),
+              ),
+              endChild: Container(
+                child: Padding(
+                  // padding: const EdgeInsets.only(top: 116.0),
+                  padding: const EdgeInsets.only(top: 56.0),
+
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0),
+                        child: Text("Manual Weighment (Gross)"),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0),
+                        child: Text("Weight Entered :515.00 MIN"),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 0.0),
+                        child: _CustomButton(),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              startChild: Padding(
+                // padding: const EdgeInsets.only(left: 108.0, top: 131),
+                padding: const EdgeInsets.only(left: 3.0, top: 60),
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 5.0),
+                      child: Text("26/8/2021",
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                    ),
+                    Text(
+                      "4:50pm",
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Container(
+            height: 145,
+            color: Colors.white,
+            child: TimelineTile(
+              alignment: TimelineAlign.manual,
+              isLast: true,
+              lineXY: 0.25,
+              hasIndicator: true,
+              indicatorStyle: IndicatorStyle(
+                width: 25,
+                color: Colors.green,
+                // indicatorXY: 0.5,
+                padding: const EdgeInsets.only(top: 0, left: 5, right: 5),
+                iconStyle: IconStyle(
+                  color: Colors.white,
+                  iconData: Icons.radio_button_checked_rounded,
+                ),
+              ),
+              endChild: Container(
+                child: Padding(
+                  // padding: const EdgeInsets.only(top: 116.0),
+                  padding: const EdgeInsets.only(top: 56.0),
+
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0),
+                        child: Text("Manual Weighment (Gross)"),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0),
+                        child: Text("Weight Entered :515.00 MIN"),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 0.0),
+                        child: _CustomButton(),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              startChild: Padding(
+                // padding: const EdgeInsets.only(left: 108.0, top: 131),
+                padding: const EdgeInsets.only(left: 3.0, top: 60),
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 5.0),
+                      child: Text("26/8/2021",
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                    ),
+                    Text(
+                      "4:50pm",
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          RaisedButton(
+              child: Text(
+                'VIEW DETAILS',
+                style: TextStyle(color: Colors.white),
+              ),
+              color: Colors.cyan[800],
+              onPressed: () {})
         ],
       ),
-
-
 
       endDrawer: EndDrawer(_openEndDrawer, _closeEndDrawer),
       // Disable opening the end drawer with a swipe gesture.
@@ -300,13 +309,16 @@ class _TestScreenState extends State<TestScreen> {
 
   Widget _CustomButton() {
     return Container(
-      height: 35,
-      width: 180,
+      height: 30,
+      width: 195,
       child: FlatButton(
         color: Colors.white,
-        child: Text(
-          'Enter otp to validate',
-          style: TextStyle(color: Colors.green),
+        child: Padding(
+          padding: const EdgeInsets.all(3.0),
+          child: Text(
+            'ENTER OTP TO VALIDATE',
+            style: TextStyle(color: Colors.green[800], fontSize: 13.5),
+          ),
         ),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),

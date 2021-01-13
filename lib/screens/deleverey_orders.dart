@@ -37,26 +37,13 @@ class _SelectWarehouseContacts extends State<PendingApprovals> {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal:25.0,vertical: 15),
               child: TextField(
-//             onChanged: (value) {
-//               setState(() {
-//                 filteredList.clear(); //for the next time that we search we want the list to be unfilterted
-//                 filteredList.addAll(autoList); //getting list to original state
-//
-// //removing items that do not contain the entered Text
-//                 filteredList.removeWhere((i) => i.contains(value.toString())==false);
-//
-// //following is just a bool parameter to keep track of lists
-//                 searched=!searched;
-//               });
-//
-//
-//             },
 //             controller: editingController,
                 decoration: InputDecoration(
-                  hintText:'Search',
-                  enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.black,),
-                  ),
+                  hintText: 'Search',
+
+                  // enabledBorder: OutlineInputBorder(
+                  // // borderSide: BorderSide(color: Colors.black,),
+                  // ),
                   // borderSide: ,
                   // labelText: "Search",
                   // prefixIcon: Icon(Icons.search),
