@@ -63,16 +63,29 @@ class _TestScreenState extends State<TestScreen> {
                     ),
             endChild: Container(
 
-                height: 50,
+                height: 90,
                 child: Padding(
                   padding: const EdgeInsets.only(top:16.0),
-                  child: Text("02/01/2021"),
+                  child: Column(
+                    children: <Widget>[
+                      Text("Manual Weighment (Gross)"),
+                      Text("Weight Entered :515.00 MIN"),
+                      RaisedButton(),
+
+                    ],
+                  ),
                 )),
             startChild:
 
              Padding(
-               padding: const EdgeInsets.only(left:108.0),
-               child: Text("26/8/2021"),
+               padding: const EdgeInsets.only(left:108.0,top: 51),
+               child: Column(
+                   children: <Widget>[
+                    Text("26/8/2021"),
+                     Text("26/8/2021"),
+
+                   ],
+               ),
              ),
 
           ),
@@ -162,6 +175,7 @@ class _TestScreenState extends State<TestScreen> {
           ),
       ],
       ),
+
         // Container(
         //   color: Colors.white,
         //   child: Column(
