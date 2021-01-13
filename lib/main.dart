@@ -19,13 +19,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Native Demo',
-      getPages: Routes.route,
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: UploadWeighmentDocumentScreen(),
-      // home: TestScreen()
-    );
+        getPages: Routes.route,
+        theme: ThemeData(
+          primarySwatch: Colors.green,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        // home: UploadWeighmentDocumentScreen(),
+        home: TestScreen());
   }
 }

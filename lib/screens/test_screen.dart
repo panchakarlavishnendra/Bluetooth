@@ -37,23 +37,20 @@ class _TestScreenState extends State<TestScreen> {
       body: ListView(
         children: <Widget>[
         Container(
-          height: 120,
-          color: Colors.white,
-          child: TimelineTile(
+          height: 220,
+            color: Colors.white,
+            child: TimelineTile(
+              alignment: TimelineAlign.center,
+              isFirst: true,
+              lineXY: 0.7,
 
-            alignment: TimelineAlign.center,
-            isFirst: true,
-                    lineXY: 0.7,
-
-                    // afterLineStyle:,
-            hasIndicator: true,
-                    indicatorStyle: IndicatorStyle(
-                      width: 25,
+              // afterLineStyle:,
+              hasIndicator: true,
+              indicatorStyle: IndicatorStyle(
+                width: 25,
                       color: Colors.green,
                       // indicatorXY: 0.5,
                       drawGap: true,
-
-
                       padding: const EdgeInsets.only(top:8,left:8,right:8),
                       iconStyle: IconStyle(
                         color: Colors.white,
@@ -62,17 +59,21 @@ class _TestScreenState extends State<TestScreen> {
 
                     ),
             endChild: Container(
-
-                height: 90,
-                child: Padding(
-                  padding: const EdgeInsets.only(top:16.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text("Manual Weighment (Gross)"),
-                      Text("Weight Entered :515.00 MIN"),
-                      RaisedButton(),
-
-                    ],
+                height: 120,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 16.0),
+                    child: Column(
+                      children: <Widget>[
+                        Text("Manual Weighment (Gross)"),
+                        Text("Weight Entered :515.00 MIN"),
+                        Container(
+                            height: 25,
+                            width: 160,
+                            child: RaisedButton(
+                              child: Text('enter otp to validate'),
+                              onPressed: () {},
+                            )),
+                      ],
                   ),
                 )),
             startChild:
@@ -92,10 +93,9 @@ class _TestScreenState extends State<TestScreen> {
 
         ),
           Container(
-            height: 50,
+            height: 120,
             color: Colors.white,
             child: TimelineTile(
-
               alignment: TimelineAlign.center,
               // isFirst: true,
               // afterLineStyle:,
@@ -107,28 +107,33 @@ class _TestScreenState extends State<TestScreen> {
                 // indicatorXY: 0.5,
                 drawGap: true,
 
-
-                padding: const EdgeInsets.only(left:8,right:8),
+                padding: const EdgeInsets.only(left: 8, right: 8),
                 iconStyle: IconStyle(
                   color: Colors.white,
                   iconData: Icons.radio_button_checked_rounded,
                 ),
-
               ),
-              endChild: Container(
-
-                  height: 50,
-                  child: Padding(
-                    padding: const EdgeInsets.only(top:16.0),
-                    child: Text("02/01/2021"),
-                  )),
-              startChild:
-
-              Padding(
-                padding: const EdgeInsets.only(left:108.0),
+              endChild: Column(
+                children: [
+                  Container(
+                      height: 40,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 16.0),
+                        child: Text("02/01/2021"),
+                      )),
+                  Container(
+                      height: 25,
+                      width: 160,
+                      child: RaisedButton(
+                        child: Text('enter otp to validate'),
+                        onPressed: () {},
+                      )),
+                ],
+              ),
+              startChild: Padding(
+                padding: const EdgeInsets.only(left: 108.0),
                 child: Text("26/8/2021"),
               ),
-
             ),
 
           ),
@@ -148,28 +153,33 @@ class _TestScreenState extends State<TestScreen> {
                 // indicatorXY: 0.5,
                 drawGap: true,
 
-
-                padding: const EdgeInsets.only(left:8,right:8),
+                padding: const EdgeInsets.only(left: 8, right: 8),
                 iconStyle: IconStyle(
                   color: Colors.white,
                   iconData: Icons.radio_button_checked_rounded,
                 ),
-
               ),
-              endChild: Container(
-
-                  height: 180,
-                  child: Padding(
-                    padding: const EdgeInsets.only(top:16.0),
-                    child: Text("02/01/2021"),
-                  )),
-              startChild:
-
-              Padding(
-                padding: const EdgeInsets.only(left:108.0),
+              endChild: Column(
+                children: [
+                  Container(
+                      height: 40,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 16.0),
+                        child: Text("02/01/2021"),
+                      )),
+                  Container(
+                      height: 25,
+                      width: 160,
+                      child: RaisedButton(
+                        child: Text('enter otp to validate'),
+                        onPressed: () {},
+                      )),
+                ],
+              ),
+              startChild: Padding(
+                padding: const EdgeInsets.only(left: 108.0),
                 child: Text("26/8/2021"),
               ),
-
             ),
 
           ),
