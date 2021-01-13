@@ -8,11 +8,11 @@ import 'package:get/get.dart';
 class TruckStackingSummary extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _MyHomePageState();
+    return _TruckStackingSummaryState();
   }
 }
 
-class _MyHomePageState extends State<TruckStackingSummary> {
+class _TruckStackingSummaryState extends State<TruckStackingSummary> {
   static const int numItems = 10;
   int index = 3;
   List<bool> selected = List<bool>.generate(numItems, (index) => false);
@@ -107,7 +107,7 @@ class _MyHomePageState extends State<TruckStackingSummary> {
         ),
       ),
             //       Container(
-            //   width: MediaQuery.of(context).size.width*0.9,
+            //   c
             //   // color: Colors.blueAccent,
             //   child: RaisedButton(
             //     color:  Colors.teal,
