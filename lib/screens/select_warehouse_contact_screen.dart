@@ -61,12 +61,12 @@ class _SelectWarehouseContacts extends State<SelectWarehouseContacts> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Container(
-                    height: 60,
-                    width: MediaQuery.of(context).size.width * 0.85,
+                      height: 60,
+                      width: MediaQuery.of(context).size.width * 0.85,
                       child: CustomDropDown(_selectedLocation3, _locations3,
                           'Select Weigh Bridge')),
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 20),
               ]),
             ),
             RaisedButton(

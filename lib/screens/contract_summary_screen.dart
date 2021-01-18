@@ -28,11 +28,11 @@ class _ContractSummary extends State<ContractSummary> {
     Navigator.of(context).pop();
   }
 
-  void dispose() {
-    _totalCommodityController.dispose();
-    _noOfMotherBagsControler.dispose();
-    _noOfMadeupBagsController.dispose();
-  }
+  // void dispose() {
+  //   _totalCommodityController.dispose();
+  //   _noOfMotherBagsControler.dispose();
+  //   _noOfMadeupBagsController.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -203,7 +203,7 @@ class _ContractSummary extends State<ContractSummary> {
                       height: 45,
                       width: 100,
                       child: DropdownButton(
-                        hint: Text('MT'), // Not necessary for Option 1
+                        hint: Text(' MT  '), // Not necessary for Option 1
                         value: _selectedLocation,
                         onChanged: (newValue) {
                           setState(() {

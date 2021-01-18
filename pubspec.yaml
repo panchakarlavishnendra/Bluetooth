@@ -41,7 +41,7 @@ dependencies:
   video_player: ^1.0.1
   get: ^3.24.0
   timeline_tile: ^1.0.0
-
+  auto_size_text: ^2.1.0
 
 dev_dependencies:
   flutter_test:

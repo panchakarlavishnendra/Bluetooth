@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_bluetooth/widgets/app_widget.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:get/get.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class TruckStackingSummary extends StatefulWidget {
   @override
@@ -48,15 +49,22 @@ class _TruckStackingSummaryState extends State<TruckStackingSummary> {
                   DataColumn(
                       label: Text(
                     'Warehouse Stack',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),)),
-                DataColumn(label: Text('Mother Bags',style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14),)),
-                DataColumn(label: Text('Mother Bags',style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14),)),
-
-              ],
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: AdaptiveTextSize()
+                            .getadaptiveTextSize(context, 12)),
+                  )),
+                  DataColumn(
+                      label: Text(
+                    'Mother Bags',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                  )),
+                  DataColumn(
+                      label: Text(
+                    'Mother Bags',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                  )),
+                ],
               rows: [
 
                 DataRow(
@@ -115,5 +123,14 @@ class _TruckStackingSummaryState extends State<TruckStackingSummary> {
       ),
       endDrawer: EndDrawer(_openEndDrawer, _closeEndDrawer),
     );
+  }
+}
+
+class AdaptiveTextSize {
+  const AdaptiveTextSize();
+
+  getadaptiveTextSize(BuildContext context, dynamic value) {
+    // 720 is medium screen height
+    return (value / 720) * MediaQuery.of(context).size.height;
   }
 }

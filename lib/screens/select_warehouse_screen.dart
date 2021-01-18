@@ -115,26 +115,40 @@ class _SelectWareHouse extends State<SelectWareHouse> {
 
                           Radio(
                             value: 0,
-                            groupValue: _value,
-                            activeColor: Colors.green,
-                            onChanged: (value) {
-                              setState(() {
-                                _value = value;
-                              });
-                            },
-                          ),
-                          Radio(
-                            value: 1,
-                            groupValue: _value,
-                            activeColor: Colors.green,
-                            onChanged:( value) {
-                              setState(() {
-                                _value = value;
-                              });
-                            },
-                          ),
-                        ],
-                      )),
+                        groupValue: _value,
+                        activeColor: Colors.green,
+                        onChanged: (value) {
+                          setState(() {
+                            _value = value;
+                          });
+                        },
+                      ),
+                    ],
+                  )),
+                ],
+              ),
+            ),
+            Container(
+              child: Row(
+                children: [
+                  Expanded(
+                      child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Icon(Icons.add_a_photo),
+                      Text('Addres'),
+                      Radio(
+                        value: 1,
+                        groupValue: _value,
+                        activeColor: Colors.green,
+                        onChanged: (value) {
+                          setState(() {
+                            _value = value;
+                          });
+                        },
+                      ),
+                    ],
+                  )),
                 ],
               ),
             )
