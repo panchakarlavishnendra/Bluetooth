@@ -24,10 +24,10 @@ class _QualityCheckState extends State<QualityCheck> {
 
   final _damageController = TextEditingController();
 
-  // void dispose() {
-  //   _moistureController.dispose();
-  //   _damageController.dispose();
-  // }
+  void dispose() {
+    _moistureController.dispose();
+    _damageController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +39,9 @@ class _QualityCheckState extends State<QualityCheck> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Row(
                   children: [
@@ -61,20 +59,8 @@ class _QualityCheckState extends State<QualityCheck> {
                     )
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 25.0, bottom: 5.0),
-                  child: Text(
-                    'Assayer',
-                    style: TextStyle(fontSize: 18),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 25.0),
-                  child: Text(
-                    'Loremepsum',
-                    style: TextStyle(fontSize: 18),
-                  ),
-                ),
+                Text('Assayer'),
+                Text('Loremepsum'),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Divider(
@@ -130,7 +116,7 @@ class _QualityCheckState extends State<QualityCheck> {
                       Container(
                         decoration: BoxDecoration(
                             borderRadius:
-                            BorderRadius.all(Radius.circular(12.0))),
+                                BorderRadius.all(Radius.circular(12.0))),
                         width: MediaQuery.of(context).size.width * 0.12,
                         height: MediaQuery.of(context).size.width * 0.10,
                         child: TextField(
@@ -187,7 +173,7 @@ class _QualityCheckState extends State<QualityCheck> {
                       Container(
                         decoration: BoxDecoration(
                             borderRadius:
-                            BorderRadius.all(Radius.circular(12.0))),
+                                BorderRadius.all(Radius.circular(12.0))),
                         width: MediaQuery.of(context).size.width * 0.12,
                         height: MediaQuery.of(context).size.width * 0.10,
                         child: TextField(
@@ -200,7 +186,7 @@ class _QualityCheckState extends State<QualityCheck> {
                                     color: Colors.black, width: 1.5)),
                             focusedBorder: OutlineInputBorder(
                               borderSide:
-                              BorderSide(color: Colors.black, width: 1.5),
+                                  BorderSide(color: Colors.black, width: 1.5),
                             ),
                           ),
                         ),
@@ -227,24 +213,19 @@ class _QualityCheckState extends State<QualityCheck> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.12,
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.9,
-                    // color: Colors.blueAccent,
-                    child: RaisedButton(
-                      color: Colors.teal,
-                      onPressed: () {
-                        Get.toNamed('/loadbags');
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 15.0,
-                        ),
-                        child: Text(
-                          'Validate Quality',
-                          style: TextStyle(fontSize: 18, color: Colors.white),
-                        ),
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  // color: Colors.blueAccent,
+                  child: RaisedButton(
+                    color: Colors.teal,
+                    onPressed: () {
+                      Get.toNamed('/loadbags');
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 15.0),
+                      child: Text(
+                        'Validate Quality',
+                        style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
                     ),
                   ),
@@ -254,13 +235,21 @@ class _QualityCheckState extends State<QualityCheck> {
                 ),
               ],
             ),
-            Container(
-              width: MediaQuery.of(context).size.width * 0.9,
-              child: RaisedButton(
-                onPressed: () {},
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 15.0),
-                  child: Text('Reset'),
+            Positioned(
+              bottom: 0.0,
+              child: Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  child: RaisedButton(
+                    onPressed: () {
+                      Get.toNamed('/pending');
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 15.0),
+                      child: Text('Reset'),
+                    ),
+                  ),
                 ),
               ),
             ),

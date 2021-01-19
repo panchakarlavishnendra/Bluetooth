@@ -4,7 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_bluetooth/widgets/app_widget.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:get/get.dart';
-import 'package:auto_size_text/auto_size_text.dart';
+
 
 class TruckStackingSummary extends StatefulWidget {
   @override
