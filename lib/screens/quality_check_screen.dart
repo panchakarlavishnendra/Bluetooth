@@ -24,10 +24,10 @@ class _QualityCheckState extends State<QualityCheck> {
 
   final _damageController = TextEditingController();
 
-  void dispose() {
-    _moistureController.dispose();
-    _damageController.dispose();
-  }
+  // void dispose() {
+  //   _moistureController.dispose();
+  //   _damageController.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +39,10 @@ class _QualityCheckState extends State<QualityCheck> {
       ),
       body: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              // mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Row(
                   children: [
@@ -116,7 +117,7 @@ class _QualityCheckState extends State<QualityCheck> {
                       Container(
                         decoration: BoxDecoration(
                             borderRadius:
-                                BorderRadius.all(Radius.circular(12.0))),
+                            BorderRadius.all(Radius.circular(12.0))),
                         width: MediaQuery.of(context).size.width * 0.12,
                         height: MediaQuery.of(context).size.width * 0.10,
                         child: TextField(
@@ -173,7 +174,7 @@ class _QualityCheckState extends State<QualityCheck> {
                       Container(
                         decoration: BoxDecoration(
                             borderRadius:
-                                BorderRadius.all(Radius.circular(12.0))),
+                            BorderRadius.all(Radius.circular(12.0))),
                         width: MediaQuery.of(context).size.width * 0.12,
                         height: MediaQuery.of(context).size.width * 0.10,
                         child: TextField(
@@ -186,7 +187,7 @@ class _QualityCheckState extends State<QualityCheck> {
                                     color: Colors.black, width: 1.5)),
                             focusedBorder: OutlineInputBorder(
                               borderSide:
-                                  BorderSide(color: Colors.black, width: 1.5),
+                              BorderSide(color: Colors.black, width: 1.5),
                             ),
                           ),
                         ),
