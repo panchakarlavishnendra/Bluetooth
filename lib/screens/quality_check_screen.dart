@@ -42,7 +42,8 @@ class _QualityCheckState extends State<QualityCheck> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Column(
-              // mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
@@ -60,8 +61,20 @@ class _QualityCheckState extends State<QualityCheck> {
                     )
                   ],
                 ),
-                Text('Assayer', textAlign: TextAlign.left),
-                Text('Loremepsum'),
+                Padding(
+                  padding: const EdgeInsets.only(left: 25.0, bottom: 5.0),
+                  child: Text(
+                    'Assayer',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 25.0),
+                  child: Text(
+                    'Loremepsum',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Divider(
@@ -214,19 +227,24 @@ class _QualityCheckState extends State<QualityCheck> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.12,
                 ),
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  // color: Colors.blueAccent,
-                  child: RaisedButton(
-                    color: Colors.teal,
-                    onPressed: () {
-                      Get.toNamed('/loadbags');
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 15.0),
-                      child: Text(
-                        'Validate Quality',
-                        style: TextStyle(fontSize: 18, color: Colors.white),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    // color: Colors.blueAccent,
+                    child: RaisedButton(
+                      color: Colors.teal,
+                      onPressed: () {
+                        Get.toNamed('/loadbags');
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 15.0,
+                        ),
+                        child: Text(
+                          'Validate Quality',
+                          style: TextStyle(fontSize: 18, color: Colors.white),
+                        ),
                       ),
                     ),
                   ),
