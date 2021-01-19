@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bluetooth/widgets/drop_down.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:get/get.dart';
 
 class SelectWareHouse extends StatefulWidget {
@@ -10,10 +12,16 @@ class SelectWareHouse extends StatefulWidget {
 
 class _SelectWareHouse extends State<SelectWareHouse> {
   List<String> _locations = ['A', 'B', 'C', 'D'];
+  List<String> _locations2 = ['AA', 'BB', 'CC', 'DD'];
+  List<String> _locations3 = ['AAA', 'BBB', 'CCC', 'DDD'];
+
   String _selectedLocation;
+  String _selectedLocation2;
+
   var _value;
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   void _openEndDrawer() {
     _scaffoldKey.currentState.openEndDrawer();
   }
@@ -24,153 +32,132 @@ class _SelectWareHouse extends State<SelectWareHouse> {
 
   @override
   Widget build(BuildContext context) {
+    final mediaHeight = MediaQuery.of(context).size.height;
+    final mediaWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       key: _scaffoldKey,
-      appBar: AppBar(title: Text('Select Warehouse and Contact')),
-      body: Column(children: <Widget>[
-        Container(
-          height: MediaQuery.of(context).size.height * 0.75,
-          width: MediaQuery.of(context).size.width * 1,
-          child: ListView(children: <Widget>[
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Container(
-                height: 60,
-                width: MediaQuery.of(context).size.width * 0.85,
-                child: DropdownButton(
-                  hint: Text('Select Warehouse'), // Not necessary for Option 1
-                  value: _selectedLocation,
-                  isExpanded: true,
-                  onChanged: (newValue) {
-                    setState(() {
-                      _selectedLocation = newValue;
-                    });
-                  },
-                  items: _locations.map((location) {
-                    return DropdownMenuItem(
-                      child: new Text(location),
-                      value: location,
-                    );
-                  }).toList(),
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Container(
-                height: 60,
-                width: MediaQuery.of(context).size.width * 0.85,
-                child: DropdownButton(
-                  hint: Text('Select Contract'), // Not necessary for Option 1
-                  value: _selectedLocation,
-                  isExpanded: true,
-                  onChanged: (newValue) {
-                    setState(() {
-                      _selectedLocation = newValue;
-                    });
-                  },
-                  items: _locations.map((location) {
-                    return DropdownMenuItem(
-                      child: new Text(location),
-                      value: location,
-                    );
-                  }).toList(),
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Container(
-                height: 60,
-                width: MediaQuery.of(context).size.width * 0.85,
-                child: DropdownButton(
-                  hint:
-                  Text('Select Weigh Bridge'), // Not necessary for Option 1
-                  value: _selectedLocation,
-                  isExpanded: true,
-                  onChanged: (newValue) {
-                    setState(() {
-                      _selectedLocation = newValue;
-                    });
-                  },
-                  items: _locations.map((location) {
-                    return DropdownMenuItem(
-                      child: new Text(location),
-                      value: location,
-                    );
-                  }).toList(),
-                ),
-              ),
-            ),
-            SizedBox(height: 30),
+      appBar: AppBar(
+          title: AutoSizeText(
+        'Select Warehouse and Contact',
+        style: TextStyle(fontSize: 16),
+      )),
+      body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
             Container(
-              child: Row(
-                children: [
-                  Expanded(
-                      child: Row(
+              height: mediaHeight * 0.75,
+              width: mediaWidth * 1,
+              child: ListView(children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Container(
+                    height: mediaHeight * 0.090,
+                    width: mediaWidth * 0.85,
+                    child: DropdownButton(
+                      hint: Text('Select Warehouse'),
+                      // Not necessary for Option 1
+                      value: _selectedLocation,
+                      isExpanded: true,
+                      onChanged: (newValue) {
+                        setState(() {
+                          _selectedLocation = newValue;
+                        });
+                      },
+                      items: _locations.map((location) {
+                        return DropdownMenuItem(
+                          child: new Text(location),
+                          value: location,
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Container(
+                    height: mediaHeight * 0.090,
+                    width: MediaQuery.of(context).size.width * 0.85,
+                    child: CustomDropDown(
+                      _selectedLocation,
+                      _locations,
+                      'Select Contract',
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Container(
+                    height: mediaHeight * 0.090,
+                    width: MediaQuery.of(context).size.width * 0.85,
+                    child: CustomDropDown(
+                        _selectedLocation2, _locations2, 'Select Weigh Bridge'),
+                  ),
+                ),
+                SizedBox(height: 30),
+                Container(
+                  child: Row(
+                    children: [
+                      Expanded(
+                          child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Icon(Icons.add_a_photo),
                           Text('Addres'),
-
                           Radio(
                             value: 0,
-                        groupValue: _value,
-                        activeColor: Colors.green,
-                        onChanged: (value) {
-                          setState(() {
-                            _value = value;
-                          });
-                        },
-                      ),
+                            groupValue: _value,
+                            activeColor: Colors.green,
+                            onChanged: (value) {
+                              setState(() {
+                                _value = value;
+                              });
+                            },
+                          ),
+                        ],
+                      )),
                     ],
-                  )),
-                ],
-              ),
+                  ),
+                ),
+                Container(
+                  child: Row(
+                    children: [
+                      Expanded(
+                          child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Icon(Icons.add_a_photo),
+                          Text('Addres'),
+                          Radio(
+                            value: 1,
+                            groupValue: _value,
+                            activeColor: Colors.green,
+                            onChanged: (value) {
+                              setState(() {
+                                _value = value;
+                              });
+                            },
+                          ),
+                        ],
+                      )),
+                    ],
+                  ),
+                )
+              ]),
             ),
             Container(
-              child: Row(
-                children: [
-                  Expanded(
-                      child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Icon(Icons.add_a_photo),
-                      Text('Addres'),
-                      Radio(
-                        value: 1,
-                        groupValue: _value,
-                        activeColor: Colors.green,
-                        onChanged: (value) {
-                          setState(() {
-                            _value = value;
-                          });
-                        },
-                      ),
-                    ],
-                  )),
-                ],
+              height: mediaHeight * 0.07,
+              width: mediaWidth * 0.85,
+              child: RaisedButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(3.0),
+                ),
+                onPressed: () => {Get.toNamed('/contactsummary')},
+                color: Colors.cyan[900],
+                textColor: Colors.white,
+                child: AutoSizeText("Continue", style: TextStyle(fontSize: 18)),
               ),
             )
           ]),
-        ),
-        RaisedButton(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(3.0),
-          ),
-          onPressed: () {
-            Get.toNamed('/contactsummary');
-          },
-          color: Colors.cyan[900],
-          textColor: Colors.white,
-          child: Padding(
-            padding: const EdgeInsets.only(
-                left: 100, right: 100, top: 18, bottom: 18),
-            child:
-                Text("Continue".toUpperCase(), style: TextStyle(fontSize: 14)),
-          ),
-        )
-      ]),
 
       endDrawer: EndDrawer(_openEndDrawer, _closeEndDrawer),
       // Disable opening the end drawer with a swipe gesture.

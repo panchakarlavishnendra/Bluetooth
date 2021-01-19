@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bluetooth/widgets/continue_button.dart';
 import 'package:flutter_bluetooth/widgets/drop_down.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 // import 'package:group_radio_button/group_radio_button.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:get/get.dart';
 
 class SelectWarehouseContacts extends StatefulWidget {
@@ -18,7 +20,7 @@ class _SelectWarehouseContacts extends State<SelectWarehouseContacts> {
   String _selectedLocation2;
   String _selectedLocation3;
 
-  var _value;
+  // var _value;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   void _openEndDrawer() {
@@ -29,64 +31,74 @@ class _SelectWarehouseContacts extends State<SelectWarehouseContacts> {
     Navigator.of(context).pop();
   }
 
+  routeMethod(url) {
+    Get.toNamed(url);
+  }
+
   @override
   Widget build(BuildContext context) {
+    final mediaHeight = MediaQuery.of(context).size.height;
+    final mediaWidth = MediaQuery.of(context).size.width;
+    final screenHeight = mediaHeight / 100;
+    final screenWidth = mediaWidth / 100;
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(title: Text('Drawer Demo')),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 28.0),
-          child: Column(children: <Widget>[
-            Container(
-              height: MediaQuery.of(context).size.height * 0.75,
-              width: MediaQuery.of(context).size.width * 1,
-              child: ListView(children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Container(
-                    height: 60,
-                    width: MediaQuery.of(context).size.width * 0.85,
-                      child: CustomDropDown(
-                          _selectedLocation, _locations, 'Select Warehouse')),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Container(
-                    height: 60,
-                    width: MediaQuery.of(context).size.width * 0.85,
-                      child: CustomDropDown(
-                          _selectedLocation2, _locations2, 'Select Contract')),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Container(
-                      height: 60,
-                      width: MediaQuery.of(context).size.width * 0.85,
-                      child: CustomDropDown(_selectedLocation3, _locations3,
-                          'Select Weigh Bridge')),
-                ),
-                SizedBox(height: 20),
-              ]),
-            ),
-            RaisedButton(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(3.0),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 28.0),
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Container(
+                height: mediaHeight * 0.6,
+                width: mediaWidth * 1,
+                child: ListView(children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Container(
+                        height: mediaHeight * 0.090,
+                        width: mediaWidth * 0.85,
+                        child: CustomDropDown(
+                            _selectedLocation, _locations, 'Select Warehouse')),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Container(
+                        height: mediaHeight * 0.090,
+                        width: mediaWidth * 0.85,
+                        child: CustomDropDown(_selectedLocation2, _locations2,
+                            'Select Contract')),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Container(
+                        height: mediaHeight * 0.090,
+                        width: mediaWidth * 0.85,
+                        child: CustomDropDown(_selectedLocation3, _locations3,
+                            'Select Weigh Bridge')),
+                  ),
+                ]),
               ),
-              onPressed: () {
-                Get.toNamed('/selectWareHouse');
-              },
-              color: Colors.cyan[900],
-              textColor: Colors.white,
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 100, right: 100, top: 18, bottom: 18),
-                child: Text("Continue".toUpperCase(),
-                    style: TextStyle(fontSize: 14)),
-              ),
-            )
-          ]),
-        ),
+              // ContinueButton(routeMethod('/selectWareHouse'),),
+              Container(
+                height: mediaHeight * 0.07,
+                width: mediaWidth * 0.85,
+                child: RaisedButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(3.0),
+                  ),
+                  onPressed: () => {Get.toNamed('/selectWareHouse')},
+                  color: Colors.cyan[900],
+                  textColor: Colors.white,
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        top: 13.0, bottom: 10.0, left: 100, right: 100),
+                    child: AutoSizeText("Continue",
+                        style: TextStyle(fontSize: 18)),
+                  ),
+                ),
+              )
+            ]),
       ),
 
       endDrawer: EndDrawer(_openEndDrawer, _closeEndDrawer),

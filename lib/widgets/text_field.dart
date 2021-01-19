@@ -23,17 +23,20 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-              decoration: InputDecoration(labelText: widget.label),
-              controller: widget.controller,
-              keyboardType:widget.keyboardType,
-              maxLength: widget.maxLength,
-              validator: (String value) {
-                if (value.isEmpty) {
-                  return '$widget.label is Required';
-                }return null;
-              },
-              onSaved:widget.onSaved,
-              );
+              decoration: InputDecoration(
+        labelText: widget.label,
+      ),
+      controller: widget.controller,
+      keyboardType: widget.keyboardType,
+      maxLength: widget.maxLength,
+      validator: (String value) {
+        if (value.isEmpty) {
+          return '$widget.label is Required';
+        }
+        return null;
+      },
+      onSaved: widget.onSaved,
+    );
 
   }
 }
