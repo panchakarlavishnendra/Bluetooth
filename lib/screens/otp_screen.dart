@@ -30,13 +30,18 @@ class _CustomDialogBoxState extends State<OTPPage> {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
-    return Dialog(
+
+    return Theme(
+        data: Theme.of(context)
+        .copyWith(canvasColor: Colors.black87.withOpacity(0.8)),
+    child:Dialog(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(Constants.padding),
       ),
       elevation: 0,
       backgroundColor: Colors.transparent,
       child: contentBox(context),
+    )
     );
   }
   contentBox(context){

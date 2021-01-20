@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth/screens/daily_transaction_register_screen.dart';
+import 'package:flutter_bluetooth/screens/otp_screen.dart';
 
 import 'package:flutter_bluetooth/screens/quality_check_screen.dart';
 import 'package:flutter_bluetooth/screens/select_warehouse_contact_screen.dart';
@@ -25,10 +26,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home:
-          // SelectWarehouseContacts(),
-          DailyTranasactions(),
+      home: OTPPage(),
       debugShowCheckedModeBanner: false,
+      // SelectWarehouseContacts()
     );
   }
 }
