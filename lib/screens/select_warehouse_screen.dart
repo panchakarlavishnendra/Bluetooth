@@ -154,7 +154,7 @@ class _SelectWareHouse extends State<SelectWareHouse> {
                 onPressed: () => {Get.toNamed('/contactsummary')},
                 color: Colors.cyan[900],
                 textColor: Colors.white,
-                child: AutoSizeText("Continue", style: TextStyle(fontSize: 18)),
+                child: Text("Continue", style: TextStyle(fontSize: 18)),
               ),
             )
           ]),

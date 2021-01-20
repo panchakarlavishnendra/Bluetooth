@@ -214,42 +214,81 @@ class _QualityCheckState extends State<QualityCheck> {
                   height: MediaQuery.of(context).size.height * 0.12,
                 ),
                 Container(
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  // color: Colors.blueAccent,
+                  height: MediaQuery.of(context).size.height * 0.07,
+                  width: MediaQuery.of(context).size.width * 0.85,
                   child: RaisedButton(
-                    color: Colors.teal,
-                    onPressed: () {
-                      Get.toNamed('/loadbags');
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 15.0),
-                      child: Text(
-                        'Validate Quality',
-                        style: TextStyle(fontSize: 18, color: Colors.white),
-                      ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(3.0),
                     ),
+                    onPressed: () => {Get.toNamed('/loadbags')},
+                    color: Colors.cyan[900],
+                    textColor: Colors.white,
+                    child: Text("Validate Quality",
+                        style: TextStyle(fontSize: 18)),
                   ),
                 ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.02,
-                ),
+                // Container(
+                //   width: MediaQuery.of(context).size.width * 0.9,
+                //   // color: Colors.blueAccent,
+                //   child: RaisedButton(
+                //     color: Colors.teal,
+                //     onPressed: () {
+                //       Get.toNamed('/loadbags');
+                //     },
+                //     child: Padding(
+                //       padding: const EdgeInsets.symmetric(vertical: 15.0),
+                //       child: Text(
+                //         'Validate Quality',
+                //         style: TextStyle(fontSize: 18, color: Colors.white),
+                //       ),
+                //     ),
+                //   ),
+                // ),
+                // SizedBox(
+                //   height: MediaQuery.of(context).size.height * 0.02,
+                // ),
               ],
             ),
-            Positioned(
-              bottom: 0.0,
-              child: Align(
-                alignment: FractionalOffset.bottomCenter,
-                child: Container(
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  child: RaisedButton(
-                    onPressed: () {
-                      Get.toNamed('/pending');
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 15.0),
-                      child: Text('Reset'),
-                    ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 15.0),
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.07,
+                width: MediaQuery.of(context).size.width * 0.85,
+                child: RaisedButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(3.0),
                   ),
+                  onPressed: () => {Get.toNamed('/pending')},
+                  child: Text("Reset", style: TextStyle(fontSize: 16)),
+                ),
+              ),
+            ),
+            // Container(
+            //   width: MediaQuery.of(context).size.width * 0.9,
+            //   child: RaisedButton(
+            //     onPressed: () {
+            //       Get.toNamed('/pending');
+            //     },
+            //     child: Padding(
+            //       padding: const EdgeInsets.symmetric(vertical: 15.0),
+            //       child: Text('Reset'),
+            //     ),
+            //   ),
+            // ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 17.0),
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.07,
+                width: MediaQuery.of(context).size.width * 0.85,
+                child: RaisedButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(3.0),
+                  ),
+                  onPressed: () => {Get.toNamed('/loadbags')},
+                  color: Colors.cyan[900],
+                  textColor: Colors.white,
+                  child: Text("Qc Values not Matched",
+                      style: TextStyle(fontSize: 18)),
                 ),
               ),
             ),
