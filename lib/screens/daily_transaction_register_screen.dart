@@ -77,7 +77,7 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                                     ),
                                     Text(
                                       '2344\nOutgoing',
-                                      style: TextStyle(fontSize: 18),
+                                      style: TextStyle(fontSize: 16),
                                     )
                                   ],
                                 ),
@@ -94,7 +94,7 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                                     ),
                                     Text(
                                       '2344\nIncoming',
-                                      style: TextStyle(fontSize: 18),
+                                      style: TextStyle(fontSize: 16),
                                     )
                                   ],
                                 ),
@@ -111,7 +111,7 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                                     ),
                                     Text(
                                       '2344\nPending',
-                                      style: TextStyle(fontSize: 18),
+                                      style: TextStyle(fontSize: 16),
                                     )
                                   ],
                                 ),
@@ -134,7 +134,7 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                                   children: [
                                     Padding(
                                       padding: const EdgeInsets.symmetric(
-                                          horizontal: 12.0),
+                                          horizontal: 8.0),
                                       child: Icon(
                                         Icons.arrow_circle_up_rounded,
                                         size: 35,
@@ -142,7 +142,7 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                                     ),
                                     Text(
                                       "2344\nMother Bag's",
-                                      style: TextStyle(fontSize: 18),
+                                      style: TextStyle(fontSize: 16),
                                     )
                                   ],
                                 ),
@@ -151,7 +151,7 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                                   children: [
                                     Padding(
                                       padding: const EdgeInsets.symmetric(
-                                          horizontal: 12.0),
+                                          horizontal: 8.0),
                                       child: Icon(
                                         Icons.arrow_circle_down_rounded,
                                         size: 35,
@@ -159,7 +159,7 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                                     ),
                                     Text(
                                       "2344\nMadeUp Bag's",
-                                      style: TextStyle(fontSize: 18),
+                                      style: TextStyle(fontSize: 16),
                                     )
                                   ],
                                 ),
@@ -168,7 +168,7 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                                   children: [
                                     Padding(
                                       padding: const EdgeInsets.symmetric(
-                                          horizontal: 12.0),
+                                          horizontal: 8.0),
                                       child: Icon(
                                         Icons.pending,
                                         size: 30,
@@ -176,7 +176,7 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                                     ),
                                     Text(
                                       '2344\nMT.Total WT',
-                                      style: TextStyle(fontSize: 18),
+                                      style: TextStyle(fontSize: 16),
                                     )
                                   ],
                                 ),
@@ -188,7 +188,7 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                       ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 13.0),
+                      padding: const EdgeInsets.symmetric(vertical: 10.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -208,8 +208,9 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                       ),
                     ),
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.8,
+                      width: MediaQuery.of(context).size.width * 0.83,
                       child: Row(
+                        // mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           _myRadioButton(
                             title: "INWARD",
@@ -227,27 +228,26 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      padding: const EdgeInsets.symmetric(vertical: 20.0),
                       child: _myCard(),
                     ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Container(
-                      height: MediaQuery.of(context).size.height * 0.055,
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      child: RaisedButton(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(3.0),
-                        ),
-                        onPressed: () => {Get.toNamed('/selectWareHouse')},
-                        color: Colors.cyan[900],
-                        textColor: Colors.white,
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                              top: 13.0, bottom: 10.0, left: 100, right: 100),
-                          child: Text("DRT Summary".toUpperCase(),
-                              style: TextStyle(fontSize: 18)),
+                    // SizedBox(
+                    //   height: 30,
+                    // ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 28.0),
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.055,
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        child: RaisedButton(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(3.0),
+                          ),
+                          onPressed: () => {Get.toNamed('/selectWareHouse')},
+                          color: Colors.cyan[900],
+                          textColor: Colors.white,
+                          child: Text('DRT SUMMARY',
+                              style: TextStyle(fontSize: 14)),
                         ),
                       ),
                     ),
@@ -265,13 +265,16 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
 
   Widget _myRadioButton({String title, int value, Function onChanged}) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.4,
+      width: MediaQuery.of(context).size.width * 0.41,
       height: MediaQuery.of(context).size.height * 0.06,
       child: RadioListTile(
         value: value,
         groupValue: _groupValue,
         onChanged: onChanged,
-        title: Text(title),
+        title: Text(
+          title,
+          style: TextStyle(fontSize: 12.2, fontWeight: FontWeight.bold),
+        ),
       ),
     );
   }

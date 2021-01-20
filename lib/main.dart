@@ -25,9 +25,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: DailyTranasactions(),
+      home:
+          // SelectWarehouseContacts(),
+          DailyTranasactions(),
       debugShowCheckedModeBanner: false,
-      // SelectWarehouseContacts()
     );
   }
 }
