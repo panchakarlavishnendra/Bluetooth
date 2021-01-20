@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bluetooth/widgets/continue_button.dart';
 import 'package:flutter_bluetooth/widgets/drop_down.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
-// import 'package:group_radio_button/group_radio_button.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:get/get.dart';
 
 class SelectWarehouseContacts extends StatefulWidget {
@@ -90,12 +87,7 @@ class _SelectWarehouseContacts extends State<SelectWarehouseContacts> {
                   onPressed: () => {Get.toNamed('/selectWareHouse')},
                   color: Colors.cyan[900],
                   textColor: Colors.white,
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                        top: 13.0, bottom: 10.0, left: 100, right: 100),
-                    child: AutoSizeText("Continue",
-                        style: TextStyle(fontSize: 18)),
-                  ),
+                  child: Text("Continue", style: TextStyle(fontSize: 18)),
                 ),
               )
             ]),

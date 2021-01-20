@@ -1,14 +1,14 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth/models/place_location.dart';
-import 'package:flutter_bluetooth/screens/truck_weightment_screen.dart';
 import 'package:flutter_bluetooth/screens/chat_screen.dart';
 import 'package:flutter_bluetooth/screens/connected_devices_screen.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'package:geocoder/geocoder.dart';
 import 'package:geocoder/model.dart';
-import 'package:location/location.dart';
 import 'package:get/get.dart';
+import 'package:location/location.dart';
 
 class MainPage extends StatefulWidget {
   static const routeName = '/MainPage';
@@ -123,13 +123,6 @@ class _MainPage extends State<MainPage> {
               },
             ),
           ),
-          // new ListView.builder
-          //   (
-          //     itemCount: litems.length,
-          //     itemBuilder: (BuildContext ctxt, int index) {
-          //       return new Text(litems[index]);
-          //     }
-          // )
         ],
       ),
     );

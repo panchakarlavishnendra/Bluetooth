@@ -1,14 +1,16 @@
 import 'dart:ui';
+
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bluetooth/widgets/drop_down.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:flutter_bluetooth/widgets/text_field.dart';
 import 'package:get/get.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 
 class ContractSummary extends StatefulWidget {
   ContractSummary({Key key}) : super(key: key);
+
   @override
   _ContractSummary createState() => new _ContractSummary();
 }
@@ -57,23 +59,6 @@ class _ContractSummary extends State<ContractSummary> {
                     width: MediaQuery.of(context).size.width * 0.85,
                     child: CustomDropDown(
                         _selectedLocation, _locations, 'Contact Name ID'),
-                    // DropdownButton(
-                    //   hint: Text('Contact Name ID'),
-                    //   // Not necessary for Option 1
-                    //   value: _selectedLocation,
-                    //   isExpanded: true,
-                    //   onChanged: (newValue) {
-                    //     setState(() {
-                    //       _selectedLocation = newValue;
-                    //     });
-                    //   },
-                    //   items: _locations.map((location) {
-                    //     return DropdownMenuItem(
-                    //       child: new Text(location),
-                    //       value: location,
-                    //     );
-                    //   }).toList(),
-                    // ),
                   ),
                 ),
               ),
@@ -84,23 +69,6 @@ class _ContractSummary extends State<ContractSummary> {
                   width: MediaQuery.of(context).size.width * 0.85,
                   child: CustomDropDown(
                       _selectedLocation, _locations, 'Client Name'),
-                  // DropdownButton(
-                  //   hint: Text('Client Name'),
-                  //   // Not necessary for Option 1
-                  //   value: _selectedLocation,
-                  //   isExpanded: true,
-                  //   onChanged: (newValue) {
-                  //     setState(() {
-                  //       _selectedLocation = newValue;
-                  //     });
-                  //   },
-                  //   items: _locations.map((location) {
-                  //     return DropdownMenuItem(
-                  //       child: new Text(location),
-                  //       value: location,
-                  //     );
-                  //   }).toList(),
-                  // ),
                 ),
               ),
               Padding(
@@ -110,23 +78,6 @@ class _ContractSummary extends State<ContractSummary> {
                   width: MediaQuery.of(context).size.width * 0.85,
                   child: CustomDropDown(
                       _selectedLocation, _locations, 'Commodity'),
-                  // DropdownButton(
-                  //   hint: Text('Commodity'),
-                  //   // Not necessary for Option 1
-                  //   value: _selectedLocation,
-                  //   isExpanded: true,
-                  //   onChanged: (newValue) {
-                  //     setState(() {
-                  //       _selectedLocation = newValue;
-                  //     });
-                  //   },
-                  //   items: _locations.map((location) {
-                  //     return DropdownMenuItem(
-                  //       child: new Text(location),
-                  //       value: location,
-                  //     );
-                  //   }).toList(),
-                  // ),
                 ),
               ),
               SizedBox(height: 30),
@@ -294,7 +245,8 @@ class _ContractSummary extends State<ContractSummary> {
                 height: MediaQuery.of(context).size.height * 0.145,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
                 child: Container(
                   height: MediaQuery.of(context).size.height * 0.07,
                   width: MediaQuery.of(context).size.width * 0.85,
@@ -310,22 +262,6 @@ class _ContractSummary extends State<ContractSummary> {
                   ),
                 ),
               )
-              // RaisedButton(
-              //   shape: RoundedRectangleBorder(
-              //     borderRadius: BorderRadius.circular(3.0),
-              //   ),
-              //   onPressed: () {
-              //     Get.toNamed('/truckweightment');
-              //   },
-              //   color: Colors.cyan[900],
-              //   textColor: Colors.white,
-              //   child: Padding(
-              //     padding: const EdgeInsets.only(
-              //         left: 100, right: 100, top: 18, bottom: 18),
-              //     child: Text("Continue".toUpperCase(),
-              //         style: TextStyle(fontSize: 14)),
-              //   ),
-              // )
             ]),
       ),
       endDrawer: EndDrawer(_openEndDrawer, _closeEndDrawer),

@@ -227,26 +227,6 @@ class _QualityCheckState extends State<QualityCheck> {
                         style: TextStyle(fontSize: 18)),
                   ),
                 ),
-                // Container(
-                //   width: MediaQuery.of(context).size.width * 0.9,
-                //   // color: Colors.blueAccent,
-                //   child: RaisedButton(
-                //     color: Colors.teal,
-                //     onPressed: () {
-                //       Get.toNamed('/loadbags');
-                //     },
-                //     child: Padding(
-                //       padding: const EdgeInsets.symmetric(vertical: 15.0),
-                //       child: Text(
-                //         'Validate Quality',
-                //         style: TextStyle(fontSize: 18, color: Colors.white),
-                //       ),
-                //     ),
-                //   ),
-                // ),
-                // SizedBox(
-                //   height: MediaQuery.of(context).size.height * 0.02,
-                // ),
               ],
             ),
             Padding(
@@ -263,18 +243,6 @@ class _QualityCheckState extends State<QualityCheck> {
                 ),
               ),
             ),
-            // Container(
-            //   width: MediaQuery.of(context).size.width * 0.9,
-            //   child: RaisedButton(
-            //     onPressed: () {
-            //       Get.toNamed('/pending');
-            //     },
-            //     child: Padding(
-            //       padding: const EdgeInsets.symmetric(vertical: 15.0),
-            //       child: Text('Reset'),
-            //     ),
-            //   ),
-            // ),
             Padding(
               padding: const EdgeInsets.only(bottom: 17.0),
               child: Container(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
-import 'package:group_radio_button/group_radio_button.dart';
 import 'package:get/get.dart';
 
 class DailyTranasactions extends StatefulWidget {
@@ -231,9 +230,6 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                       padding: const EdgeInsets.symmetric(vertical: 20.0),
                       child: _myCard(),
                     ),
-                    // SizedBox(
-                    //   height: 30,
-                    // ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 28.0),
                       child: Container(
