@@ -1,16 +1,9 @@
 /// Flutter code sample for Scaffold.endDrawer
-
-// To disable the drawer edge swipe, set the
-// [Scaffold.endDrawerEnableOpenDragGesture] to false. Then, use
-// [ScaffoldState.openEndDrawer] to open the drawer and [Navigator.pop] to
-// close it.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth/widgets/app_widget.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
-import 'package:timeline_tile/timeline_tile.dart';
 import 'package:get/get.dart';
-import '../const.dart';
+import 'package:timeline_tile/timeline_tile.dart';
 
 /// This is the stateful widget that the main application instantiates.
 class PendingApprovals extends StatefulWidget {
@@ -291,15 +284,23 @@ class _PendingApprovalsState extends State<PendingApprovals> {
               ),
             ),
           ),
-          RaisedButton(
-              child: Text(
-                'VIEW DETAILS',
-                style: TextStyle(color: Colors.white),
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.07,
+              width: MediaQuery.of(context).size.width * 0.85,
+              child: RaisedButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(3.0),
+                ),
+                onPressed: () => {Get.toNamed('/success')},
+                color: Colors.cyan[900],
+                textColor: Colors.white,
+                child: Text("Continue", style: TextStyle(fontSize: 18)),
               ),
-              color: Colors.cyan[800],
-              onPressed: () {
-                Get.toNamed('/success');
-              })
+            ),
+          ),
         ],
       ),
 

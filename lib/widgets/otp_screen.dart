@@ -1,11 +1,12 @@
 
 import 'dart:async';
 import 'dart:ui';
+
 // import 'package:custom_dialog_flutter_demo/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:get/get.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OTPPage extends StatefulWidget {
   // final String title, descriptions, text;

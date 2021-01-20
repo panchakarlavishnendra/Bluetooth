@@ -24,10 +24,10 @@ class _QualityCheckState extends State<QualityCheck> {
 
   final _damageController = TextEditingController();
 
-  void dispose() {
-    _moistureController.dispose();
-    _damageController.dispose();
-  }
+  // void dispose() {
+  //   _moistureController.dispose();
+  //   _damageController.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
