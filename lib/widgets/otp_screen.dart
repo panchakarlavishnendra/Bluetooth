@@ -8,20 +8,26 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-class OTPPage extends StatefulWidget {
+class CustomDialogBox extends StatefulWidget {
+  CustomDialogBox(this.context);
+
+  var context;
+
   // final String title, descriptions, text;
   // final Image img;
   String currentText;
+
   // const CustomDialogBox({Key key, this.title, this.descriptions, this.text, this.img}) : super(key: key);
 
   @override
   _CustomDialogBoxState createState() => _CustomDialogBoxState();
 }
 
-class _CustomDialogBoxState extends State<OTPPage> {
+class _CustomDialogBoxState extends State<CustomDialogBox> {
   final formKey = GlobalKey<FormState>();
   String currentText = "";
   TextEditingController textEditingController = TextEditingController();
+
   // ..text = "123456";
 
   StreamController<ErrorAnimationType> errorController;
@@ -31,28 +37,25 @@ class _CustomDialogBoxState extends State<OTPPage> {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
-
-    return Theme(
-        data: Theme.of(context)
-        .copyWith(canvasColor: Colors.black87.withOpacity(0.8)),
-    child:Dialog(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(Constants.padding),
-      ),
-      elevation: 0,
-      backgroundColor: Colors.transparent,
-      child: contentBox(context),
-    )
-    );
-  }
-  contentBox(context){
-
+    //
+    // return Theme(
+    //     data: Theme.of(context)
+    //     .copyWith(canvasColor: Colors.black87.withOpacity(0.8)),
+    // child:Dialog(
+    //   shape: RoundedRectangleBorder(
+    //     borderRadius: BorderRadius.circular(12),
+    //   ),
+    //   elevation: 0,
+    //   backgroundColor: Colors.transparent,
+    //   child: contentBox(context),
+    // )
+    // );
 
     return Stack(
       children: <Widget>[
         Container(
           height: 400,
-          width: MediaQuery.of(context).size.width * 0.95,
+          width: MediaQuery.of(widget.context).size.width * 0.95,
           padding: EdgeInsets.only(
             left: 20,
             top: 0,
@@ -68,15 +71,10 @@ class _CustomDialogBoxState extends State<OTPPage> {
                 BoxShadow(
                     color: Colors.transparent,
                     offset: Offset(0, 10),
-                    blurRadius: 10
-                ),
-              ]
-          ),
-
-
-
-            child: ListView(
-              children: <Widget>[
+                    blurRadius: 10),
+              ]),
+          child: ListView(
+            children: <Widget>[
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).pop();
@@ -96,17 +94,17 @@ class _CustomDialogBoxState extends State<OTPPage> {
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                  height: 22,
+                height: 22,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 18.0),
+                child: Text(
+                  'Enter OTP',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  // textAlign: TextAlign.left,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left : 18.0),
-                  child: Text(
-                    'Enter OTP',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                    // textAlign: TextAlign.left,
-                  ),
-                ),
-                Form(
+              ),
+              Form(
                   key: formKey,
                   child: Padding(
                       padding: const EdgeInsets.symmetric(
@@ -122,21 +120,20 @@ class _CustomDialogBoxState extends State<OTPPage> {
                       obscuringCharacter: '*',
                       animationType: AnimationType.none,
                       validator: (v) {
-                          if (v.length < 3) {
-                            return "I'm from validator";
-                          } else {
-                            return null;
-                          }
-                        },
-                        pinTheme: PinTheme(
+                        if (v.length < 3) {
+                          return "I'm from validator";
+                        } else {
+                          return null;
+                        }
+                      },
+                      pinTheme: PinTheme(
                           shape: PinCodeFieldShape.box,
                           borderRadius: BorderRadius.circular(5),
                           fieldHeight: 60,
                           fieldWidth: 50,
                           activeFillColor: Colors.white,
-                            inactiveFillColor :Colors.white24,
-                          inactiveColor:Colors.black87
-                        ),
+                          inactiveFillColor: Colors.white24,
+                          inactiveColor: Colors.black87),
                         cursorColor: Colors.black,
                         animationDuration: Duration(milliseconds: 300),
                         textStyle: TextStyle(fontSize: 20, height: 1.6),
@@ -193,7 +190,7 @@ class _CustomDialogBoxState extends State<OTPPage> {
                   const EdgeInsets.symmetric(vertical: 16.0, horizontal: 30),
                   child: ButtonTheme(
                     height: 10,
-                    child: FlatButton(
+                  child: FlatButton(
                     onPressed: () {
                       Get.toNamed('/pending');
                     },
@@ -206,12 +203,12 @@ class _CustomDialogBoxState extends State<OTPPage> {
                           fontWeight: FontWeight.bold),
                     )),
                   ),
-                  ),
-                  decoration: BoxDecoration(
-                      color:  Colors.teal[900],
-                      borderRadius: BorderRadius.circular(5),
-                     ),
                 ),
+                decoration: BoxDecoration(
+                  color: Colors.teal[900],
+                  borderRadius: BorderRadius.circular(5),
+                ),
+              ),
                 SizedBox(
                   height: 1,
                 ),
@@ -220,9 +217,9 @@ class _CustomDialogBoxState extends State<OTPPage> {
                   const EdgeInsets.symmetric(vertical: 16.0, horizontal: 30),
                   child: ButtonTheme(
                     height: 10,
-                    child: FlatButton(
-                      onPressed: () {
-                        Get.toNamed('/truckweightment');
+                  child: FlatButton(
+                    onPressed: () {
+                      Get.toNamed('/truckweightment');
                     },
                     child: Center(
                         child: Text(
@@ -233,23 +230,21 @@ class _CustomDialogBoxState extends State<OTPPage> {
                           fontWeight: FontWeight.bold),
                     )),
                   ),
-                  ),
-                  decoration: BoxDecoration(
-                      color:  Colors.teal[900],
-                      borderRadius: BorderRadius.circular(5),
-                      ),
                 ),
-
-              ],
-            ),
+                decoration: BoxDecoration(
+                  color: Colors.teal[900],
+                  borderRadius: BorderRadius.circular(5),
+                ),
+              ),
+            ],
           ),
-
+        ),
       ],
     );
   }
-
 }
-class Constants{
+
+class Constants {
   Constants._();
 
   static const double padding = 20;

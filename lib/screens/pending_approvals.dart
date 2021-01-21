@@ -1,8 +1,12 @@
+import 'dart:async';
+
 /// Flutter code sample for Scaffold.endDrawer
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth/widgets/app_widget.dart';
+import 'package:flutter_bluetooth/widgets/otp_screen.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:get/get.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
 /// This is the stateful widget that the main application instantiates.
@@ -16,6 +20,12 @@ class PendingApprovals extends StatefulWidget {
 /// This is the private State class that goes with MyStatefulWidget.
 class _PendingApprovalsState extends State<PendingApprovals> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  bool hasError = false;
+  String currentText = "";
+  final formKey = GlobalKey<FormState>();
+  StreamController<ErrorAnimationType> errorController;
+  TextEditingController textEditingController = TextEditingController();
 
   void _openEndDrawer() {
     _scaffoldKey.currentState.openEndDrawer();
@@ -286,7 +296,7 @@ class _PendingApprovalsState extends State<PendingApprovals> {
           ),
           Padding(
             padding:
-                const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+            const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
             child: Container(
               height: MediaQuery.of(context).size.height * 0.07,
               width: MediaQuery.of(context).size.width * 0.85,
@@ -317,7 +327,21 @@ class _PendingApprovalsState extends State<PendingApprovals> {
       child: FlatButton(
         color: Colors.white,
         onPressed: () {
-          Get.toNamed('/otpscreen');
+          showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return Theme(
+                    data: Theme.of(context)
+                        .copyWith(canvasColor: Colors.black87.withOpacity(0.8)),
+                    child: Dialog(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      elevation: 0,
+                      backgroundColor: Colors.transparent,
+                      child: CustomDialogBox(context),
+                    ));
+              });
         },
         child: Padding(
           padding: const EdgeInsets.all(3.0),
@@ -332,4 +356,205 @@ class _PendingApprovalsState extends State<PendingApprovals> {
       ),
     );
   }
+// Widget contentBox(context){
+//   return Stack(
+//     children: <Widget>[
+//       Container(
+//         height: 400,
+//         width: MediaQuery.of(context).size.width * 0.95,
+//         padding: EdgeInsets.only(
+//           left: 20,
+//           top: 0,
+//           right: 20,
+//           bottom: 20,
+//         ),
+//         margin: EdgeInsets.only(top: Constants.avatarRadius),
+//         decoration: BoxDecoration(
+//             shape: BoxShape.rectangle,
+//             color: Colors.white,
+//             borderRadius: BorderRadius.circular(Constants.padding),
+//             boxShadow: [
+//               BoxShadow(
+//                   color: Colors.transparent,
+//                   offset: Offset(0, 10),
+//                   blurRadius: 10
+//               ),
+//             ]
+//         ),
+//
+//
+//
+//         child: ListView(
+//           children: <Widget>[
+//             GestureDetector(
+//               onTap: () {
+//                 Navigator.of(context).pop();
+//               },
+//               child: Align(
+//                 alignment: Alignment.topRight,
+//                 child: CircleAvatar(
+//                   radius: 6.0,
+//                   backgroundColor: Colors.white,
+//                   child: Icon(Icons.close, color: Colors.black),
+//                 ),
+//               ),
+//             ),
+//             Text(
+//               'Moisture Value',
+//               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+//               textAlign: TextAlign.center,
+//             ),
+//             SizedBox(
+//               height: 22,
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.only(left : 18.0),
+//               child: Text(
+//                 'Enter OTP',
+//                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+//                 // textAlign: TextAlign.left,
+//               ),
+//             ),
+//             Form(
+//               key: formKey,
+//               child: Padding(
+//                   padding: const EdgeInsets.symmetric(
+//                       vertical: 8.0, horizontal: 10),
+//                   child: PinCodeTextField(
+//                     appContext: context,
+//                     pastedTextStyle: TextStyle(
+//                       color: Colors.black,
+//                       fontWeight: FontWeight.bold,
+//                     ),
+//                     length: 4,
+//                     obscureText: false,
+//                     obscuringCharacter: '*',
+//                     animationType: AnimationType.none,
+//                     validator: (v) {
+//                       if (v.length < 3) {
+//                         return "I'm from validator";
+//                       } else {
+//                         return null;
+//                       }
+//                     },
+//                     pinTheme: PinTheme(
+//                         shape: PinCodeFieldShape.box,
+//                         borderRadius: BorderRadius.circular(5),
+//                         fieldHeight: 60,
+//                         fieldWidth: 50,
+//                         activeFillColor: Colors.white,
+//                         inactiveFillColor :Colors.white24,
+//                         inactiveColor:Colors.black87
+//                     ),
+//                     cursorColor: Colors.black,
+//                     animationDuration: Duration(milliseconds: 300),
+//                     textStyle: TextStyle(fontSize: 20, height: 1.6),
+//                     backgroundColor: Colors.white,
+//                     // enableActiveFill: true,
+//                     // enablePinAutofill: true,
+//                     errorAnimationController: errorController,
+//                     controller: textEditingController,
+//                     keyboardType: TextInputType.number,
+//                     // boxShadows: [
+//                     //   BoxShadow(
+//                     //     offset: Offset(0, 1),
+//                     //     color: Colors.black12,
+//                     //     blurRadius: 10,
+//                     //   )
+//                     // ],
+//                     onCompleted: (v) {
+//                       print("Completed");
+//                     },
+//                     onTap: () {
+//                       print("Pressed");
+//                     },
+//                     onChanged: (value) {
+//                       print(value);
+//                       setState(() {
+//                         currentText = value;
+//                       });
+//                     },
+//                     beforeTextPaste: (text) {
+//                       print("Allowing to paste $text");
+//                       //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
+//                       //but you can show anything you want here, like your pop up saying wrong paste format or etc
+//                       return true;
+//                     },
+//                   )),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.symmetric(horizontal: 30.0),
+//               child: Text(
+//                 hasError ? "*Please fill up all the cells properly" : "",
+//                 style: TextStyle(
+//                     color: Colors.black87,
+//                     fontSize: 12,
+//                     fontWeight: FontWeight.w400),
+//               ),
+//             ),
+//
+//
+//             SizedBox(
+//               height: 1,
+//             ),
+//             Container(
+//               margin:
+//               const EdgeInsets.symmetric(vertical: 16.0, horizontal: 30),
+//               child: ButtonTheme(
+//                 height: 10,
+//                 child: FlatButton(
+//                   onPressed: () {
+//                     Get.toNamed('/pending');
+//                   },
+//                   child: Center(
+//                       child: Text(
+//                         "Continue".toUpperCase(),
+//                         style: TextStyle(
+//                             color: Colors.white,
+//                             fontSize: 18,
+//                             fontWeight: FontWeight.bold),
+//                       )),
+//                 ),
+//               ),
+//               decoration: BoxDecoration(
+//                 color:  Colors.teal[900],
+//                 borderRadius: BorderRadius.circular(5),
+//               ),
+//             ),
+//             SizedBox(
+//               height: 1,
+//             ),
+//             Container(
+//               margin:
+//               const EdgeInsets.symmetric(vertical: 16.0, horizontal: 30),
+//               child: ButtonTheme(
+//                 height: 10,
+//                 child: FlatButton(
+//                   onPressed: () {
+//                     Get.toNamed('/truckweightment');
+//                   },
+//                   child: Center(
+//                       child: Text(
+//                         "VERIFY LATER".toUpperCase(),
+//                         style: TextStyle(
+//                             color: Colors.white,
+//                             fontSize: 18,
+//                             fontWeight: FontWeight.bold
+//                         ),
+//                       )),
+//                 ),
+//               ),
+//               decoration: BoxDecoration(
+//                 color:  Colors.teal[900],
+//                 borderRadius: BorderRadius.circular(5),
+//               ),
+//             ),
+//
+//           ],
+//         ),
+//       ),
+//
+//     ],
+//   );
+// }
 }

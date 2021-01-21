@@ -4,7 +4,6 @@ import 'package:flutter_bluetooth/screens/pending_approvals.dart';
 import 'package:flutter_bluetooth/screens/select_warehouse_contact_screen.dart';
 import 'package:flutter_bluetooth/screens/success_screen.dart';
 import 'package:flutter_bluetooth/screens/upload_weighment_document.dart';
-import 'package:flutter_bluetooth/widgets/otp_screen.dart';
 import 'package:get/get.dart';
 
 import 'screens/contract_summary_screen.dart';
@@ -60,10 +59,10 @@ class Routes {
       name: '/uploaddocuemnts',
       page: () => UploadWeighmentDocumentScreen(),
     ),
-    GetPage(
-      name: '/otpscreen',
-      page: () => OTPPage(),
-    ),
+    // GetPage(
+    //   name: '/otpscreen',
+    //   page: () => CustomDialogBox(),
+    // ),
     GetPage(
       name: '/pending',
       page: () => PendingApprovals(),
