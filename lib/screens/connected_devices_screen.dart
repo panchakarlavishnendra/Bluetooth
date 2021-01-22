@@ -115,12 +115,12 @@ class _SelectBondedDevicePage extends State<SelectBondedDevicePage> {
               rssi: _device.rssi,
               enabled: _device.availability == _DeviceAvailability.yes,
               onTap: () {
-                // Navigator.of(context).pop(_device.device);
-
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ChatPage()),
-                );
+                Navigator.of(context).pop(_device.device);
+                print('tapped');
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(builder: (context) => ChatPage()),
+                // );
 
               },
             ))

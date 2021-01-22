@@ -22,11 +22,16 @@ class _MainPage extends State<MainPage> {
 
   String _address;
   String _name = "...";
+ String _text = '';
 
   Timer _discoverableTimeoutTimer;
   int _discoverableTimeoutSecondsLeft = 0;
 
   bool _autoAcceptPairingRequests = false;
+
+
+    function(value) => setState(() => _text = value);
+
 
   @override
   void initState() {
@@ -56,6 +61,15 @@ class _MainPage extends State<MainPage> {
     _address = _pickedLocation.address.toString();
     // _incident.location = _pickedLocation;
   }
+  // var data;
+  // onDataReceived(){
+  //   setState(() {
+  //     data = new ChatPage();
+  //     print(data);
+  //   });
+  // }
+
+
 
   @override
   void dispose() {
@@ -118,20 +132,26 @@ class _MainPage extends State<MainPage> {
           ListTile(
             title: RaisedButton(
               child: const Text('Verify'),
-              onPressed: () {
-                Get.toNamed('/truckweightment');
-              },
+              // onPressed: () {
+              //   Get.toNamed('/truckweightment');
+              //
+              // },
+              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => ChatPage(onDataReceived: function)),
+            ),
             ),
           ),
+          ListTile(
+            title: Text(_text),
+          )
         ],
       ),
     );
   }
 
   void _startChat(BuildContext context, BluetoothDevice server) {
-    ChatPage msgdata = new ChatPage();
-    msgdata.onDataReceived();
-    print(msgdata);
+    // ChatPage msgdata = new ChatPage();
+    // msgdata.onDataReceived();
+    // print(msgdata);
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) {

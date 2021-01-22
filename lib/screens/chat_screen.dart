@@ -24,7 +24,7 @@ class _Message {
 class _ChatPage extends State<ChatPage> {
   static final clientID = 0;
   BluetoothConnection connection;
-
+   List<Row> list =[];
   List<_Message> messages = List<_Message>();
   List arr =[];
   String _messageBuffer = '';
@@ -87,7 +87,7 @@ class _ChatPage extends State<ChatPage> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Row> list = messages.map((_message) {
+    list = messages.map((_message) {
       return Row(
         children: <Widget>[
           Container(
@@ -104,6 +104,17 @@ class _ChatPage extends State<ChatPage> {
                     _message.whom == clientID ? Colors.blueAccent : Colors.grey,
                 borderRadius: BorderRadius.circular(7.0)),
           ),
+          Container(
+            child: RaisedButton(
+              child: Text('blueTooth Data'),
+              onPressed: (){
+                onDataReceived(){
+                  list.toString();
+                }
+              },
+            )
+            // Text(list.toString()),
+          )
         ],
         mainAxisAlignment: _message.whom == clientID
             ? MainAxisAlignment.end
