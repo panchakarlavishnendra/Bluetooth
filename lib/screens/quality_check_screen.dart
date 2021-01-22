@@ -59,6 +59,7 @@ class _QualityCheckState extends State<QualityCheck> {
                     )
                   ],
                 ),
+                SizedBox(),
                 Text('Assayer'),
                 Text('Loremepsum'),
                 Padding(
@@ -145,7 +146,9 @@ class _QualityCheckState extends State<QualityCheck> {
                             'Manual Entry',
                             style: TextStyle(fontSize: 12.5),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.toNamed('/selectdevicepage');
+                          },
                         ),
                       )
                     ],

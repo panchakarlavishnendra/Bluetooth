@@ -26,6 +26,7 @@ class _ChatPage extends State<ChatPage> {
   BluetoothConnection connection;
 
   List<_Message> messages = List<_Message>();
+  List arr =[];
   String _messageBuffer = '';
 
   final TextEditingController textEditingController =
@@ -209,6 +210,9 @@ class _ChatPage extends State<ChatPage> {
               0, _messageBuffer.length - backspacesCounter)
           : _messageBuffer + dataString);
     }
+    arr.add(messages);
+    print(messages);
+    print(arr);
   }
 
   void _sendMessage(String text) async {

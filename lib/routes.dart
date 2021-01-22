@@ -1,3 +1,4 @@
+import 'package:flutter_bluetooth/screens/connected_devices_screen.dart';
 import 'package:flutter_bluetooth/screens/loading_bags_screen.dart';
 import 'package:flutter_bluetooth/screens/main_screen_page.dart';
 import 'package:flutter_bluetooth/screens/pending_approvals.dart';
@@ -70,6 +71,10 @@ class Routes {
     GetPage(
       name: '/success',
       page: () => Sucess(),
+    ),
+    GetPage(
+      name: '/selectdevicepage',
+      page: () => SelectBondedDevicePage(),
     ),
   ];
 }
