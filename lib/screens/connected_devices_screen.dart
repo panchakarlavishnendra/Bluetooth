@@ -1,6 +1,7 @@
 import 'dart:async';
-
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bluetooth/screens/chat_screen.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
 import 'bluetooth_entity_list_screen.dart';
@@ -114,7 +115,13 @@ class _SelectBondedDevicePage extends State<SelectBondedDevicePage> {
               rssi: _device.rssi,
               enabled: _device.availability == _DeviceAvailability.yes,
               onTap: () {
-                Navigator.of(context).pop(_device.device);
+                // Navigator.of(context).pop(_device.device);
+
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ChatPage()),
+                );
+
               },
             ))
         .toList();
