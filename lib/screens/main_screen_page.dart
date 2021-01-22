@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth/models/place_location.dart';
-import 'package:flutter_bluetooth/screens/chat_screen.dart';
+import 'package:flutter_bluetooth/screens/chat_page.dart';
 import 'package:flutter_bluetooth/screens/connected_devices_screen.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'package:geocoder/geocoder.dart';
@@ -22,7 +22,7 @@ class _MainPage extends State<MainPage> {
 
   String _address;
   String _name = "...";
- String _text = '';
+  String _text = '';
 
   Timer _discoverableTimeoutTimer;
   int _discoverableTimeoutSecondsLeft = 0;
@@ -30,7 +30,7 @@ class _MainPage extends State<MainPage> {
   bool _autoAcceptPairingRequests = false;
 
 
-    function(value) => setState(() => _text = value);
+  function(value) => setState(() => _text = value);
 
 
   @override
@@ -54,7 +54,7 @@ class _MainPage extends State<MainPage> {
     final locData = await Location().getLocation();
     final coordinates = new Coordinates(locData.latitude, locData.longitude);
     final userAddress =
-        await Geocoder.local.findAddressesFromCoordinates(coordinates);
+    await Geocoder.local.findAddressesFromCoordinates(coordinates);
     _locationController.text = userAddress.first.addressLine;
 
     _pickedLocation = new PlaceLocation(address: userAddress.first.addressLine);
@@ -111,7 +111,7 @@ class _MainPage extends State<MainPage> {
               child: const Text('Paired devices'),
               onPressed: () async {
                 final BluetoothDevice selectedDevice =
-                    await Navigator.of(context).push(
+                await Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) {
                       return SelectBondedDevicePage(checkAvailability: false);
@@ -137,7 +137,7 @@ class _MainPage extends State<MainPage> {
               //
               // },
               onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => ChatPage(onDataReceived: function)),
-            ),
+              ),
             ),
           ),
           ListTile(

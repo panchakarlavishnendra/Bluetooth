@@ -1,4 +1,4 @@
-import 'package:flutter_bluetooth/screens/chat_screen.dart';
+import 'package:flutter_bluetooth/screens/chat_page.dart';
 import 'package:flutter_bluetooth/screens/connected_devices_screen.dart';
 import 'package:flutter_bluetooth/screens/loading_bags_screen.dart';
 import 'package:flutter_bluetooth/screens/main_screen_page.dart';

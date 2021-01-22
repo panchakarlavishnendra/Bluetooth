@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bluetooth/screens/chat_page.dart';
+import 'package:flutter_bluetooth/screens/connected_devices_screen.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
+import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'package:get/get.dart';
 
 const List<String> assetNames = <String>['assets/bluetooth.svg'];
@@ -11,7 +14,7 @@ class QualityCheck extends StatefulWidget {
 
 class _QualityCheckState extends State<QualityCheck> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
+  String _text = "";
   void _openEndDrawer() {
     _scaffoldKey.currentState.openEndDrawer();
   }
@@ -146,8 +149,18 @@ class _QualityCheckState extends State<QualityCheck> {
                             'Manual Entry',
                             style: TextStyle(fontSize: 12.5),
                           ),
-                          onPressed: () {
-                            Get.toNamed('/selectdevicepage');
+                          onPressed: () async {
+                            final BluetoothDevice selectedDevice =
+                            await Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return SelectBondedDevicePage(checkAvailability: false);
+                                },
+                              ),
+                            );
+
+                              _startChat(context, selectedDevice);
+
                           },
                         ),
                       )
@@ -263,10 +276,33 @@ class _QualityCheckState extends State<QualityCheck> {
                 ),
               ),
             ),
+            Text(_text),
           ],
         ),
       ),
       endDrawer: EndDrawer(_openEndDrawer, _closeEndDrawer),
     );
   }
+  // void _startChat(BuildContext context, BluetoothDevice server) {
+  //   ChatPage msgdata = new ChatPage();
+  //   msgdata.onDataReceived();
+  //   print(msgdata);
+  //   Navigator.of(context).push(
+  //     MaterialPageRoute(
+  //       builder: (context) {
+  //         return ChatPage(server: server);
+  //       },
+  //     ),
+  //   );
+  // }
+  void _startChat(BuildContext context, BluetoothDevice server) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) {
+          return ChatPage(server: server , func: function );
+        },
+      ),
+    );
+  }
+  function(value) => setState(() => _text = value);
 }

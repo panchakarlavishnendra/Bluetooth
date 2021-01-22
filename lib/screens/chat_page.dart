@@ -24,13 +24,13 @@ class _Message {
 class _ChatPage extends State<ChatPage> {
   static final clientID = 0;
   BluetoothConnection connection;
-   List<Row> list =[];
+  List<Row> list =[];
   List<_Message> messages = List<_Message>();
   List arr =[];
   String _messageBuffer = '';
 
   final TextEditingController textEditingController =
-      new TextEditingController();
+  new TextEditingController();
   final ScrollController listScrollController = new ScrollController();
 
   bool isConnecting = true;
@@ -101,18 +101,18 @@ class _ChatPage extends State<ChatPage> {
             width: 222.0,
             decoration: BoxDecoration(
                 color:
-                    _message.whom == clientID ? Colors.blueAccent : Colors.grey,
+                _message.whom == clientID ? Colors.blueAccent : Colors.grey,
                 borderRadius: BorderRadius.circular(7.0)),
           ),
           Container(
-            child: RaisedButton(
-              child: Text('blueTooth Data'),
-              onPressed: (){
-                onDataReceived(){
-                  list.toString();
-                }
-              },
-            )
+              child: RaisedButton(
+                child: Text('blueTooth Data'),
+                onPressed: (){
+                  onDataReceived(){
+                    list.toString();
+                  }
+                },
+              )
             // Text(list.toString()),
           )
         ],
@@ -127,8 +127,8 @@ class _ChatPage extends State<ChatPage> {
           title: (isConnecting
               ? Text('Connecting chat to ' + widget.server.name + '...')
               : isConnected
-                  ? Text('Live chat with ' + widget.server.name)
-                  : Text('Chat log with ' + widget.server.name))),
+              ? Text('Live chat with ' + widget.server.name)
+              : Text('Chat log with ' + widget.server.name))),
       body: SafeArea(
         child: Column(
           children: <Widget>[
@@ -150,8 +150,8 @@ class _ChatPage extends State<ChatPage> {
                         hintText: isConnecting
                             ? 'Wait until connected...'
                             : isConnected
-                                ? 'Type your message...'
-                                : 'Chat got disconnected',
+                            ? 'Type your message...'
+                            : 'Chat got disconnected',
                         hintStyle: const TextStyle(color: Colors.grey),
                       ),
                       enabled: isConnected,
@@ -209,7 +209,7 @@ class _ChatPage extends State<ChatPage> {
             1,
             backspacesCounter > 0
                 ? _messageBuffer.substring(
-                    0, _messageBuffer.length - backspacesCounter)
+                0, _messageBuffer.length - backspacesCounter)
                 : _messageBuffer + dataString.substring(0, index),
           ),
         );
@@ -218,7 +218,7 @@ class _ChatPage extends State<ChatPage> {
     } else {
       _messageBuffer = (backspacesCounter > 0
           ? _messageBuffer.substring(
-              0, _messageBuffer.length - backspacesCounter)
+          0, _messageBuffer.length - backspacesCounter)
           : _messageBuffer + dataString);
     }
     arr.add(messages);

@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'package:flutter_bluetooth/screens/success_screen.dart';
+import 'package:flutter_bluetooth/screens/truck_weightment_screen.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bluetooth/screens/chat_screen.dart';
+import 'package:flutter_bluetooth/screens/chat_page.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
 import 'bluetooth_entity_list_screen.dart';
@@ -116,10 +118,11 @@ class _SelectBondedDevicePage extends State<SelectBondedDevicePage> {
               enabled: _device.availability == _DeviceAvailability.yes,
               onTap: () {
                 Navigator.of(context).pop(_device.device);
-                print('tapped');
+                // Get.toNamed('/chatpage');
+
                 // Navigator.push(
                 //     context,
-                //     MaterialPageRoute(builder: (context) => ChatPage()),
+                //     MaterialPageRoute(builder: (context) => Sucess()),
                 // );
 
               },
