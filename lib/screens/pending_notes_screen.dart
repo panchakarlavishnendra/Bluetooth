@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:flutter_bluetooth/widgets/continue_button.dart';
 import 'package:path/path.dart' as path;
 /// Flutter code sample for Scaffold.endDrawer
 import 'package:flutter/material.dart';
@@ -114,272 +115,43 @@ class _PendingApprovalsState extends State<PendingNotes> {
             ),
           ),
       ),
-          Column(
-            children: <Widget>[
-              Container(
-                height: 50,
-                width: 50,
-                child: IconButton(
-                    iconSize: 45,
-                    icon: Icon(
-                      Icons.add_a_photo,
-                      color: Colors.blueGrey[700],
-                    ),
-                    onPressed: () {
-                      showDialog(
-                        context: context,
-                        builder: (_) => Material(
-                          type: MaterialType.transparency,
-                          child: Center(
-                            // Aligns the container to center
-                            child: Container(
-                              height: MediaQuery.of(context)
-                                  .size
-                                  .height *
-                                  1,
-                              width: MediaQuery.of(context)
-                                  .size
-                                  .width *
-                                  1,
-                              margin: EdgeInsets.only(
-                                  top: Constants.avatarRadius),
-                              decoration: BoxDecoration(
-                                // shape: BoxShape.rectangle,
-                                  color: Colors.black87,
-                                  // borderRadius: BorderRadius.circular(Constants.padding),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Colors.transparent,
-                                        offset: Offset(0, 10),
-                                        blurRadius: 25),
-                                  ]),
-                              child: ListView(
-                                children: <Widget>[
-                                  Positioned(
-                                    right: 0.0,
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        Navigator.of(context).pop();
-                                      },
-                                      child: Align(
-                                        alignment:
-                                        Alignment.topRight,
-                                        child: CircleAvatar(
-                                          radius: 14.0,
-                                          backgroundColor:
-                                          Colors.transparent,
-                                          child: Icon(Icons.close,
-                                              color: Colors.white),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 35),
-                                    child: Text(
-                                      'Please selecct a view to capture:',
-                                      style: TextStyle(
-                                          fontWeight:
-                                          FontWeight.bold,
-                                          fontSize: 14,
-                                          color: Colors.white),
-                                      // textAlign: TextAlign.center,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 2,
-                                  ),
-                                  Theme(
-                                    data: Theme.of(context)
-                                        .copyWith(
-                                        unselectedWidgetColor:
-                                        Colors.white,
-                                        disabledColor:
-                                        Colors.blue),
-                                    child: Column(
-                                      children: <Widget>[
-                                        RadioListTile<
-                                            SingingCharacter>(
-                                          title: const Text(
-                                            'Capture Font Number Plate',
-                                            style: TextStyle(
-                                                color:
-                                                Colors.white),
-                                          ),
-                                          value: SingingCharacter
-                                              .CaptureFontNumberPlate,
-                                          groupValue: character,
-                                          activeColor: Colors.white,
-                                          onChanged:
-                                              (SingingCharacter
-                                          value) {
-                                            setState(() {
-                                              character = value;
-                                            });
-                                          },
-                                        ),
-                                        RadioListTile<
-                                            SingingCharacter>(
-                                          title: const Text(
-                                            "Capture Rear Number Plate",
-                                            style: TextStyle(
-                                                color:
-                                                Colors.white),
-                                          ),
-                                          value: SingingCharacter
-                                              .CaptureRearNumberPlate,
-                                          groupValue: character,
-                                          onChanged:
-                                              (SingingCharacter
-                                          value) {
-                                            setState(() {
-                                              character = value;
-                                            });
-                                          },
-                                        ),
-                                        RadioListTile<
-                                            SingingCharacter>(
-                                          activeColor: Colors.white,
-                                          title: const Text(
-                                            "Capture Front View",
-                                            style: TextStyle(
-                                                color:
-                                                Colors.white),
-                                          ),
-                                          value: SingingCharacter
-                                              .CaptureFrontView,
-                                          groupValue: character,
-                                          onChanged:
-                                              (SingingCharacter
-                                          value) {
-                                            setState(() {
-                                              character = value;
-                                            });
-                                          },
-                                        ),
-                                        RadioListTile<
-                                            SingingCharacter>(
-                                          title: const Text(
-                                            "Capture Rear View",
-                                            style: TextStyle(
-                                                color:
-                                                Colors.white),
-                                          ),
-                                          value: SingingCharacter
-                                              .CaptureRearView,
-                                          groupValue: character,
-                                          onChanged:
-                                              (SingingCharacter
-                                          value) {
-                                            setState(() {
-                                              character = value;
-                                            });
-                                          },
-                                        ),
-                                        RadioListTile<
-                                            SingingCharacter>(
-                                          title: const Text(
-                                            "Capture Top View",
-                                            style: TextStyle(
-                                                color:
-                                                Colors.white),
-                                          ),
-                                          value: SingingCharacter
-                                              .CaptureTopView,
-                                          groupValue: character,
-                                          onChanged:
-                                              (SingingCharacter
-                                          value) {
-                                            setState(() {
-                                              character = value;
-                                            });
-                                          },
-                                        ),
-                                        RadioListTile<
-                                            SingingCharacter>(
-                                          title: const Text(
-                                            "Gate Pass",
-                                            style: TextStyle(
-                                                color:
-                                                Colors.white),
-                                          ),
-                                          value: SingingCharacter
-                                              .GatePass,
-                                          groupValue: character,
-                                          onChanged:
-                                              (SingingCharacter
-                                          value) {
-                                            setState(() {
-                                              character = value;
-                                            });
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  SizedBox(height: 15),
-                                  RaisedButton.icon(
-                                    icon: Icon(
-                                        Icons.camera_alt_outlined),
-                                    // <-- Icon you want.
-                                    textColor: Colors.black87,
-                                    color: Colors.white,
-                                    label:
-                                    const Text('Capture Photo'),
-                                    // <-- Your text.
-                                    // onPressed:() => _showCamera(),
-                                    onPressed: () {
-                                      isVideo = false;
-                                      onImageButtonPressed(
-                                          ImageSource.camera,
-                                          context: context);
-                                      Navigator.of(context).pop();
-                                    },
-                                  )
-                                ],
+
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical:12.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                 attachmentList.length != 0
+                ? Container(
+              height: MediaQuery.of(context).size.height*0.17
+              ,
+              width: MediaQuery.of(context).size.width * 0.75,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                itemCount: attachmentList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return attachmentList.length != 0
+                      ? GestureDetector(
+                    child: Stack(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: new Container(
+                            width: MediaQuery.of(context).size.width*0.22,
+                            height: MediaQuery.of(context).size.height*1,
+                            decoration: new BoxDecoration(
+                              shape: BoxShape.rectangle,
+                              image: new DecorationImage(
+                                  fit: BoxFit.fill,
+                                  image: FileImage(
+                                      attachmentList[index])
+                                // image: new FileImage(attachFile),
                               ),
                             ),
                           ),
                         ),
-                      );
-                    }),
-              ),
-            ],
-          ),
-          attachmentList.length != 0
-              ? Container(
-            height: 100,
-            width: MediaQuery.of(context).size.width * 1,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              shrinkWrap: true,
-              itemCount: attachmentList.length,
-              itemBuilder: (BuildContext context, int index) {
-                return attachmentList.length != 0
-                    ? GestureDetector(
-                  child: Stack(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: new Container(
-                          width: 100.0,
-                          height: 100.0,
-                          decoration: new BoxDecoration(
-                            shape: BoxShape.rectangle,
-                            image: new DecorationImage(
-                                fit: BoxFit.fill,
-                                image: FileImage(
-                                    attachmentList[index])
-                              // image: new FileImage(attachFile),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        top: 0,
-                        right: 0,
-                        child: attachmentList.length != 0
+                        attachmentList.length != 0
                             ? GestureDetector(
                           onTap: () => _removeImage(
                               attachmentList[index]),
@@ -394,16 +166,256 @@ class _PendingApprovalsState extends State<PendingNotes> {
                           ),
                         )
                             : SizedBox(),
-                      ),
-                    ],
-                  ),
-                  onTap: () async {},
-                )
-                    : SizedBox();
-              },
+                      ],
+                    ),
+                    onTap: () async {},
+                  )
+                      : SizedBox();
+                },
+              ),
+            )
+                : SizedBox(),
+                 Column(
+                   // crossAxisAlignment: CrossAxisAlignment.end,
+                   children: <Widget>[
+                     IconButton(
+                         iconSize: 45,
+                         icon: Padding(
+                           padding: const EdgeInsets.only(right:15.0),
+                           child: Icon(
+                             Icons.add_a_photo,
+                             color: Colors.blueGrey[700],
+                           ),
+                         ),
+                         onPressed: () {
+                           showDialog(
+                             context: context,
+                             builder: (_) => Material(
+                               type: MaterialType.transparency,
+                               child: Center(
+                                 // Aligns the container to center
+                                 child: Container(
+                                   height: MediaQuery.of(context)
+                                       .size
+                                       .height *
+                                       1,
+                                   width: MediaQuery.of(context)
+                                       .size
+                                       .width *
+                                       1,
+                                   margin: EdgeInsets.only(
+                                       top: Constants.avatarRadius),
+                                   decoration: BoxDecoration(
+                                     // shape: BoxShape.rectangle,
+                                       color: Colors.black87,
+                                       // borderRadius: BorderRadius.circular(Constants.padding),
+                                       boxShadow: [
+                                         BoxShadow(
+                                             color: Colors.transparent,
+                                             offset: Offset(0, 10),
+                                             blurRadius: 25),
+                                       ]),
+                                   child: ListView(
+                                     children: <Widget>[
+                                       Positioned(
+                                         right: 0.0,
+                                         child: GestureDetector(
+                                           onTap: () {
+                                             Navigator.of(context).pop();
+                                           },
+                                           child: Align(
+                                             alignment:
+                                             Alignment.topRight,
+                                             child: CircleAvatar(
+                                               radius: 14.0,
+                                               backgroundColor:
+                                               Colors.transparent,
+                                               child: Icon(Icons.close,
+                                                   color: Colors.white),
+                                             ),
+                                           ),
+                                         ),
+                                       ),
+                                       Padding(
+                                         padding: const EdgeInsets.only(
+                                             left: 35),
+                                         child: Text(
+                                           'Please selecct a view to capture:',
+                                           style: TextStyle(
+                                               fontWeight:
+                                               FontWeight.bold,
+                                               fontSize: 14,
+                                               color: Colors.white),
+                                           // textAlign: TextAlign.center,
+                                         ),
+                                       ),
+                                       SizedBox(
+                                         height: 2,
+                                       ),
+                                       Theme(
+                                         data: Theme.of(context)
+                                             .copyWith(
+                                             unselectedWidgetColor:
+                                             Colors.white,
+                                             disabledColor:
+                                             Colors.blue),
+                                         child: Column(
+                                           children: <Widget>[
+                                             RadioListTile<
+                                                 SingingCharacter>(
+                                               title: const Text(
+                                                 'Capture Font Number Plate',
+                                                 style: TextStyle(
+                                                     color:
+                                                     Colors.white),
+                                               ),
+                                               value: SingingCharacter
+                                                   .CaptureFontNumberPlate,
+                                               groupValue: character,
+                                               activeColor: Colors.white,
+                                               onChanged:
+                                                   (SingingCharacter
+                                               value) {
+                                                 setState(() {
+                                                   character = value;
+                                                 });
+                                               },
+                                             ),
+                                             RadioListTile<
+                                                 SingingCharacter>(
+                                               title: const Text(
+                                                 "Capture Rear Number Plate",
+                                                 style: TextStyle(
+                                                     color:
+                                                     Colors.white),
+                                               ),
+                                               value: SingingCharacter
+                                                   .CaptureRearNumberPlate,
+                                               groupValue: character,
+                                               onChanged:
+                                                   (SingingCharacter
+                                               value) {
+                                                 setState(() {
+                                                   character = value;
+                                                 });
+                                               },
+                                             ),
+                                             RadioListTile<
+                                                 SingingCharacter>(
+                                               activeColor: Colors.white,
+                                               title: const Text(
+                                                 "Capture Front View",
+                                                 style: TextStyle(
+                                                     color:
+                                                     Colors.white),
+                                               ),
+                                               value: SingingCharacter
+                                                   .CaptureFrontView,
+                                               groupValue: character,
+                                               onChanged:
+                                                   (SingingCharacter
+                                               value) {
+                                                 setState(() {
+                                                   character = value;
+                                                 });
+                                               },
+                                             ),
+                                             RadioListTile<
+                                                 SingingCharacter>(
+                                               title: const Text(
+                                                 "Capture Rear View",
+                                                 style: TextStyle(
+                                                     color:
+                                                     Colors.white),
+                                               ),
+                                               value: SingingCharacter
+                                                   .CaptureRearView,
+                                               groupValue: character,
+                                               onChanged:
+                                                   (SingingCharacter
+                                               value) {
+                                                 setState(() {
+                                                   character = value;
+                                                 });
+                                               },
+                                             ),
+                                             RadioListTile<
+                                                 SingingCharacter>(
+                                               title: const Text(
+                                                 "Capture Top View",
+                                                 style: TextStyle(
+                                                     color:
+                                                     Colors.white),
+                                               ),
+                                               value: SingingCharacter
+                                                   .CaptureTopView,
+                                               groupValue: character,
+                                               onChanged:
+                                                   (SingingCharacter
+                                               value) {
+                                                 setState(() {
+                                                   character = value;
+                                                 });
+                                               },
+                                             ),
+                                             RadioListTile<
+                                                 SingingCharacter>(
+                                               title: const Text(
+                                                 "Gate Pass",
+                                                 style: TextStyle(
+                                                     color:
+                                                     Colors.white),
+                                               ),
+                                               value: SingingCharacter
+                                                   .GatePass,
+                                               groupValue: character,
+                                               onChanged:
+                                                   (SingingCharacter
+                                               value) {
+                                                 setState(() {
+                                                   character = value;
+                                                 });
+                                               },
+                                             ),
+                                           ],
+                                         ),
+                                       ),
+                                       SizedBox(height: 15),
+                                       RaisedButton.icon(
+                                         icon: Icon(
+                                             Icons.camera_alt_outlined),
+                                         // <-- Icon you want.
+                                         textColor: Colors.black87,
+                                         color: Colors.white,
+                                         label:
+                                         const Text('Capture Photo'),
+                                         // <-- Your text.
+                                         // onPressed:() => _showCamera(),
+                                         onPressed: () {
+                                           isVideo = false;
+                                           onImageButtonPressed(
+                                               ImageSource.camera,
+                                               context: context);
+                                           Navigator.of(context).pop();
+                                         },
+                                       )
+                                     ],
+                                   ),
+                                 ),
+                               ),
+                             ),
+                           );
+                         }
+                     ),
+                   ],
+                 ),
+               ],
             ),
-          )
-              : SizedBox(),
+          ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical:1.0,horizontal: 15),
+          child: ContinueButton('CHECK APPROVAL STATUS','/pending'),
+        )
         ],
       ),
 

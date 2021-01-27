@@ -81,7 +81,7 @@ class _SelectWarehouseContacts extends State<SelectWarehouseContacts> {
               Container(
                 height: mediaHeight * 0.07,
                 width: mediaWidth * 0.85,
-                child: ContinueButton('/selectWareHouse'),
+                child: ContinueButton('Continue','/selectWareHouse'),
                 // RaisedButton(
                 //   shape: RoundedRectangleBorder(
                 //     borderRadius: BorderRadius.circular(3.0),
