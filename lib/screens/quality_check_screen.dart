@@ -159,7 +159,7 @@ class _QualityCheckState extends State<QualityCheck> {
                               ),
                             );
 
-                              _startChat(context, selectedDevice);
+                              // _startChat(context, selectedDevice);
 
                           },
                         ),
@@ -295,14 +295,14 @@ class _QualityCheckState extends State<QualityCheck> {
   //     ),
   //   );
   // }
-  void _startChat(BuildContext context, BluetoothDevice server) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) {
-          return ChatPage(server: server , onDataReceived: function );
-        },
-      ),
-    );
-  }
+  // void _startChat(BuildContext context, BluetoothDevice server) {
+  //   Navigator.of(context).push(
+  //     MaterialPageRoute(
+  //       builder: (context) {
+  //         return ChatPage(server: server , func: function );
+  //       },
+  //     ),
+  //   );
+  // }
   function(value) => setState(() => _text = value);
 }

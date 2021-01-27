@@ -136,7 +136,7 @@ class _MainPage extends State<MainPage> {
               //   Get.toNamed('/truckweightment');
               //
               // },
-              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => ChatPage(onDataReceived: function)),
+              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => ChatPage(func: function)),
               ),
             ),
           ),

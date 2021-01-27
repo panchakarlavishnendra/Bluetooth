@@ -88,12 +88,7 @@ class _DelieveryOrders extends State<DelieveryOrders> {
                                       Column(),
                                       Column(),
                                       Column(children: [
-                                        //           RaisedButton(
-                                        //         textColor: Colors.white,
-                                        //         color: Colors.green,
-                                        //
-                                        //         child: Text('Enabled Button' ),
-                                        // ),
+
                                         FlatButton(
                                           child: Text(
                                             'Flat Button',

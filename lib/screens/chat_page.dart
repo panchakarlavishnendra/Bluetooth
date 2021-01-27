@@ -7,8 +7,8 @@ import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
 class ChatPage extends StatefulWidget {
   final BluetoothDevice server;
-  final Function onDataReceived;
-  const ChatPage({this.server, this.onDataReceived});
+  final Function func;
+  const ChatPage({this.server, this.func});
 
   @override
   _ChatPage createState() => new _ChatPage();
@@ -106,11 +106,12 @@ class _ChatPage extends State<ChatPage> {
           ),
           Container(
               child: RaisedButton(
-                child: Text('blueTooth Data'),
+                child: Text('Send Data'),
                 onPressed: (){
                   onDataReceived(){
                     list.toString();
                   }
+                  Navigator.pop(context);
                 },
               )
             // Text(list.toString()),
