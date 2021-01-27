@@ -105,6 +105,7 @@ class _ContractSummary extends State<ContractSummary> {
                               ),
                               child: CustomTextField(
                                 label: 'No of Mother Bags',
+
                                 keyboardType: TextInputType.number,
                                 controller: _noOfMotherBagsControler,
                                 // inputFormatters: <TextInputFormatter>[
@@ -197,14 +198,15 @@ class _ContractSummary extends State<ContractSummary> {
                   children: [
                     Text("Select Action:",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16)),
+                            fontWeight: FontWeight.bold, fontSize: 18)),
                     Container(
                       width: MediaQuery.of(context).size.width * 0.3,
+                      height: MediaQuery.of(context).size.height*0.06,
                       child: RaisedButton(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0),
                         ),
-                        padding: const EdgeInsets.all(10),
+                        // padding: const EdgeInsets.all(3),
                         textColor: Colors.white,
                         color: Colors.green,
                         onPressed: () {
@@ -212,19 +214,17 @@ class _ContractSummary extends State<ContractSummary> {
                           //   // istapped = 'Button tapped';
                           // });
                         },
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                          child: Text('Inward'),
-                        ),
+                        child: Text('Inward',style: TextStyle(fontSize: 16),),
                       ),
                     ),
                     Container(
                       width: MediaQuery.of(context).size.width * 0.3,
+                      height: MediaQuery.of(context).size.height*0.06,
                       child: RaisedButton(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0),
                         ),
-                        padding: const EdgeInsets.all(10),
+                        // padding: const EdgeInsets.all(3),
                         textColor: Colors.green,
                         color: Colors.white,
                         onPressed: () {
@@ -232,10 +232,7 @@ class _ContractSummary extends State<ContractSummary> {
                           //   // istapped = 'Button tapped';
                           // });
                         },
-                        child: Padding(
-                          padding: const EdgeInsets.all(1),
-                          child: Text('Outward'),
-                        ),
+                        child: Text('Outward',style: TextStyle(fontSize: 18),),
                       ),
                     ),
                   ],

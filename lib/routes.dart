@@ -1,5 +1,6 @@
 import 'package:flutter_bluetooth/screens/chat_page.dart';
 import 'package:flutter_bluetooth/screens/connected_devices_screen.dart';
+import 'package:flutter_bluetooth/screens/daily_transaction_register_screen.dart';
 import 'package:flutter_bluetooth/screens/loading_bags_screen.dart';
 import 'package:flutter_bluetooth/screens/main_screen_page.dart';
 import 'package:flutter_bluetooth/screens/pending_approvals.dart';
@@ -20,46 +21,57 @@ class Routes {
     GetPage(
         name: '/contractSummary',
         page: () => ContractSummary(),
-        transition: Transition.rightToLeft),
+        transition: Transition.rightToLeft
+    ),
     GetPage(
       name: '/main',
       page: () => MainPage(),
+        transition: Transition.rightToLeft
     ),
     GetPage(
       name: '/selectWareHouseContact',
       page: () => SelectWarehouseContacts(),
+        transition: Transition.rightToLeft
     ),
     GetPage(
       name: '/selectWareHouse',
       page: () => SelectWareHouse(),
+        transition: Transition.rightToLeft
     ),
     GetPage(
       name: '/contactsummary',
       page: () => ContractSummary(),
+        transition: Transition.rightToLeft
     ),
     GetPage(
       name: '/truckweightment',
       page: () => TruckWeightment(),
+        transition: Transition.rightToLeft
     ),
     GetPage(
       name: '/quality',
       page: () => QualityCheck(),
+        transition: Transition.rightToLeft
     ),
     GetPage(
       name: '/truckstacking',
       page: () => TruckStackingSummary(),
+        transition: Transition.rightToLeft
     ),
     GetPage(
       name: '/delievery',
       page: () => DelieveryOrders(),
+        transition: Transition.rightToLeft
     ),
     GetPage(
       name: '/loadbags',
       page: () => LoadBags(),
+        transition: Transition.rightToLeft
     ),
     GetPage(
       name: '/uploaddocuemnts',
       page: () => UploadWeighmentDocumentScreen(),
+        transition: Transition.rightToLeft
     ),
     // GetPage(
     //   name: '/otpscreen',
@@ -68,18 +80,27 @@ class Routes {
     GetPage(
       name: '/pending',
       page: () => PendingApprovals(),
+        transition: Transition.rightToLeft
     ),
     GetPage(
       name: '/success',
       page: () => Sucess(),
+        transition: Transition.rightToLeft
     ),
     GetPage(
       name: '/selectdevicepage',
       page: () => SelectBondedDevicePage(),
+        transition: Transition.downToUp
     ),
     GetPage(
       name: '/chatpage',
       page: () => ChatPage(),
+        transition: Transition.rightToLeft
     ),
+    GetPage(
+        name: '/dailytranasactions',
+        page: () => DailyTranasactions(),
+        transition: Transition.rightToLeft
+    )
   ];
 }

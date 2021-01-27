@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bluetooth/widgets/continue_button.dart';
 import 'package:flutter_bluetooth/widgets/drop_down.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:get/get.dart';
@@ -80,15 +81,16 @@ class _SelectWarehouseContacts extends State<SelectWarehouseContacts> {
               Container(
                 height: mediaHeight * 0.07,
                 width: mediaWidth * 0.85,
-                child: RaisedButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(3.0),
-                  ),
-                  onPressed: () => {Get.toNamed('/selectWareHouse')},
-                  color: Colors.cyan[900],
-                  textColor: Colors.white,
-                  child: Text("Continue", style: TextStyle(fontSize: 18)),
-                ),
+                child: ContinueButton('/selectWareHouse'),
+                // RaisedButton(
+                //   shape: RoundedRectangleBorder(
+                //     borderRadius: BorderRadius.circular(3.0),
+                //   ),
+                //   onPressed: () => {Get.toNamed('/selectWareHouse')},
+                //   color: Colors.cyan[900],
+                //   textColor: Colors.white,
+                //   child: Text("Continue", style: TextStyle(fontSize: 18)),
+                // ),
               )
             ]),
       ),

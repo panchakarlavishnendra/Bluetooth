@@ -518,14 +518,14 @@ class _TruckWeightment extends State<TruckWeightment> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(15),
                   child: RaisedButton(
                     elevation: 5,
                     textColor: Colors.white,
                     color: Colors.teal[900],
                     child: Text(
                       "Continue Document Upload",
-                      style: TextStyle(fontSize: 15),
+                      style: TextStyle(fontSize: 17),
                     ),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(1)),

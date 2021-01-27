@@ -299,7 +299,7 @@ class _QualityCheckState extends State<QualityCheck> {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) {
-          return ChatPage(server: server , func: function );
+          return ChatPage(server: server , onDataReceived: function );
         },
       ),
     );

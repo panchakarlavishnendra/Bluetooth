@@ -7,7 +7,7 @@ class Sucess extends StatefulWidget {
   _SucessState createState() => _SucessState();
 }
 
-Widget _customisedButton(context, text) {
+Widget _customisedButton(context, text,url) {
   var style = TextStyle(color: Colors.white, fontSize: 17);
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 7.0),
@@ -19,7 +19,10 @@ Widget _customisedButton(context, text) {
           '$text',
           style: style,
         ),
-        onPressed: () {},
+        // onPressed: (){
+        //   Get.toNamed("/dailytranasactions");
+        //   },
+        onPressed: () => {Get.toNamed(url)},
         color: Colors.cyan[800],
       ),
     ),
@@ -65,10 +68,10 @@ class _SucessState extends State<Sucess> {
                       textAlign: TextAlign.center,
                     )),
               ),
-              _customisedButton(context, 'Download Gatepass'),
-              _customisedButton(context, 'Daily Transaction Register'),
-              _customisedButton(context, 'All Delivery Orders'),
-              _customisedButton(context, 'Make a New Truck Entry')
+              _customisedButton(context, 'Download Gatepass','/dailytranasactions'),
+              _customisedButton(context, 'Daily Transaction Register','/dailytranasactions'),
+              _customisedButton(context, 'All Delivery Orders','/dailytranasactions'),
+              _customisedButton(context, 'Make a New Truck Entry','/dailytranasactions')
             ],
           ),
         ),

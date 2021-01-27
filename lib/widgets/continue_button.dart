@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ContinueButton extends StatefulWidget {
-  ContinueButton(this.onPressed);
+  ContinueButton(this.url);
 
-  Function onPressed;
+  var url;
 
   @override
   _ContinueButtonState createState() => _ContinueButtonState();
@@ -16,7 +17,7 @@ class _ContinueButtonState extends State<ContinueButton> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(3.0),
       ),
-      onPressed: () => widget.onPressed,
+      onPressed: () => {Get.toNamed(widget.url)},
       color: Colors.cyan[900],
       textColor: Colors.white,
       child: Padding(
