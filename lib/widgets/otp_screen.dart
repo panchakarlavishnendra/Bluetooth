@@ -5,13 +5,15 @@ import 'dart:ui';
 // import 'package:custom_dialog_flutter_demo/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bluetooth/widgets/continue_button.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class CustomDialogBox extends StatefulWidget {
-  CustomDialogBox(this.context);
+  CustomDialogBox(this.context,this.text);
 
   var context;
+  String text;
 
   // final String title, descriptions, text;
   // final Image img;
@@ -26,6 +28,7 @@ class CustomDialogBox extends StatefulWidget {
 class _CustomDialogBoxState extends State<CustomDialogBox> {
   final formKey = GlobalKey<FormState>();
   String currentText = "";
+  String text;
   TextEditingController textEditingController = TextEditingController();
 
   // ..text = "123456";
@@ -52,15 +55,14 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
     // );
 
     return Stack(
+      alignment: Alignment.topCenter,
       children: <Widget>[
         Container(
-          height: 400,
-          width: MediaQuery.of(widget.context).size.width * 0.95,
-          padding: EdgeInsets.only(
-            left: 20,
-            top: 0,
-            right: 20,
-            bottom: 20,
+          height: MediaQuery.of(context).size.height*0.45,
+          width: MediaQuery.of(widget.context).size.width * 0.96,
+          padding: EdgeInsets.symmetric(
+            horizontal: 25,
+            vertical: 10
           ),
           margin: EdgeInsets.only(top: Constants.avatarRadius),
           decoration: BoxDecoration(
@@ -71,7 +73,7 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                 BoxShadow(
                     color: Colors.transparent,
                     offset: Offset(0, 10),
-                    blurRadius: 10),
+                    blurRadius: 8),
               ]),
           child: ListView(
             children: <Widget>[
@@ -89,15 +91,15 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                 ),
               ),
               Text(
-                'Moisture Value',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+                widget.text,
+                style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
               SizedBox(
                 height: 22,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 18.0),
+                padding: const EdgeInsets.only(left: 12.0,bottom: 6),
                 child: Text(
                   'Enter OTP',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
@@ -108,7 +110,7 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                   key: formKey,
                   child: Padding(
                       padding: const EdgeInsets.symmetric(
-                        vertical: 8.0, horizontal: 10),
+                        vertical: 0.0, horizontal: 10),
                     child: PinCodeTextField(
                       appContext: context,
                       pastedTextStyle: TextStyle(
@@ -121,7 +123,7 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                       animationType: AnimationType.none,
                       validator: (v) {
                         if (v.length < 3) {
-                          return "I'm from validator";
+                          return "please enter the otp";
                         } else {
                           return null;
                         }
@@ -129,11 +131,11 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                       pinTheme: PinTheme(
                           shape: PinCodeFieldShape.box,
                           borderRadius: BorderRadius.circular(5),
-                          fieldHeight: 60,
-                          fieldWidth: 50,
+                          fieldHeight: 45,
+                          fieldWidth: 45,
                           activeFillColor: Colors.white,
                           inactiveFillColor: Colors.white24,
-                          inactiveColor: Colors.black87),
+                          inactiveColor: Colors.grey),
                         cursorColor: Colors.black,
                         animationDuration: Duration(milliseconds: 300),
                         textStyle: TextStyle(fontSize: 20, height: 1.6),
@@ -182,39 +184,34 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                 ),
 
 
-                SizedBox(
-                  height: 1,
-                ),
+
                 Container(
-                  margin:
-                  const EdgeInsets.symmetric(vertical: 16.0, horizontal: 30),
-                  child: ButtonTheme(
-                    height: 10,
-                  child: FlatButton(
-                    onPressed: () {
-                      Get.toNamed('/pending');
-                    },
-                    child: Center(
-                        child: Text(
-                      "Continue".toUpperCase(),
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold),
-                    )),
-                  ),
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.teal[900],
-                  borderRadius: BorderRadius.circular(5),
-                ),
+                  height: MediaQuery.of(context).size.height*0.065,
+                  width:MediaQuery.of(context).size.width*0.10,
+                  // margin:
+                  // const EdgeInsets.symmetric(vertical: 16.0, horizontal: 30),
+                  child: ContinueButton('Continue','/pending')
+                  // RaisedButton(
+                  //   color: Colors.teal[900],
+                  //   onPressed: () {
+                  //     Get.toNamed('/pending');
+                  //   },
+                  //   child: Text(
+                  //     "Continue",
+                  //     style: TextStyle(
+                  //     color: Colors.white,
+                  //     fontSize: 18,
+                  //     fontWeight: FontWeight.bold),
+                  //   ),
+                  // ),
+
               ),
-                SizedBox(
-                  height: 1,
-                ),
+                // SizedBox(
+                //   height: 1,
+                // ),
                 Container(
                   margin:
-                  const EdgeInsets.symmetric(vertical: 16.0, horizontal: 30),
+                  const EdgeInsets.symmetric( horizontal: 30),
                   child: ButtonTheme(
                     height: 10,
                   child: FlatButton(
@@ -223,16 +220,16 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                     },
                     child: Center(
                         child: Text(
-                      "VERIFY LATER".toUpperCase(),
+                      "Verify Later",
                       style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
+                          color: Colors.teal[900],
+                          fontSize: 15,
                           fontWeight: FontWeight.bold),
                     )),
                   ),
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.teal[900],
+                  // color: Colors.teal[900],
                   borderRadius: BorderRadius.circular(5),
                 ),
               ),

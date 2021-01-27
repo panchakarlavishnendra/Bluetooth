@@ -444,7 +444,7 @@ class _PendingApprovalsState extends State<PendingNotes> {
                       ),
                       elevation: 0,
                       backgroundColor: Colors.transparent,
-                      child: CustomDialogBox(context),
+                      child: CustomDialogBox(context,'Manual Weighment'),
                     ));
               });
         },

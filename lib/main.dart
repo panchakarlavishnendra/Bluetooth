@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bluetooth/screens/cad_summary_screen.dart';
 import 'package:flutter_bluetooth/screens/daily_transaction_register_screen.dart';
+import 'package:flutter_bluetooth/screens/daily_vehicle_transaction_screen.dart';
+import 'package:flutter_bluetooth/screens/deleverey_orders.dart';
 import 'package:flutter_bluetooth/screens/main_screen_page.dart';
+import 'package:flutter_bluetooth/screens/pending_approvals.dart';
 import 'package:flutter_bluetooth/screens/pending_notes_screen.dart';
 
 import 'package:flutter_bluetooth/screens/quality_check_screen.dart';
@@ -27,9 +31,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home:
+      home: DailyVehicleTransaction(),
+      // DelieveryOrders(),
+      // CadSummary(),
+      // PendingApprovals(),
       // SelectWarehouseContacts(),
-      PendingNotes(),
+      // PendingNotes(),
       // DailyTranasactions(),
       debugShowCheckedModeBanner: false,
     );

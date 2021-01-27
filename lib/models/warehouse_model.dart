@@ -8,7 +8,8 @@ class WarehouseModel {
   Inventory inventory;
 
   WarehouseModel(
-      {this.id,
+      {
+        this.id,
         this.inventoryId,
         this.logId,
         this.qty,
