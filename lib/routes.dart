@@ -4,6 +4,7 @@ import 'package:flutter_bluetooth/screens/daily_transaction_register_screen.dart
 import 'package:flutter_bluetooth/screens/loading_bags_screen.dart';
 import 'package:flutter_bluetooth/screens/main_screen_page.dart';
 import 'package:flutter_bluetooth/screens/pending_approvals.dart';
+import 'package:flutter_bluetooth/screens/pending_notes_screen.dart';
 import 'package:flutter_bluetooth/screens/select_warehouse_contact_screen.dart';
 import 'package:flutter_bluetooth/screens/success_screen.dart';
 import 'package:flutter_bluetooth/screens/upload_weighment_document.dart';
@@ -101,6 +102,11 @@ class Routes {
         name: '/dailytranasactions',
         page: () => DailyTranasactions(),
         transition: Transition.rightToLeft
+    ),
+    GetPage(
+        name: '/notes',
+        page: () => PendingNotes(),
+      transition: Transition.leftToRight
     )
   ];
 }

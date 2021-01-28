@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:get/get.dart';
-
+import 'package:flutter_svg/svg.dart';
 class Sucess extends StatefulWidget {
   @override
   _SucessState createState() => _SucessState();
@@ -57,7 +57,11 @@ class _SucessState extends State<Sucess> {
               Container(
                   height: MediaQuery.of(context).size.height * 0.35,
                   width: MediaQuery.of(context).size.width * 0.4,
-                  child: Image.asset('assets/tick.png')),
+                  child:
+                  SvgPicture.asset(
+                    "assets/icons/checkedgreen.svg",height: 25,width: 25,
+                  ),
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 15.0),
                 child: Container(

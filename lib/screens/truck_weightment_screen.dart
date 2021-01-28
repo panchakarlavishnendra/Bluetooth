@@ -173,7 +173,8 @@ class _TruckWeightment extends State<TruckWeightment> {
                                                         radius: 14.0,
                                                         backgroundColor:
                                                             Colors.transparent,
-                                                        child: Icon(Icons.close,
+                                                        child:
+                                                        Icon(Icons.close,
                                                             color: Colors.white),
                                                       ),
                                                     ),
@@ -395,10 +396,14 @@ class _TruckWeightment extends State<TruckWeightment> {
                                                       elevation: 10,
                                                       color: Colors.white,
                                                       shape: CircleBorder(),
-                                                      child: Icon(
-                                                        Icons.clear,
-                                                        size: 18,
+                                                      child:
+                                                      SvgPicture.asset(
+                                                        "assets/icons/Group 179.svg",height: 25,width: 25,
                                                       ),
+                                                      // Icon(
+                                                      //   Icons.clear,
+                                                      //   size: 18,
+                                                      // ),
                                                     ),
                                                   )
                                                 : SizedBox(),

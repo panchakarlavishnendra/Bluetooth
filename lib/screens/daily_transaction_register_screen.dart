@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:get/get.dart';
+import 'package:flutter_svg/svg.dart';
 
 class DailyTranasactions extends StatefulWidget {
   @override
@@ -33,9 +34,9 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
             tabs: [
               Tab(
                   child: Text(
-                'ONGOING',
-                style: TextStyle(fontSize: 16),
-              )),
+                    'ONGOING',
+                    style: TextStyle(fontSize: 16),
+                  )),
               Tab(
                 child: Text('COMPLETED', style: TextStyle(fontSize: 16)),
               ),
@@ -55,8 +56,14 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Container(
-                          width: MediaQuery.of(context).size.width * 0.45,
-                          height: MediaQuery.of(context).size.height * 0.25,
+                          width: MediaQuery
+                              .of(context)
+                              .size
+                              .width * 0.45,
+                          height: MediaQuery
+                              .of(context)
+                              .size
+                              .height * 0.25,
                           child: Card(
                             shape: BeveledRectangleBorder(
                                 borderRadius: BorderRadius.circular(6)),
@@ -69,14 +76,43 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                                     Padding(
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 12.0),
-                                      child: Icon(
-                                        Icons.arrow_circle_up_rounded,
-                                        size: 35,
+                                      child:
+                                      SvgPicture.asset(
+                                        "assets/icons/out-going.svg",
+                                        height: 25, width: 25,
                                       ),
+
                                     ),
-                                    Text(
-                                      '2344\nOutgoing',
-                                      style: TextStyle(fontSize: 14),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment
+                                          .start,
+                                      children: [
+                                        Text('2344'),
+                                        Text('Outgoing'),
+                                      ],
+                                    )
+
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 12.0),
+                                      child: SvgPicture.asset(
+                                        "assets/icons/out-going.svg",
+                                        height: 25, width: 25,
+                                      ),
+
+                                    ),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment
+                                          .start,
+                                      children: [
+                                        Text('2344'),
+                                        Text('Incoming'),
+                                      ],
                                     )
                                   ],
                                 ),
@@ -86,32 +122,22 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                                     Padding(
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 12.0),
-                                      child: Icon(
-                                        Icons.arrow_circle_down_rounded,
-                                        size: 35,
+                                      child:
+                                      SvgPicture.asset(
+                                        "assets/icons/pending.svg", height: 25,
+                                        width: 25,
                                       ),
+
                                     ),
-                                    Text(
-                                      '2344\nIncoming',
-                                      style: TextStyle(fontSize: 14),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment
+                                          .start,
+                                      children: [
+                                        Text('2344'),
+                                        Text('Pending'),
+                                      ],
                                     )
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 12.0),
-                                      child: Icon(
-                                        Icons.pending,
-                                        size: 30,
-                                      ),
-                                    ),
-                                    Text(
-                                      '2344\nPending',
-                                      style: TextStyle(fontSize: 14),
-                                    )
+
                                   ],
                                 ),
                               ],
@@ -120,8 +146,14 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                           ),
                         ),
                         Container(
-                          width: MediaQuery.of(context).size.width * 0.45,
-                          height: MediaQuery.of(context).size.height * 0.25,
+                          width: MediaQuery
+                              .of(context)
+                              .size
+                              .width * 0.45,
+                          height: MediaQuery
+                              .of(context)
+                              .size
+                              .height * 0.25,
                           child: Card(
                             shape: BeveledRectangleBorder(
                                 borderRadius: BorderRadius.circular(6)),
@@ -134,14 +166,19 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                                     Padding(
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 8.0),
-                                      child: Icon(
-                                        Icons.arrow_circle_up_rounded,
-                                        size: 35,
+                                      child: SvgPicture.asset(
+                                        "assets/icons/motherbag.svg",
+                                        height: 25, width: 25,
                                       ),
+
                                     ),
-                                    Text(
-                                      "2344\nMother Bag's",
-                                      style: TextStyle(fontSize: 14),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment
+                                          .start,
+                                      children: [
+                                        Text('2344'),
+                                        Text('Mother Bags'),
+                                      ],
                                     )
                                   ],
                                 ),
@@ -151,14 +188,19 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                                     Padding(
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 8.0),
-                                      child: Icon(
-                                        Icons.arrow_circle_down_rounded,
-                                        size: 35,
+                                      child: SvgPicture.asset(
+                                        "assets/icons/madeup.svg", height: 25,
+                                        width: 25,
                                       ),
+
                                     ),
-                                    Text(
-                                      "2344\nMadeUp Bag's",
-                                      style: TextStyle(fontSize: 14),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment
+                                          .start,
+                                      children: [
+                                        Text('2344'),
+                                        Text('Madeup Bags'),
+                                      ],
                                     )
                                   ],
                                 ),
@@ -168,14 +210,20 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                                     Padding(
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 8.0),
-                                      child: Icon(
-                                        Icons.pending,
-                                        size: 30,
+                                      child: SvgPicture.asset(
+                                        "assets/icons/w.svg", height: 25,
+                                        width: 25,
                                       ),
+
+
                                     ),
-                                    Text(
-                                      '2344\nMT.Total WT',
-                                      style: TextStyle(fontSize: 14),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment
+                                          .start,
+                                      children: [
+                                        Text('2344'),
+                                        Text('MT. Total  WT'),
+                                      ],
                                     )
                                   ],
                                 ),
@@ -207,7 +255,10 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                       ),
                     ),
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.83,
+                      width: MediaQuery
+                          .of(context)
+                          .size
+                          .width * 0.83,
                       child: Row(
                         // mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
@@ -227,14 +278,20 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 20.0),
+                      padding: const EdgeInsets.symmetric(vertical: 20.0,horizontal: 20),
                       child: _myCard(),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 28.0),
                       child: Container(
-                        height: MediaQuery.of(context).size.height * 0.055,
-                        width: MediaQuery.of(context).size.width * 0.9,
+                        height: MediaQuery
+                            .of(context)
+                            .size
+                            .height * 0.055,
+                        width: MediaQuery
+                            .of(context)
+                            .size
+                            .width * 0.9,
                         child: RaisedButton(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(3.0),
@@ -261,8 +318,14 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
 
   Widget _myRadioButton({String title, int value, Function onChanged}) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.41,
-      height: MediaQuery.of(context).size.height * 0.06,
+      width: MediaQuery
+          .of(context)
+          .size
+          .width * 0.41,
+      height: MediaQuery
+          .of(context)
+          .size
+          .height * 0.06,
       child: RadioListTile(
         value: value,
         groupValue: _groupValue,
@@ -278,80 +341,169 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
   Widget _myCard() {
     return Card(
       elevation: 5,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Truck ID',
-                style: TextStyle(fontSize: 18),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10.0),
-                child: Text(
-                  'Vehicle Number',
-                  style: TextStyle(fontSize: 18),
-                ),
-              ),
-              Icon(
-                Icons.add_circle,
-                size: 45,
-              )
-            ],
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                '323',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10.0),
-                child: Text(
-                  'AP-06-PQ-3262',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 15.0),
-                child: RaisedButton(
-                  color: Colors.teal,
-                  child: Text(
-                    'In-Progress',
-                    style: TextStyle(color: Colors.white, fontSize: 15),
-                  ),
-                  onPressed: () {},
-                ),
-              )
-            ],
-          ),
-          Column(
+      child: Container(
+        height: MediaQuery.of(context).size.height*0.23,
+        width:  MediaQuery.of(context).size.width*1,
+        child: ListView(
+          children: [
+          Row(
             children: [
               Container(
-                color: Colors.green[900],
-                width: MediaQuery.of(context).size.width * 0.11,
-                height: MediaQuery.of(context).size.height * 0.2,
-                child: FlatButton(
-                  onPressed: () {
-                    Get.toNamed('/pending');
-                  },
-                  child: Icon(
-                    Icons.arrow_forward_ios_sharp,
-                    color: Colors.white,
-                    size: 30,
+                width:  MediaQuery.of(context).size.width*0.75,
+                height: MediaQuery.of(context).size.height*0.25,
+                child: Padding(
+                  padding: const EdgeInsets.only(left:28.0,top: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                        Text('Truck ID', style: TextStyle(fontSize: 13),),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                                    child: Text(
+                                      'Vehicle Number',
+                                      style: TextStyle(fontSize: 13),
+                                    ),
+                                  ),
+                          SvgPicture.asset(
+                            "assets/icons/OTP.svg",
+                            height: 35, width: 35,
+                          ),
+                        ],
+                      ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                                Text(
+                                  '323',
+                                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                                  child: Text(
+                                    'AP-06-PQ-3262',
+                                    style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 15.0),
+                                  child: RaisedButton(
+                                    color: Colors.teal,
+                                    child: Text(
+                                      'In-Progress',
+                                      style: TextStyle(color: Colors.white, fontSize: 13),
+                                    ),
+                                    onPressed: () {},
+                                  ),
+                                )
+              ],
+                  )
+                    ],
                   ),
                 ),
-              )
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height*0.25,
+                width: MediaQuery.of(context).size.width*0.10,
+                color: Colors.green[900],
+                child: Icon(
+                  Icons.arrow_forward_ios_sharp,
+                  color: Colors.white,
+                  size: 30,
+                ),
+              ),
             ],
           ),
-        ],
+
+          ],
+        ),
       ),
     );
   }
 }
+  // Widget _myCard() {
+  //   return Card(
+  //     elevation: 5,
+  //     child: Container(
+  //       height: MediaQuery.of(context).size.height*0.28,
+  //       width:MediaQuery.of(context).size.width*0.9,
+  //       child: Row(
+  //         mainAxisAlignment: MainAxisAlignment.spaceAround,
+  //         crossAxisAlignment: CrossAxisAlignment.start,
+  //         children: [
+  //           Column(
+  //             mainAxisAlignment: MainAxisAlignment.spaceAround,
+  //             crossAxisAlignment: CrossAxisAlignment.start,
+  //             children: [
+  //               Text(
+  //                 'Truck ID',
+  //                 style: TextStyle(fontSize: 18),
+  //               ),
+  //               Padding(
+  //                 padding: const EdgeInsets.symmetric(vertical: 10.0),
+  //                 child: Text(
+  //                   'Vehicle Number',
+  //                   style: TextStyle(fontSize: 18),
+  //                 ),
+  //               ),
+  //               Icon(
+  //                 Icons.add_circle,
+  //                 size: 45,
+  //               )
+  //             ],
+  //           ),
+  //           Column(
+  //             mainAxisAlignment: MainAxisAlignment.spaceAround,
+  //             crossAxisAlignment: CrossAxisAlignment.start,
+  //             children: [
+  //               Text(
+  //                 '323',
+  //                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+  //               ),
+  //               Padding(
+  //                 padding: const EdgeInsets.symmetric(vertical: 10.0),
+  //                 child: Text(
+  //                   'AP-06-PQ-3262',
+  //                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+  //                 ),
+  //               ),
+  //               Padding(
+  //                 padding: const EdgeInsets.only(left: 15.0),
+  //                 child: RaisedButton(
+  //                   color: Colors.teal,
+  //                   child: Text(
+  //                     'In-Progress',
+  //                     style: TextStyle(color: Colors.white, fontSize: 15),
+  //                   ),
+  //                   onPressed: () {},
+  //                 ),
+  //               )
+  //             ],
+  //           ),
+  //           Container(
+  //             width: MediaQuery.of(context).size.width*0.3 ,
+  //             color: Colors.red,
+  //             child: Column(
+  //
+  //               children: [
+  //                 FlatButton(
+  //                   onPressed: () {
+  //                     Get.toNamed('/pending');
+  //                   },
+  //                   child: Icon(
+  //                     Icons.arrow_forward_ios_sharp,
+  //                     color: Colors.white,
+  //                     size: 30,
+  //                   ),
+  //                 )
+  //               ],
+  //             ),
+  //           ),
+  //         ],
+  //       ),
+  //     ),
+  //   );
+
+

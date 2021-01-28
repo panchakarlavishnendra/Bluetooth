@@ -14,6 +14,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
+import 'package:flutter_svg/svg.dart';
 /// This is the stateful widget that the main application instantiates.
 class PendingNotes extends StatefulWidget {
   PendingNotes({Key key}) : super(key: key);
@@ -86,14 +87,20 @@ class _PendingApprovalsState extends State<PendingNotes> {
         children: <Widget>[
           WeightWidget(),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 95),
+            padding: const EdgeInsets.symmetric(horizontal: 95,vertical: 3),
             child: Row(
               children: [
-                IconButton(
-                   icon: new Icon(Icons.notes),
-
-                   // onPressed: (){},
-                 ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.asset(
+                    "assets/icons/notes.svg",height: 25,width: 25,
+                  ),
+                ),
+                // IconButton(
+                //    icon: new Icon(Icons.notes),
+                //
+                //    // onPressed: (){},
+                //  ),
                 Text("VIEW/ADD NOTES"),
               ],
             ),
@@ -151,21 +158,29 @@ class _PendingApprovalsState extends State<PendingNotes> {
                             ),
                           ),
                         ),
-                        attachmentList.length != 0
-                            ? GestureDetector(
-                          onTap: () => _removeImage(
-                              attachmentList[index]),
-                          child: Card(
-                            elevation: 10,
-                            color: Colors.white,
-                            shape: CircleBorder(),
-                            child: Icon(
-                              Icons.clear,
-                              size: 18,
+                        Positioned(
+                          top: 0,
+                          right: 0,
+                          child: attachmentList.length != 0
+                              ? GestureDetector(
+                            onTap: () => _removeImage(
+                                attachmentList[index]),
+                            child: Card(
+                              elevation: 10,
+                              color: Colors.white,
+                              shape: CircleBorder(),
+                              child:
+                              SvgPicture.asset(
+                                "assets/icons/Group 179.svg",height: 25,width: 25,
+                              ),
+                              // Icon(
+                              //   Icons.clear,
+                              //   size: 18,
+                              // ),
                             ),
-                          ),
-                        )
-                            : SizedBox(),
+                          )
+                              : SizedBox(),
+                        ),
                       ],
                     ),
                     onTap: () async {},
