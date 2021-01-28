@@ -48,7 +48,7 @@ class _PendingApprovalsState extends State<PendingApprovals> {
         children: <Widget>[
           CustomWidget(),
           Padding(
-            padding: const EdgeInsets.only(left:18.0),
+            padding: const EdgeInsets.only(left: 18.0),
             child: Container(
               height: 145,
               color: Colors.white,
@@ -61,14 +61,11 @@ class _PendingApprovalsState extends State<PendingApprovals> {
                   width: 25,
                   color: Colors.green,
                   indicator: SvgPicture.asset(
-                    "assets/icons/timeline1.svg",height: 25,width: 25,
+                    "assets/icons/timeline1.svg",
+                    height: 25,
+                    width: 25,
                   ),
-                  // indicatorXY: 0.5,
                   padding: const EdgeInsets.only(top: 5, left: 5, right: 5),
-                  // iconStyle: IconStyle(
-                  //   color: Colors.white,
-                  //   // iconData: Icons.radio_button_checked_rounded,
-                  // ),
                 ),
                 endChild: Container(
                   child: Padding(
@@ -96,7 +93,7 @@ class _PendingApprovalsState extends State<PendingApprovals> {
                 ),
                 startChild: Padding(
                   // padding: const EdgeInsets.only(left: 108.0, top: 131),
-                  padding: const EdgeInsets.only( top: 60),
+                  padding: const EdgeInsets.only(top: 60),
 
                   child: Column(
                     children: <Widget>[
@@ -116,7 +113,7 @@ class _PendingApprovalsState extends State<PendingApprovals> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left:18.0),
+            padding: const EdgeInsets.only(left: 18.0),
             child: Container(
               height: 145,
               color: Colors.white,
@@ -130,14 +127,12 @@ class _PendingApprovalsState extends State<PendingApprovals> {
                   color: Colors.green,
                   // indicatorXY: 0.5,
                   indicator: SvgPicture.asset(
-                    "assets/icons/timeline2.svg",height: 25,width: 25,
+                    "assets/icons/timeline2.svg",
+                    height: 25,
+                    width: 25,
                   ),
 
                   padding: const EdgeInsets.only(top: 0, left: 5, right: 5),
-                  // iconStyle: IconStyle(
-                  //   color: Colors.white,
-                  //   iconData: Icons.radio_button_checked_rounded,
-                  // ),
                 ),
                 endChild: Container(
                   child: Padding(
@@ -167,7 +162,7 @@ class _PendingApprovalsState extends State<PendingApprovals> {
                 ),
                 startChild: Padding(
                   // padding: const EdgeInsets.only(left: 108.0, top: 131),
-                  padding: const EdgeInsets.only( top: 60),
+                  padding: const EdgeInsets.only(top: 60),
 
                   child: Column(
                     children: <Widget>[
@@ -187,7 +182,7 @@ class _PendingApprovalsState extends State<PendingApprovals> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left:18.0),
+            padding: const EdgeInsets.only(left: 18.0),
             child: Container(
               height: 145,
               color: Colors.white,
@@ -199,15 +194,11 @@ class _PendingApprovalsState extends State<PendingApprovals> {
                   width: 25,
                   color: Colors.green,
                   indicator: SvgPicture.asset(
-                    "assets/icons/timeline3.svg",height: 25,width: 25,
+                    "assets/icons/timeline3.svg",
+                    height: 25,
+                    width: 25,
                   ),
-
-                  // indicatorXY: 0.5,
                   padding: const EdgeInsets.only(top: 0, left: 5, right: 5),
-                  // iconStyle: IconStyle(
-                  //   color: Colors.white,
-                  //   iconData: Icons.radio_button_checked_rounded,
-                  // ),
                 ),
                 endChild: Container(
                   child: Padding(
@@ -235,7 +226,7 @@ class _PendingApprovalsState extends State<PendingApprovals> {
                 ),
                 startChild: Padding(
                   // padding: const EdgeInsets.only(left: 108.0, top: 131),
-                  padding: const EdgeInsets.only( top: 60),
+                  padding: const EdgeInsets.only(top: 60),
                   child: Column(
                     children: <Widget>[
                       Padding(
@@ -248,7 +239,9 @@ class _PendingApprovalsState extends State<PendingApprovals> {
                         style: TextStyle(fontSize: 12),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top:8.0,),
+                        padding: const EdgeInsets.only(
+                          top: 8.0,
+                        ),
                         child: Row(
                           children: [
                             Text('NOTES'),
@@ -256,10 +249,12 @@ class _PendingApprovalsState extends State<PendingApprovals> {
                               child: Padding(
                                 padding: const EdgeInsets.only(left: 1),
                                 child: SvgPicture.asset(
-                                  "assets/icons/notes.svg",height: 25,width: 25,
+                                  "assets/icons/notes.svg",
+                                  height: 25,
+                                  width: 25,
                                 ),
                               ),
-                              onTap: (){
+                              onTap: () {
                                 Get.toNamed('/notes');
                               },
                             ),
@@ -273,7 +268,7 @@ class _PendingApprovalsState extends State<PendingApprovals> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left:18.0),
+            padding: const EdgeInsets.only(left: 18.0),
             child: Container(
               height: 145,
               color: Colors.white,
@@ -286,14 +281,12 @@ class _PendingApprovalsState extends State<PendingApprovals> {
                   width: 25,
                   color: Colors.green,
                   indicator: SvgPicture.asset(
-                    "assets/icons/timeline3.svg",height: 25,width: 25,
+                    "assets/icons/timeline3.svg",
+                    height: 25,
+                    width: 25,
                   ),
                   // indicatorXY: 0.5,
                   padding: const EdgeInsets.only(top: 0, left: 5, right: 5),
-                  // iconStyle: IconStyle(
-                  //   color: Colors.white,
-                  //   iconData: Icons.radio_button_checked_rounded,
-                  // ),
                 ),
                 endChild: Container(
                   child: Padding(
@@ -321,7 +314,7 @@ class _PendingApprovalsState extends State<PendingApprovals> {
                 ),
                 startChild: Padding(
                   // padding: const EdgeInsets.only(left: 108.0, top: 131),
-                  padding: const EdgeInsets.only( top: 60),
+                  padding: const EdgeInsets.only(top: 60),
                   child: Column(
                     children: <Widget>[
                       Padding(
@@ -341,7 +334,7 @@ class _PendingApprovalsState extends State<PendingApprovals> {
           ),
           Padding(
             padding:
-            const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+                const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
             child: Container(
               height: MediaQuery.of(context).size.height * 0.07,
               width: MediaQuery.of(context).size.width * 0.85,
@@ -386,7 +379,7 @@ class _PendingApprovalsState extends State<PendingApprovals> {
                         ),
                         elevation: 0,
                         backgroundColor: Colors.transparent,
-                        child: CustomDialogBox(context,'Manual Weighment'),
+                        child: CustomDialogBox(context, 'Manual Weighment'),
                       ),
                     ));
               });
@@ -404,5 +397,4 @@ class _PendingApprovalsState extends State<PendingApprovals> {
       ),
     );
   }
-
 }

@@ -49,7 +49,7 @@ class _DelieveryOrders extends State<DelieveryOrders> {
               child: Card(
                 child: Container(
                   color: Colors.white,
-                  height: MediaQuery.of(context).size.height*0.49,
+                  height: MediaQuery.of(context).size.height * 0.49,
                   width: double.infinity,
                   child: Row(
                     children: <Widget>[
@@ -101,23 +101,25 @@ class _DelieveryOrders extends State<DelieveryOrders> {
                                           ),
                                         ]),
                                       ]),
-                                      TableRow(
-
-                                          children: [
+                                      TableRow(children: [
                                         Column(
-                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
                                             children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(bottom:8.0),
-                                            child: Container(
-                                                alignment: Alignment.topLeft,
-                                                child: Text(
-                                                  'Contract',
-                                                  style: style,
-                                                  textAlign: TextAlign.start,
-                                                )),
-                                          )
-                                        ]),
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    bottom: 8.0),
+                                                child: Container(
+                                                    alignment:
+                                                        Alignment.topLeft,
+                                                    child: Text(
+                                                      'Contract',
+                                                      style: style,
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                    )),
+                                              )
+                                            ]),
                                         Column(children: [Text(':')]),
                                         Column(children: [
                                           Container(
@@ -132,7 +134,8 @@ class _DelieveryOrders extends State<DelieveryOrders> {
                                           Container(
                                               alignment: Alignment.topLeft,
                                               child: Padding(
-                                                padding: const EdgeInsets.only(bottom:8.0),
+                                                padding: const EdgeInsets.only(
+                                                    bottom: 8.0),
                                                 child: Text(
                                                   'Commodity',
                                                   style: style,
@@ -154,7 +157,8 @@ class _DelieveryOrders extends State<DelieveryOrders> {
                                           Container(
                                             alignment: Alignment.topLeft,
                                             child: Padding(
-                                              padding: const EdgeInsets.only(bottom:8.0),
+                                              padding: const EdgeInsets.only(
+                                                  bottom: 8.0),
                                               child: Text(
                                                 'Date',
                                                 style: style,
@@ -174,7 +178,8 @@ class _DelieveryOrders extends State<DelieveryOrders> {
                                           Container(
                                             alignment: Alignment.topLeft,
                                             child: Padding(
-                                              padding: const EdgeInsets.only(bottom:8.0),
+                                              padding: const EdgeInsets.only(
+                                                  bottom: 8.0),
                                               child: Text(
                                                 'Toatal Trucks',
                                                 style: style,
@@ -212,9 +217,7 @@ class _DelieveryOrders extends State<DelieveryOrders> {
                                         Padding(
                                           padding:
                                               const EdgeInsets.only(top: 18.0),
-                                          child: Column(children: [
-
-                                          ]),
+                                          child: Column(children: []),
                                         ),
                                       ]),
                                     ],

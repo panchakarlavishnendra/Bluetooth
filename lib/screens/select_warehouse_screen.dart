@@ -3,8 +3,9 @@ import 'package:flutter_bluetooth/widgets/continue_button.dart';
 import 'package:flutter_bluetooth/widgets/drop_down.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:get/get.dart';
+
 import 'package:flutter_svg/svg.dart';
+
 class SelectWareHouse extends StatefulWidget {
   SelectWareHouse({Key key}) : super(key: key);
   @override
@@ -38,9 +39,9 @@ class _SelectWareHouse extends State<SelectWareHouse> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-          title: AutoSizeText(
-        'Select Warehouse and Contact',
-        style: TextStyle(fontSize: 16),
+          title: const AutoSizeText(
+        'Select Warehouse & Contact',
+        style: TextStyle(fontSize: 14),
       )),
       body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -104,14 +105,14 @@ class _SelectWareHouse extends State<SelectWareHouse> {
                             child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                    Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child:
-                    SvgPicture.asset(
-                      "assets/icons/storage.svg",height: 25,width: 25,
-                    ),
-                    ),
-
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: SvgPicture.asset(
+                                "assets/icons/storage.svg",
+                                height: 25,
+                                width: 25,
+                              ),
+                            ),
                             Text('Addres'),
                             Radio(
                               value: 0,
@@ -140,8 +141,11 @@ class _SelectWareHouse extends State<SelectWareHouse> {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: SvgPicture.asset(
-                                "assets/icons/storage.svg",height: 25,width: 25,
-                              ),),
+                                "assets/icons/storage.svg",
+                                height: 25,
+                                width: 25,
+                              ),
+                            ),
                             Text('Addres'),
                             Radio(
                               value: 1,
@@ -164,16 +168,7 @@ class _SelectWareHouse extends State<SelectWareHouse> {
             Container(
               height: mediaHeight * 0.07,
               width: mediaWidth * 0.85,
-              child: ContinueButton('Continue','/contactsummary'),
-              // RaisedButton(
-              //   shape: RoundedRectangleBorder(
-              //     borderRadius: BorderRadius.circular(3.0),
-              //   ),
-              //   onPressed: () => {Get.toNamed('/contactsummary')},
-              //   color: Colors.cyan[900],
-              //   textColor: Colors.white,
-              //   child: Text("Continue", style: TextStyle(fontSize: 18)),
-              // ),
+              child: ContinueButton('Continue', '/contactsummary'),
             )
           ]),
 

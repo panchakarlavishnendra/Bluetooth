@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
+
 class Sucess extends StatefulWidget {
   @override
   _SucessState createState() => _SucessState();
 }
 
-Widget _customisedButton(context, text,url) {
+Widget _customisedButton(context, text, url) {
   var style = TextStyle(color: Colors.white, fontSize: 17);
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 7.0),
@@ -52,15 +53,15 @@ class _SucessState extends State<Sucess> {
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Container(
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                  height: MediaQuery.of(context).size.height * 0.35,
-                  width: MediaQuery.of(context).size.width * 0.4,
-                  child:
-                  SvgPicture.asset(
-                    "assets/icons/checkedgreen.svg",height: 25,width: 25,
-                  ),
+                height: MediaQuery.of(context).size.height * 0.23,
+                width: MediaQuery.of(context).size.width * 0.4,
+                child: SvgPicture.asset(
+                  "assets/icons/checkedgreen.svg",
+                  height: 25,
+                  width: 25,
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 15.0),
@@ -72,10 +73,14 @@ class _SucessState extends State<Sucess> {
                       textAlign: TextAlign.center,
                     )),
               ),
-              _customisedButton(context, 'Download Gatepass','/dailytranasactions'),
-              _customisedButton(context, 'Daily Transaction Register','/dailytranasactions'),
-              _customisedButton(context, 'All Delivery Orders','/dailytranasactions'),
-              _customisedButton(context, 'Make a New Truck Entry','/dailytranasactions')
+              _customisedButton(
+                  context, 'Download Gatepass', '/dailytranasactions'),
+              _customisedButton(
+                  context, 'Daily Transaction Register', '/dailytranasactions'),
+              _customisedButton(
+                  context, 'All Delivery Orders', '/dailytranasactions'),
+              _customisedButton(
+                  context, 'Make a New Truck Entry', '/dailytranasactions')
             ],
           ),
         ),

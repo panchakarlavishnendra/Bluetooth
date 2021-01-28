@@ -74,10 +74,6 @@ class Routes {
       page: () => UploadWeighmentDocumentScreen(),
         transition: Transition.rightToLeft
     ),
-    // GetPage(
-    //   name: '/otpscreen',
-    //   page: () => CustomDialogBox(),
-    // ),
     GetPage(
       name: '/pending',
       page: () => PendingApprovals(),

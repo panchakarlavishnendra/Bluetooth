@@ -49,12 +49,6 @@ class _UploadWeighmentDocumentScreenState
                               Icons.photo_size_select_actual_outlined,
                               size: 70,
                             ),
-
-                            // onPressed: () {
-                            //   setState(() {
-                            //     _volume += 10;
-                            //   });
-                            // },
                           ),
                         ),
                         Text("Tap here to upload the document"),
@@ -64,7 +58,7 @@ class _UploadWeighmentDocumentScreenState
                 ],
               ),
               Container(
-                width: MediaQuery.of(context).size.width*0.8,
+                width: MediaQuery.of(context).size.width * 0.8,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -105,21 +99,7 @@ class _UploadWeighmentDocumentScreenState
                   ],
                 ),
               ),
-              ContinueButton('Continue to QC','/quality'),
-              // RaisedButton(
-              //   onPressed: () {
-              //     Get.toNamed('/quality');
-              //   },
-              //   color: Colors.cyan[900],
-              //   child: Center(
-              //       child: Text(
-              //     "CONTINUE TO QC",
-              //     style: TextStyle(
-              //       color: Colors.white,
-              //       fontSize: 18,
-              //     ),
-              //   )),
-              // ),
+              ContinueButton('Continue to QC', '/quality'),
             ],
           ),
         ),

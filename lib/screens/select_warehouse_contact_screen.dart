@@ -37,11 +37,14 @@ class _SelectWarehouseContacts extends State<SelectWarehouseContacts> {
   Widget build(BuildContext context) {
     final mediaHeight = MediaQuery.of(context).size.height;
     final mediaWidth = MediaQuery.of(context).size.width;
-    final screenHeight = mediaHeight / 100;
-    final screenWidth = mediaWidth / 100;
+
     return Scaffold(
       key: _scaffoldKey,
-      appBar: AppBar(title: Text('Select Warehouse & Contract',style: TextStyle(fontSize: 16),)),
+      appBar: AppBar(
+          title: Text(
+        'Select Warehouse & Contract',
+        style: TextStyle(fontSize: 16),
+      )),
       body: Padding(
         padding: const EdgeInsets.only(top: 28.0),
         child: Column(
@@ -81,7 +84,7 @@ class _SelectWarehouseContacts extends State<SelectWarehouseContacts> {
               Container(
                 height: mediaHeight * 0.07,
                 width: mediaWidth * 0.85,
-                child: ContinueButton('Continue','/selectWareHouse'),
+                child: ContinueButton('Continue', '/selectWareHouse'),
               )
             ]),
       ),

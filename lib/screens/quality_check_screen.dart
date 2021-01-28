@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bluetooth/screens/chat_page.dart';
+
 import 'package:flutter_bluetooth/screens/connected_devices_screen.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
