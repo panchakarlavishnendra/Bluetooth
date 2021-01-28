@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bluetooth/widgets/app_widget.dart';
+import 'package:flutter_bluetooth/widgets/continue_button.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:get/get.dart';
 
@@ -39,30 +40,29 @@ class _TruckStackingSummaryState extends State<TruckStackingSummary> {
         children: <Widget>[
           CustomWidget(),
           Padding(
-            padding: const EdgeInsets.all(18.0),
+            padding: const EdgeInsets.symmetric(vertical:10.0,horizontal: 1),
             child: Container(
               child: DataTable(
-                columnSpacing: 14,
+                columnSpacing: 11,
                 dataRowHeight: 42,
-                headingRowHeight: 35,
+                headingRowHeight: 45,
                 columns: [
                   DataColumn(
                       label: Text(
                     'Warehouse Stack',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: AdaptiveTextSize()
-                            .getadaptiveTextSize(context, 12)),
+                        fontSize: 12.5),
                   )),
                   DataColumn(
                       label: Text(
                     'Mother Bags',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12.5),
                   )),
                   DataColumn(
                       label: Text(
                     'Mother Bags',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12.5),
                   )),
                 ],
               rows: [
@@ -104,19 +104,20 @@ class _TruckStackingSummaryState extends State<TruckStackingSummary> {
             child: Container(
               width: MediaQuery.of(context).size.width * 0.9,
               // color: Colors.blueAccent,
-              child: RaisedButton(
-                color: Colors.teal,
-                onPressed: () {
-                  Get.toNamed('/truckweightment');
-                },
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 15.0),
-                  child: Text(
-                    'Continue Tare Weightment',
-                    style: TextStyle(fontSize: 18, color: Colors.white),
-                  ),
-                ),
-              ),
+              child:   ContinueButton('Continue Tare Weighment','/truckweightment'),
+              // RaisedButton(
+              //   color: Colors.teal,
+              //   onPressed: () {
+              //     Get.toNamed('/truckweightment');
+              //   },
+              //   child: Padding(
+              //     padding: const EdgeInsets.symmetric(vertical: 15.0),
+              //     child: Text(
+              //       'Continue Tare Weightment',
+              //       style: TextStyle(fontSize: 18, color: Colors.white),
+              //     ),
+              //   ),
+              // ),
             ),
           ),
         ],

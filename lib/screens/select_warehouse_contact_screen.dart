@@ -41,7 +41,7 @@ class _SelectWarehouseContacts extends State<SelectWarehouseContacts> {
     final screenWidth = mediaWidth / 100;
     return Scaffold(
       key: _scaffoldKey,
-      appBar: AppBar(title: Text('Drawer Demo')),
+      appBar: AppBar(title: Text('Select Warehouse & Contract',style: TextStyle(fontSize: 16),)),
       body: Padding(
         padding: const EdgeInsets.only(top: 28.0),
         child: Column(
@@ -82,15 +82,6 @@ class _SelectWarehouseContacts extends State<SelectWarehouseContacts> {
                 height: mediaHeight * 0.07,
                 width: mediaWidth * 0.85,
                 child: ContinueButton('Continue','/selectWareHouse'),
-                // RaisedButton(
-                //   shape: RoundedRectangleBorder(
-                //     borderRadius: BorderRadius.circular(3.0),
-                //   ),
-                //   onPressed: () => {Get.toNamed('/selectWareHouse')},
-                //   color: Colors.cyan[900],
-                //   textColor: Colors.white,
-                //   child: Text("Continue", style: TextStyle(fontSize: 18)),
-                // ),
               )
             ]),
       ),

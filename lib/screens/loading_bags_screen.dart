@@ -4,6 +4,8 @@ import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:flutter_bluetooth/widgets/text_field.dart';
 import 'package:get/get.dart';
 import '../const.dart';
+import 'package:flutter_svg/svg.dart';
+
 
 class LoadBags extends StatefulWidget {
   @override
@@ -46,7 +48,7 @@ class _LoadBagsState extends State<LoadBags> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Container(
-                        height: MediaQuery.of(context).size.height * 0.15,
+                        height: MediaQuery.of(context).size.height * 0.17,
                         width: MediaQuery.of(context).size.width * 1,
                         child: Column(
                           children: [
@@ -158,114 +160,113 @@ class _LoadBagsState extends State<LoadBags> {
                         ),
                       ),
                     ],
-
                   ),
                 ],
               ),
             ),
-            Card(
-              margin: EdgeInsets.symmetric(vertical: 30),
-              elevation: 1,
-              child: Container(
-                  height: MediaQuery.of(context).size.height * 0.28,
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  child: ListView(
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: Container(
-                          height: MediaQuery.of(context).size.height * 0.085,
-                          width: MediaQuery.of(context).size.width * 0.85,
-                          child: DropdownButton(
-                            hint: Text('Warehouse Stack'),
-                            // Not necessary for Option 1
-                            value: _selectedLocation,
-                            isExpanded: true,
-                            onChanged: (newValue) {
-                              setState(() {
-                                _selectedLocation = newValue;
-                              });
-                            },
-                            items: _locations.map((location) {
-                              return DropdownMenuItem(
-                                child: new Text(location),
-                                value: location,
-                              );
-                            }).toList(),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 4.0, horizontal: 15.0),
-                          // width: MediaQuery.of(context).size.width*0.80,
-                          child: CustomTextField(
-                            label: "No of Bag's",
-                            controller: noOfBagsController,
-                            keyboardType: TextInputType.number,
-                          )),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: Container(
-                          height: MediaQuery.of(context).size.height * 0.085,
-                          width: MediaQuery.of(context).size.width * 0.85,
-                          child: DropdownButton(
-                            hint: Text('Warehouse Stack'),
-                            // Not necessary for Option 1
-                            value: _selectedLocation,
-                            isExpanded: true,
-                            onChanged: (newValue) {
-                              setState(() {
-                                _selectedLocation = newValue;
-                              });
-                            },
-                            items: _locations.map((location) {
-                              return DropdownMenuItem(
-                                child: new Text(location),
-                                value: location,
-                              );
-                            }).toList(),
-                          ),
-                        ),
-                      ),
-                      Container(
-                          child: Image.asset('assets/red.png', height: 30,width: 30,)
-                      )
-                    ],
-                  )
-                  // child: ,
-                  ),
-            ),
-            Column(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20.0,horizontal: 25),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        child: Icon(
-                          Icons.shopping_bag,
-                          size: 50,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 35.0),
-                        child: Text('Add Mother Bags'),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
-                        child: FloatingActionButton(
-                            elevation: 0.0,
-                            child: new Icon(Icons.add),
-                            backgroundColor: Colors.green,
-                            onPressed: () {}),
-                      ),
+                Card(
+                  margin: EdgeInsets.only(left: 30,top: 20),
+                  elevation: 1,
+                  child: Container(
+                      height: MediaQuery.of(context).size.height * 0.32,
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      child: ListView(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            child: Container(
+                              height: MediaQuery.of(context).size.height * 0.085,
+                              width: MediaQuery.of(context).size.width * 0.85,
+                              child: DropdownButton(
+                                hint: Text('Warehouse Stack'),
+                                // Not necessary for Option 1
+                                value: _selectedLocation,
+                                isExpanded: true,
+                                onChanged: (newValue) {
+                                  setState(() {
+                                    _selectedLocation = newValue;
+                                  });
+                                },
+                                items: _locations.map((location) {
+                                  return DropdownMenuItem(
+                                    child: new Text(location),
+                                    value: location,
+                                  );
+                                }).toList(),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 4.0, horizontal: 15.0),
+                              // width: MediaQuery.of(context).size.width*0.80,
+                              child: CustomTextField(
+                                label: "No of Bag's",
+                                controller: noOfBagsController,
+                                keyboardType: TextInputType.number,
+                              )),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            child: Container(
+                              height: MediaQuery.of(context).size.height * 0.085,
+                              width: MediaQuery.of(context).size.width * 0.85,
+                              child: DropdownButton(
+                                hint: Text('Warehouse Stack'),
+                                // Not necessary for Option 1
+                                value: _selectedLocation,
+                                isExpanded: true,
+                                onChanged: (newValue) {
+                                  setState(() {
+                                    _selectedLocation = newValue;
+                                  });
+                                },
+                                items: _locations.map((location) {
+                                  return DropdownMenuItem(
+                                    child: new Text(location),
+                                    value: location,
+                                  );
+                                }).toList(),
+                              ),
+                            ),
+                          ),
 
-                    ],
-                  ),
+                        ],
+                      )
+                      // child: ,
+                      ),
                 ),
+
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SvgPicture.asset(
+                        "assets/Group 179.svg",
+                      ),
+                    ),
               ],
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15.0,top:15,bottom: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SvgPicture.asset(
+                    "assets/motherbag.svg",
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    child: Text('Add Mother Bags'),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top:8.0),
+                    child: SvgPicture.asset(
+                      "assets/Add Stack.svg",
+                    ),
+                  ),
+                ],
+              ),
             ),
             Container(
                 height: MediaQuery.of(context) .size.height* 0.07,
