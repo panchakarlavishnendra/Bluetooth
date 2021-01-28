@@ -238,7 +238,7 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                       ),
                     ),
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.83,
+                      width: MediaQuery.of(context).size.width * 0.97,
                       child: Row(
                         // mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
@@ -293,7 +293,7 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
 
   Widget _myRadioButton({String title, int value, Function onChanged}) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.41,
+      width: MediaQuery.of(context).size.width * 0.46,
       height: MediaQuery.of(context).size.height * 0.06,
       child: RadioListTile(
         value: value,
