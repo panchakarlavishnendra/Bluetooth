@@ -140,7 +140,7 @@ class _QualityCheckState extends State<QualityCheck> {
                       ),
                       Text(
                         '%',
-                        style: TextStyle(fontSize: 18),
+                        style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),
                       ),
                       Container(
                         width: MediaQuery.of(context).size.width * 0.30,
@@ -178,14 +178,36 @@ class _QualityCheckState extends State<QualityCheck> {
                   padding: const EdgeInsets.symmetric(
                       vertical: 15.0, horizontal: 25),
                   child: Row(
+                    // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Text(
                         'Damaged',
                         style: TextStyle(fontSize: 18),
                       ),
                       SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.15,
+                        width: MediaQuery.of(context).size.width * 0.19,
                       ),
+                      // Container(
+                      //   decoration: BoxDecoration(
+                      //       borderRadius:
+                      //       BorderRadius.all(Radius.circular(12.0))),
+                      //   width: MediaQuery.of(context).size.width * 0.19,
+                      //   height: MediaQuery.of(context).size.width * 0.10,
+                      //   child: TextField(
+                      //     controller: _damageController,
+                      //     keyboardType: TextInputType.number,
+                      //     style: TextStyle(fontSize: 14.0),
+                      //     decoration: new InputDecoration(
+                      //       enabledBorder: OutlineInputBorder(
+                      //           borderSide: BorderSide(
+                      //               color: Colors.black, width: 1.5)),
+                      //       focusedBorder: OutlineInputBorder(
+                      //         borderSide:
+                      //         BorderSide(color: Colors.black, width: 1.5),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
                       Container(
                         decoration: BoxDecoration(
                             borderRadius:
@@ -206,7 +228,8 @@ class _QualityCheckState extends State<QualityCheck> {
                             ),
                           ),
                         ),
-                      )
+                      ),
+                      Text(' Units',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),)
                     ],
                   ),
                 ),
@@ -283,26 +306,6 @@ class _QualityCheckState extends State<QualityCheck> {
       endDrawer: EndDrawer(_openEndDrawer, _closeEndDrawer),
     );
   }
-  // void _startChat(BuildContext context, BluetoothDevice server) {
-  //   ChatPage msgdata = new ChatPage();
-  //   msgdata.onDataReceived();
-  //   print(msgdata);
-  //   Navigator.of(context).push(
-  //     MaterialPageRoute(
-  //       builder: (context) {
-  //         return ChatPage(server: server);
-  //       },
-  //     ),
-  //   );
-  // }
-  // void _startChat(BuildContext context, BluetoothDevice server) {
-  //   Navigator.of(context).push(
-  //     MaterialPageRoute(
-  //       builder: (context) {
-  //         return ChatPage(server: server , func: function );
-  //       },
-  //     ),
-  //   );
-  // }
+
   function(value) => setState(() => _text = value);
 }

@@ -136,7 +136,7 @@ class _EndDrawerState extends State<EndDrawer> {
                       ),
                       const Text(
                         'Daily Transaction Register',
-                        style: TextStyle(color: Colors.white, fontSize: 14),
+                        style: TextStyle(color: Colors.white, fontSize: 12.5),
                       ),
                     ],
                   ),

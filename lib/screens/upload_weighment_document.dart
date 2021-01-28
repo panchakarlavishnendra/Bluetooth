@@ -1,6 +1,7 @@
 /// Flutter code sample for DataTable
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_bluetooth/widgets/continue_button.dart';
 import 'package:get/get.dart';
 
 class UploadWeighmentDocumentScreen extends StatefulWidget {
@@ -62,59 +63,63 @@ class _UploadWeighmentDocumentScreenState
                   ),
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  FlatButton(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(0.0),
-                      // side: BorderSide(color: Colors.red)
-                    ),
-                    color: Colors.white,
-                    textColor: Colors.deepOrange,
-                    padding: EdgeInsets.all(8.0),
-                    onPressed: () {},
-                    child: Text(
-                      "Delete Document".toUpperCase(),
-                      style: TextStyle(
-                        fontSize: 14.0,
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 10),
-                  FlatButton(
-                    shape: RoundedRectangleBorder(
+              Container(
+                width: MediaQuery.of(context).size.width*0.8,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    FlatButton(
+                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(0.0),
-                        side: BorderSide(color: Colors.grey)),
-                    color: Colors.white,
-                    textColor: Colors.green,
-                    padding: EdgeInsets.all(8.0),
-                    onPressed: () {
-                      Get.toNamed('/success');
-                    },
-                    child: Text(
-                      "View Document".toUpperCase(),
-                      style: TextStyle(
-                        fontSize: 14.0,
+                        // side: BorderSide(color: Colors.red)
+                      ),
+                      color: Colors.white,
+                      textColor: Colors.deepOrange,
+                      padding: EdgeInsets.all(5.0),
+                      onPressed: () {},
+                      child: Text(
+                        "Delete Document".toUpperCase(),
+                        style: TextStyle(
+                          fontSize: 14.0,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                    SizedBox(width: 10),
+                    FlatButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(0.0),
+                          side: BorderSide(color: Colors.grey)),
+                      color: Colors.white,
+                      textColor: Colors.green,
+                      padding: EdgeInsets.all(5.0),
+                      onPressed: () {
+                        Get.toNamed('/success');
+                      },
+                      child: Text(
+                        "View Document".toUpperCase(),
+                        style: TextStyle(
+                          fontSize: 14.0,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              RaisedButton(
-                onPressed: () {
-                  Get.toNamed('/quality');
-                },
-                color: Colors.cyan[900],
-                child: Center(
-                    child: Text(
-                  "CONTINUE TO QC",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                  ),
-                )),
-              ),
+              ContinueButton('Continue to QC','/quality'),
+              // RaisedButton(
+              //   onPressed: () {
+              //     Get.toNamed('/quality');
+              //   },
+              //   color: Colors.cyan[900],
+              //   child: Center(
+              //       child: Text(
+              //     "CONTINUE TO QC",
+              //     style: TextStyle(
+              //       color: Colors.white,
+              //       fontSize: 18,
+              //     ),
+              //   )),
+              // ),
             ],
           ),
         ),

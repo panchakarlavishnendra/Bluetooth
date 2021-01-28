@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bluetooth/widgets/continue_button.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as path;
@@ -85,473 +86,469 @@ class _TruckWeightment extends State<TruckWeightment> {
           child: Container(
             height: MediaQuery.of(context).size.height * 0.9,
             width: MediaQuery.of(context).size.width * 1,
-            child: ListView(
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10, top: 10),
-                      child: Column(
-                        children: <Widget>[
-                          Container(
-                              height: 70,
-                              width: MediaQuery.of(context).size.width * 0.75,
-                              child: new Theme(
-                                data: new ThemeData(
-                                    // primaryColor: Colors.black87,
-                                    // primaryColorDark: Colors.black87,
-                                    ),
-                                child: new TextField(
-                                  decoration: InputDecoration(
-                                      labelText: 'GatePass Number'),
-                                  keyboardType: TextInputType.number,
-                                  inputFormatters: <TextInputFormatter>[
-                                    FilteringTextInputFormatter.digitsOnly
-                                  ],
-                                ),
-                              )),
-                        ],
+            child: Padding(
+              padding: const EdgeInsets.only(bottom:25.0),
+              child: ListView(
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10, top: 10),
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                                height: 70,
+                                width: MediaQuery.of(context).size.width * 0.75,
+                                child: new Theme(
+                                  data: new ThemeData(
+                                      // primaryColor: Colors.black87,
+                                      // primaryColorDark: Colors.black87,
+                                      ),
+                                  child: new TextField(
+                                    decoration: InputDecoration(
+                                        labelText: 'GatePass Number'),
+                                    keyboardType: TextInputType.number,
+                                    inputFormatters: <TextInputFormatter>[
+                                      FilteringTextInputFormatter.digitsOnly
+                                    ],
+                                  ),
+                                )),
+                          ],
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10.0, left: 10),
-                      child: Column(
-                        children: <Widget>[
-                          Container(
-                            height: 50,
-                            width: 50,
-                            child: IconButton(
-                                iconSize: 45,
-                                icon: Icon(
-                                  Icons.add_a_photo,
-                                  color: Colors.blueGrey[700],
-                                ),
-                                onPressed: () {
-                                  showDialog(
-                                    context: context,
-                                    builder: (_) => Material(
-                                      type: MaterialType.transparency,
-                                      child: Center(
-                                        // Aligns the container to center
-                                        child: Container(
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              1,
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              1,
-                                          margin: EdgeInsets.only(
-                                              top: Constants.avatarRadius),
-                                          decoration: BoxDecoration(
-                                              // shape: BoxShape.rectangle,
-                                              color: Colors.black87,
-                                              // borderRadius: BorderRadius.circular(Constants.padding),
-                                              boxShadow: [
-                                                BoxShadow(
-                                                    color: Colors.transparent,
-                                                    offset: Offset(0, 10),
-                                                    blurRadius: 25),
-                                              ]),
-                                          child: ListView(
-                                            children: <Widget>[
-                                              Positioned(
-                                                right: 0.0,
-                                                child: GestureDetector(
-                                                  onTap: () {
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10.0, left: 10),
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              height: 50,
+                              width: 50,
+                              child: IconButton(
+                                  iconSize: 45,
+                                  icon: Icon(
+                                    Icons.add_a_photo,
+                                    color: Colors.blueGrey[700],
+                                  ),
+                                  onPressed: () {
+                                    showDialog(
+                                      context: context,
+                                      builder: (_) => Material(
+                                        type: MaterialType.transparency,
+                                        child: Center(
+                                          // Aligns the container to center
+                                          child: Container(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                1,
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                1,
+                                            margin: EdgeInsets.only(
+                                                top: Constants.avatarRadius),
+                                            decoration: BoxDecoration(
+                                                // shape: BoxShape.rectangle,
+                                                color: Colors.black87,
+                                                // borderRadius: BorderRadius.circular(Constants.padding),
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                      color: Colors.transparent,
+                                                      offset: Offset(0, 10),
+                                                      blurRadius: 25),
+                                                ]),
+                                            child: ListView(
+                                              children: <Widget>[
+                                                Positioned(
+                                                  right: 0.0,
+                                                  child: GestureDetector(
+                                                    onTap: () {
+                                                      Navigator.of(context).pop();
+                                                    },
+                                                    child: Align(
+                                                      alignment:
+                                                          Alignment.topRight,
+                                                      child: CircleAvatar(
+                                                        radius: 14.0,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        child: Icon(Icons.close,
+                                                            color: Colors.white),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsets.only(
+                                                      left: 35),
+                                                  child: Text(
+                                                    'Please selecct a view to capture:',
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 14,
+                                                        color: Colors.white),
+                                                    // textAlign: TextAlign.center,
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 2,
+                                                ),
+                                                Theme(
+                                                  data: Theme.of(context)
+                                                      .copyWith(
+                                                          unselectedWidgetColor:
+                                                              Colors.white,
+                                                          disabledColor:
+                                                              Colors.blue),
+                                                  child: Column(
+                                                    children: <Widget>[
+                                                      RadioListTile<
+                                                          SingingCharacter>(
+                                                        title: const Text(
+                                                          'Capture Font Number Plate',
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white),
+                                                        ),
+                                                        value: SingingCharacter
+                                                            .CaptureFontNumberPlate,
+                                                        groupValue: character,
+                                                        activeColor: Colors.white,
+                                                        onChanged:
+                                                            (SingingCharacter
+                                                                value) {
+                                                          setState(() {
+                                                            character = value;
+                                                          });
+                                                        },
+                                                      ),
+                                                      RadioListTile<
+                                                          SingingCharacter>(
+                                                        title: const Text(
+                                                          "Capture Rear Number Plate",
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white),
+                                                        ),
+                                                        value: SingingCharacter
+                                                            .CaptureRearNumberPlate,
+                                                        groupValue: character,
+                                                        onChanged:
+                                                            (SingingCharacter
+                                                                value) {
+                                                          setState(() {
+                                                            character = value;
+                                                          });
+                                                        },
+                                                      ),
+                                                      RadioListTile<
+                                                          SingingCharacter>(
+                                                        activeColor: Colors.white,
+                                                        title: const Text(
+                                                          "Capture Front View",
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white),
+                                                        ),
+                                                        value: SingingCharacter
+                                                            .CaptureFrontView,
+                                                        groupValue: character,
+                                                        onChanged:
+                                                            (SingingCharacter
+                                                                value) {
+                                                          setState(() {
+                                                            character = value;
+                                                          });
+                                                        },
+                                                      ),
+                                                      RadioListTile<
+                                                          SingingCharacter>(
+                                                        title: const Text(
+                                                          "Capture Rear View",
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white),
+                                                        ),
+                                                        value: SingingCharacter
+                                                            .CaptureRearView,
+                                                        groupValue: character,
+                                                        onChanged:
+                                                            (SingingCharacter
+                                                                value) {
+                                                          setState(() {
+                                                            character = value;
+                                                          });
+                                                        },
+                                                      ),
+                                                      RadioListTile<
+                                                          SingingCharacter>(
+                                                        title: const Text(
+                                                          "Capture Top View",
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white),
+                                                        ),
+                                                        value: SingingCharacter
+                                                            .CaptureTopView,
+                                                        groupValue: character,
+                                                        onChanged:
+                                                            (SingingCharacter
+                                                                value) {
+                                                          setState(() {
+                                                            character = value;
+                                                          });
+                                                        },
+                                                      ),
+                                                      RadioListTile<
+                                                          SingingCharacter>(
+                                                        title: const Text(
+                                                          "Gate Pass",
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white),
+                                                        ),
+                                                        value: SingingCharacter
+                                                            .GatePass,
+                                                        groupValue: character,
+                                                        onChanged:
+                                                            (SingingCharacter
+                                                                value) {
+                                                          setState(() {
+                                                            character = value;
+                                                          });
+                                                        },
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                SizedBox(height: 15),
+                                                RaisedButton.icon(
+                                                  icon: Icon(
+                                                      Icons.camera_alt_outlined),
+                                                  // <-- Icon you want.
+                                                  textColor: Colors.black87,
+                                                  color: Colors.white,
+                                                  label:
+                                                      const Text('Capture Photo'),
+                                                  // <-- Your text.
+                                                  // onPressed:() => _showCamera(),
+                                                  onPressed: () {
+                                                    isVideo = false;
+                                                    onImageButtonPressed(
+                                                        ImageSource.camera,
+                                                        context: context);
                                                     Navigator.of(context).pop();
                                                   },
-                                                  child: Align(
-                                                    alignment:
-                                                        Alignment.topRight,
-                                                    child: CircleAvatar(
-                                                      radius: 14.0,
-                                                      backgroundColor:
-                                                          Colors.transparent,
-                                                      child: Icon(Icons.close,
-                                                          color: Colors.white),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    left: 35),
-                                                child: Text(
-                                                  'Please selecct a view to capture:',
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 14,
-                                                      color: Colors.white),
-                                                  // textAlign: TextAlign.center,
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                height: 2,
-                                              ),
-                                              Theme(
-                                                data: Theme.of(context)
-                                                    .copyWith(
-                                                        unselectedWidgetColor:
-                                                            Colors.white,
-                                                        disabledColor:
-                                                            Colors.blue),
-                                                child: Column(
-                                                  children: <Widget>[
-                                                    RadioListTile<
-                                                        SingingCharacter>(
-                                                      title: const Text(
-                                                        'Capture Font Number Plate',
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.white),
-                                                      ),
-                                                      value: SingingCharacter
-                                                          .CaptureFontNumberPlate,
-                                                      groupValue: character,
-                                                      activeColor: Colors.white,
-                                                      onChanged:
-                                                          (SingingCharacter
-                                                              value) {
-                                                        setState(() {
-                                                          character = value;
-                                                        });
-                                                      },
-                                                    ),
-                                                    RadioListTile<
-                                                        SingingCharacter>(
-                                                      title: const Text(
-                                                        "Capture Rear Number Plate",
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.white),
-                                                      ),
-                                                      value: SingingCharacter
-                                                          .CaptureRearNumberPlate,
-                                                      groupValue: character,
-                                                      onChanged:
-                                                          (SingingCharacter
-                                                              value) {
-                                                        setState(() {
-                                                          character = value;
-                                                        });
-                                                      },
-                                                    ),
-                                                    RadioListTile<
-                                                        SingingCharacter>(
-                                                      activeColor: Colors.white,
-                                                      title: const Text(
-                                                        "Capture Front View",
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.white),
-                                                      ),
-                                                      value: SingingCharacter
-                                                          .CaptureFrontView,
-                                                      groupValue: character,
-                                                      onChanged:
-                                                          (SingingCharacter
-                                                              value) {
-                                                        setState(() {
-                                                          character = value;
-                                                        });
-                                                      },
-                                                    ),
-                                                    RadioListTile<
-                                                        SingingCharacter>(
-                                                      title: const Text(
-                                                        "Capture Rear View",
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.white),
-                                                      ),
-                                                      value: SingingCharacter
-                                                          .CaptureRearView,
-                                                      groupValue: character,
-                                                      onChanged:
-                                                          (SingingCharacter
-                                                              value) {
-                                                        setState(() {
-                                                          character = value;
-                                                        });
-                                                      },
-                                                    ),
-                                                    RadioListTile<
-                                                        SingingCharacter>(
-                                                      title: const Text(
-                                                        "Capture Top View",
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.white),
-                                                      ),
-                                                      value: SingingCharacter
-                                                          .CaptureTopView,
-                                                      groupValue: character,
-                                                      onChanged:
-                                                          (SingingCharacter
-                                                              value) {
-                                                        setState(() {
-                                                          character = value;
-                                                        });
-                                                      },
-                                                    ),
-                                                    RadioListTile<
-                                                        SingingCharacter>(
-                                                      title: const Text(
-                                                        "Gate Pass",
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.white),
-                                                      ),
-                                                      value: SingingCharacter
-                                                          .GatePass,
-                                                      groupValue: character,
-                                                      onChanged:
-                                                          (SingingCharacter
-                                                              value) {
-                                                        setState(() {
-                                                          character = value;
-                                                        });
-                                                      },
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              SizedBox(height: 15),
-                                              RaisedButton.icon(
-                                                icon: Icon(
-                                                    Icons.camera_alt_outlined),
-                                                // <-- Icon you want.
-                                                textColor: Colors.black87,
-                                                color: Colors.white,
-                                                label:
-                                                    const Text('Capture Photo'),
-                                                // <-- Your text.
-                                                // onPressed:() => _showCamera(),
-                                                onPressed: () {
-                                                  isVideo = false;
-                                                  onImageButtonPressed(
-                                                      ImageSource.camera,
-                                                      context: context);
-                                                  Navigator.of(context).pop();
-                                                },
-                                              )
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                }),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                attachmentList.length != 0
-                    ? Container(
-                        height: 100,
-                        width: MediaQuery.of(context).size.width * 1,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          shrinkWrap: true,
-                          itemCount: attachmentList.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return attachmentList.length != 0
-                                ? GestureDetector(
-                                    child: Stack(
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: new Container(
-                                            width: 100.0,
-                                            height: 100.0,
-                                            decoration: new BoxDecoration(
-                                              shape: BoxShape.rectangle,
-                                              image: new DecorationImage(
-                                                  fit: BoxFit.fill,
-                                                  image: FileImage(
-                                                      attachmentList[index])
-                                                  // image: new FileImage(attachFile),
-                                                  ),
+                                                )
+                                              ],
                                             ),
                                           ),
                                         ),
-                                        Positioned(
-                                          top: 0,
-                                          right: 0,
-                                          child: attachmentList.length != 0
-                                              ? GestureDetector(
-                                                  onTap: () => _removeImage(
-                                                      attachmentList[index]),
-                                                  child: Card(
-                                                    elevation: 10,
-                                                    color: Colors.white,
-                                                    shape: CircleBorder(),
-                                                    child: Icon(
-                                                      Icons.clear,
-                                                      size: 18,
-                                                    ),
-                                                  ),
-                                                )
-                                              : SizedBox(),
-                                        ),
-                                      ],
-                                    ),
-                                    onTap: () async {},
-                                  )
-                                : SizedBox();
-                          },
+                                      ),
+                                    );
+                                  }),
+                            ),
+                          ],
                         ),
-                      )
-                    : SizedBox(),
-                Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10, top: 10),
-                      child: Column(
-                        children: <Widget>[
-                          Container(
-                              height: 70,
-                              width: 310,
-                              child: new Theme(
-                                data: new ThemeData(
-                                  primaryColor: Colors.black,
-                                  primaryColorDark: Colors.black,
-                                ),
-                                child: new TextField(
-                                  decoration: InputDecoration(
-                                      labelText: 'Vehicle Number'),
-                                ),
-                              )),
-                        ],
                       ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        labelText: 'Latitude/Longitude',
-                        suffixIcon: Icon(Icons.gps_fixed_outlined)),
-                    keyboardType: TextInputType.number,
-                    inputFormatters: <TextInputFormatter>[
-                      FilteringTextInputFormatter.digitsOnly
                     ],
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Container(
-                    height: 60,
-                    child: DropdownButton(
-                      hint: Text('Please choose a location'),
-                      // Not necessary for Option 1
-                      value: _selectedLocation,
-                      isExpanded: true,
-                      onChanged: (newValue) {
-                        setState(() {
-                          _selectedLocation = newValue;
-                        });
-                      },
-                      items: _locations.map((location) {
-                        return DropdownMenuItem(
-                          child: new Text(location),
-                          value: location,
-                        );
-                      }).toList(),
-                    ),
-                  ),
-                ),
-                Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10, top: 10),
-                      child: Column(
-                        children: <Widget>[
-                          Container(
-                              height: 70,
-                              width: 200,
-                              child: new Theme(
-                                data: new ThemeData(
-                                  primaryColor: Colors.black,
-                                  primaryColorDark: Colors.black,
-                                ),
-                                child: new TextField(
-                                  decoration: InputDecoration(
-                                      labelText: 'Truck Gross weight'),
-                                  keyboardType: TextInputType.number,
-                                  inputFormatters: <TextInputFormatter>[
-                                    FilteringTextInputFormatter.digitsOnly
-                                  ],
-                                ),
-                              )),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10, top: 18.0),
-                      child: Container(
-                        height: 45,
-                        width: 100,
-                        child: DropdownButton(
-                          hint: Text('ML'), // Not necessary for Option 1
-                          value: _selectedLocation,
-                          onChanged: (newValue) {
-                            setState(() {
-                              _selectedLocation = newValue;
-                            });
-                          },
-                          items: _locations.map((location) {
-                            return DropdownMenuItem(
-                              child: new Text(location),
-                              value: location,
-                            );
-                          }).toList(),
+                  attachmentList.length != 0
+                      ? Container(
+                          height: 100,
+                          width: MediaQuery.of(context).size.width * 1,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            shrinkWrap: true,
+                            itemCount: attachmentList.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return attachmentList.length != 0
+                                  ? GestureDetector(
+                                      child: Stack(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: new Container(
+                                              width: 100.0,
+                                              height: 100.0,
+                                              decoration: new BoxDecoration(
+                                                shape: BoxShape.rectangle,
+                                                image: new DecorationImage(
+                                                    fit: BoxFit.fill,
+                                                    image: FileImage(
+                                                        attachmentList[index])
+                                                    // image: new FileImage(attachFile),
+                                                    ),
+                                              ),
+                                            ),
+                                          ),
+                                          Positioned(
+                                            top: 0,
+                                            right: 0,
+                                            child: attachmentList.length != 0
+                                                ? GestureDetector(
+                                                    onTap: () => _removeImage(
+                                                        attachmentList[index]),
+                                                    child: Card(
+                                                      elevation: 10,
+                                                      color: Colors.white,
+                                                      shape: CircleBorder(),
+                                                      child: Icon(
+                                                        Icons.clear,
+                                                        size: 18,
+                                                      ),
+                                                    ),
+                                                  )
+                                                : SizedBox(),
+                                          ),
+                                        ],
+                                      ),
+                                      onTap: () async {},
+                                    )
+                                  : SizedBox();
+                            },
+                          ),
+                        )
+                      : SizedBox(),
+                  Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10, top: 10),
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                                height: 70,
+                                width: 310,
+                                child: new Theme(
+                                  data: new ThemeData(
+                                    primaryColor: Colors.black,
+                                    primaryColorDark: Colors.black,
+                                  ),
+                                  child: new TextField(
+                                    decoration: InputDecoration(
+                                        labelText: 'Vehicle Number'),
+                                  ),
+                                )),
+                          ],
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsets.all(15),
-                  child: RaisedButton(
-                    elevation: 5,
-                    textColor: Colors.white,
-                    color: Colors.teal[900],
-                    child: Text(
-                      "Continue Document Upload",
-                      style: TextStyle(fontSize: 17),
-                    ),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(1)),
-                    onPressed: () {
-                      Get.toNamed('/uploaddocuemnts');
-                    },
+                    ],
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(10),
-                  child: RaisedButton(
-                    elevation: 5,
-                    textColor: Colors.white,
-                    color: Colors.green[900],
-                    child: Text(
-                      "MANUAL WEIGHTMENT ENTRY",
-                      style: TextStyle(fontSize: 15),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                      decoration: InputDecoration(
+                          labelText: 'Latitude/Longitude',
+                          suffixIcon: Icon(Icons.gps_fixed_outlined)),
+                      keyboardType: TextInputType.number,
+                      inputFormatters: <TextInputFormatter>[
+                        FilteringTextInputFormatter.digitsOnly
+                      ],
                     ),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(1)),
-                    onPressed: () {
-                      Get.toNamed('/pending');
-                    },
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: Container(
+                      height: 60,
+                      child: DropdownButton(
+                        hint: Text('Please choose a location'),
+                        // Not necessary for Option 1
+                        value: _selectedLocation,
+                        isExpanded: true,
+                        onChanged: (newValue) {
+                          setState(() {
+                            _selectedLocation = newValue;
+                          });
+                        },
+                        items: _locations.map((location) {
+                          return DropdownMenuItem(
+                            child: new Text(location),
+                            value: location,
+                          );
+                        }).toList(),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    alignment: Alignment.topRight,
+                    height: MediaQuery.of(context).size.height*0.05,
+                    width: MediaQuery.of(context).size.width*0.12,
+                    child: FlatButton(
+                        color: Colors.teal[900],
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                        child:const Text('Auto Capture',style: TextStyle(color: Colors.white),),
+                        onPressed: (){}),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical:8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: <Widget>[
+
+                        Container(
+                            height: MediaQuery.of(context).size.height*0.143,
+                            width: MediaQuery.of(context).size.width*0.53,
+                            child: new Theme(
+                              data: new ThemeData(
+                                primaryColor: Colors.black,
+                                primaryColorDark: Colors.black,
+                              ),
+                              child: new TextField(
+                                decoration: InputDecoration(
+                                    labelText: 'Truck Gross weight'),
+                                keyboardType: TextInputType.number,
+                                inputFormatters: <TextInputFormatter>[
+                                  FilteringTextInputFormatter.digitsOnly
+                                ],
+                              ),
+                            )),
+                        Container(
+                          height: MediaQuery.of(context).size.height*0.1,
+                          width: MediaQuery.of(context).size.width*0.35,
+                          child: DropdownButton(
+                            hint: Text('   ML '), // Not necessary for Option 1
+                            value: _selectedLocation,
+                            onChanged: (newValue) {
+                              setState(() {
+                                _selectedLocation = newValue;
+                              });
+                            },
+                            items: _locations.map((location) {
+                              return DropdownMenuItem(
+                                child: new Text(location),
+                                value: location,
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 15,vertical: 2),
+                    child: ContinueButton('Continue Document Upload','/uploaddocuemnts'),
+
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 15,vertical: 3),
+                    child: RaisedButton(
+                      elevation: 5,
+                      textColor: Colors.white,
+                      color: Colors.green[900],
+                      child: Text(
+                        "Manual Weighment Entry",
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(1)),
+                      onPressed: () {
+                        Get.toNamed('/pending');
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ));

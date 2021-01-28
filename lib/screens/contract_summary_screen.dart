@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bluetooth/widgets/continue_button.dart';
 import 'package:flutter_bluetooth/widgets/drop_down.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:flutter_bluetooth/widgets/text_field.dart';
@@ -170,7 +171,7 @@ class _ContractSummary extends State<ContractSummary> {
                       // height: 45,
                       width: MediaQuery.of(context).size.width * 0.3,
                       child: DropdownButton(
-                        hint: Text('     MT'), // Not necessary for Option 1
+                        hint: Text('     MT     '), // Not necessary for Option 1
                         value: _selectedLocation,
                         onChanged: (newValue) {
                           setState(() {
@@ -198,7 +199,7 @@ class _ContractSummary extends State<ContractSummary> {
                   children: [
                     Text("Select Action:",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18)),
+                            fontWeight: FontWeight.bold, fontSize: 16)),
                     Container(
                       width: MediaQuery.of(context).size.width * 0.3,
                       height: MediaQuery.of(context).size.height*0.06,
@@ -232,7 +233,7 @@ class _ContractSummary extends State<ContractSummary> {
                           //   // istapped = 'Button tapped';
                           // });
                         },
-                        child: Text('Outward',style: TextStyle(fontSize: 18),),
+                        child: Text('Outward',style: TextStyle(fontSize: 16),),
                       ),
                     ),
                   ],
@@ -247,16 +248,17 @@ class _ContractSummary extends State<ContractSummary> {
                 child: Container(
                   height: MediaQuery.of(context).size.height * 0.07,
                   width: MediaQuery.of(context).size.width * 0.85,
-                  child: RaisedButton(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(3.0),
-                    ),
-                    onPressed: () => {Get.toNamed('/truckweightment')},
-                    color: Colors.cyan[900],
-                    textColor: Colors.white,
-                    child: AutoSizeText("Continue",
-                        style: TextStyle(fontSize: 18)),
-                  ),
+                  child: ContinueButton('Continue','/truckweightment'),
+                  // RaisedButton(
+                  //   shape: RoundedRectangleBorder(
+                  //     borderRadius: BorderRadius.circular(3.0),
+                  //   ),
+                  //   onPressed: () => {Get.toNamed('/truckweightment')},
+                  //   color: Colors.cyan[900],
+                  //   textColor: Colors.white,
+                  //   child: AutoSizeText("Continue",
+                  //       style: TextStyle(fontSize: 18)),
+                  // ),
                 ),
               )
             ]),

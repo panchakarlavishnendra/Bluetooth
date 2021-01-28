@@ -21,7 +21,7 @@ class _ContinueButtonState extends State<ContinueButton> {
       onPressed: () => {Get.toNamed(widget.url)},
       color: Colors.cyan[900],
       textColor: Colors.white,
-      child: Text(widget.text, style: TextStyle(fontSize: 14)),
+      child: Text(widget.text, style: TextStyle(fontSize: 16)),
     );
   }
 }

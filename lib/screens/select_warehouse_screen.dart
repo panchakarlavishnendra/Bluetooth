@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bluetooth/widgets/continue_button.dart';
 import 'package:flutter_bluetooth/widgets/drop_down.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -95,51 +96,56 @@ class _SelectWareHouse extends State<SelectWareHouse> {
                 ),
                 SizedBox(height: 30),
                 Container(
-                  child: Row(
-                    children: [
-                      Expanded(
-                          child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Icon(Icons.add_a_photo),
-                          Text('Addres'),
-                          Radio(
-                            value: 0,
-                            groupValue: _value,
-                            activeColor: Colors.green,
-                            onChanged: (value) {
-                              setState(() {
-                                _value = value;
-                              });
-                            },
-                          ),
-                        ],
-                      )),
-                    ],
+                  child: Card(
+                    elevation: 1,
+                    child: Row(
+                      children: [
+                        Expanded(
+                            child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Icon(Icons.add_a_photo),
+                            Text('Addres'),
+                            Radio(
+                              value: 0,
+                              groupValue: _value,
+                              activeColor: Colors.green,
+                              onChanged: (value) {
+                                setState(() {
+                                  _value = value;
+                                });
+                              },
+                            ),
+                          ],
+                        )),
+                      ],
+                    ),
                   ),
                 ),
                 Container(
-                  child: Row(
-                    children: [
-                      Expanded(
-                          child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Icon(Icons.add_a_photo),
-                          Text('Addres'),
-                          Radio(
-                            value: 1,
-                            groupValue: _value,
-                            activeColor: Colors.green,
-                            onChanged: (value) {
-                              setState(() {
-                                _value = value;
-                              });
-                            },
-                          ),
-                        ],
-                      )),
-                    ],
+                  child: Card(
+                    child: Row(
+                      children: [
+                        Expanded(
+                            child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Icon(Icons.add_a_photo),
+                            Text('Addres'),
+                            Radio(
+                              value: 1,
+                              groupValue: _value,
+                              activeColor: Colors.green,
+                              onChanged: (value) {
+                                setState(() {
+                                  _value = value;
+                                });
+                              },
+                            ),
+                          ],
+                        )),
+                      ],
+                    ),
                   ),
                 )
               ]),
@@ -147,15 +153,16 @@ class _SelectWareHouse extends State<SelectWareHouse> {
             Container(
               height: mediaHeight * 0.07,
               width: mediaWidth * 0.85,
-              child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(3.0),
-                ),
-                onPressed: () => {Get.toNamed('/contactsummary')},
-                color: Colors.cyan[900],
-                textColor: Colors.white,
-                child: Text("Continue", style: TextStyle(fontSize: 18)),
-              ),
+              child: ContinueButton('Continue','/contactsummary'),
+              // RaisedButton(
+              //   shape: RoundedRectangleBorder(
+              //     borderRadius: BorderRadius.circular(3.0),
+              //   ),
+              //   onPressed: () => {Get.toNamed('/contactsummary')},
+              //   color: Colors.cyan[900],
+              //   textColor: Colors.white,
+              //   child: Text("Continue", style: TextStyle(fontSize: 18)),
+              // ),
             )
           ]),
 

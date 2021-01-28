@@ -76,7 +76,7 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                                     ),
                                     Text(
                                       '2344\nOutgoing',
-                                      style: TextStyle(fontSize: 16),
+                                      style: TextStyle(fontSize: 14),
                                     )
                                   ],
                                 ),
@@ -93,7 +93,7 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                                     ),
                                     Text(
                                       '2344\nIncoming',
-                                      style: TextStyle(fontSize: 16),
+                                      style: TextStyle(fontSize: 14),
                                     )
                                   ],
                                 ),
@@ -110,7 +110,7 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                                     ),
                                     Text(
                                       '2344\nPending',
-                                      style: TextStyle(fontSize: 16),
+                                      style: TextStyle(fontSize: 14),
                                     )
                                   ],
                                 ),
@@ -141,7 +141,7 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                                     ),
                                     Text(
                                       "2344\nMother Bag's",
-                                      style: TextStyle(fontSize: 16),
+                                      style: TextStyle(fontSize: 14),
                                     )
                                   ],
                                 ),
@@ -158,7 +158,7 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                                     ),
                                     Text(
                                       "2344\nMadeUp Bag's",
-                                      style: TextStyle(fontSize: 16),
+                                      style: TextStyle(fontSize: 14),
                                     )
                                   ],
                                 ),
@@ -175,7 +175,7 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                                     ),
                                     Text(
                                       '2344\nMT.Total WT',
-                                      style: TextStyle(fontSize: 16),
+                                      style: TextStyle(fontSize: 14),
                                     )
                                   ],
                                 ),
@@ -193,11 +193,11 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                         children: [
                           Text(
                             'Last updated at      :  ',
-                            style: TextStyle(fontSize: 16),
+                            style: TextStyle(fontSize: 14),
                           ),
                           Text(
                             'time    ',
-                            style: TextStyle(fontSize: 16),
+                            style: TextStyle(fontSize: 14),
                           ),
                           Icon(
                             Icons.autorenew_outlined,

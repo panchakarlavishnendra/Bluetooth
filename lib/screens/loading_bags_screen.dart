@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bluetooth/widgets/continue_button.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:flutter_bluetooth/widgets/text_field.dart';
 import 'package:get/get.dart';
@@ -155,8 +156,9 @@ class _LoadBagsState extends State<LoadBags> {
                             ),
                           ],
                         ),
-                      )
+                      ),
                     ],
+
                   ),
                 ],
               ),
@@ -226,53 +228,50 @@ class _LoadBagsState extends State<LoadBags> {
                           ),
                         ),
                       ),
+                      Container(
+                          child: Image.asset('assets/red.png', height: 30,width: 30,)
+                      )
                     ],
                   )
                   // child: ,
                   ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20.0),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Icon(
-                      Icons.shopping_bag,
-                      size: 50,
-                    ),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 20.0,horizontal: 25),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: Icon(
+                          Icons.shopping_bag,
+                          size: 50,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 35.0),
+                        child: Text('Add Mother Bags'),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: FloatingActionButton(
+                            elevation: 0.0,
+                            child: new Icon(Icons.add),
+                            backgroundColor: Colors.green,
+                            onPressed: () {}),
+                      ),
+
+                    ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 35.0),
-                    child: Text('Add Mother Bags'),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
-                    child: FloatingActionButton(
-                        elevation: 0.0,
-                        child: new Icon(Icons.add),
-                        backgroundColor: Colors.green,
-                        onPressed: () {}),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-            RaisedButton(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(3.0),
-              ),
-              onPressed: () {
-                Get.toNamed('/truckstacking');
-              },
-              color: Colors.cyan[900],
-              textColor: Colors.white,
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 100, right: 100, top: 18, bottom: 18),
-                child: Text("Continue".toUpperCase(),
-                    style: TextStyle(fontSize: 14)),
-              ),
-            ),
+            Container(
+                height: MediaQuery.of(context) .size.height* 0.07,
+                width: MediaQuery.of(context) .size.width * 0.85,
+                child: ContinueButton('Continue','/truckstacking')),
+
           ],
         ),
       ),
