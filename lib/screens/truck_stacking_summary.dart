@@ -1,11 +1,9 @@
-/// Flutter code sample for DataTable
+// Flutter code sample for DataTable
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bluetooth/widgets/app_widget.dart';
-import 'package:flutter_bluetooth/widgets/continue_button.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:get/get.dart';
-
 
 class TruckStackingSummary extends StatefulWidget {
   @override
@@ -40,57 +38,59 @@ class _TruckStackingSummaryState extends State<TruckStackingSummary> {
         children: <Widget>[
           CustomWidget(),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical:10.0,horizontal: 1),
+            padding: const EdgeInsets.symmetric(horizontal: 5.0,vertical: 15),
             child: Container(
               child: DataTable(
                 columnSpacing: 11,
                 dataRowHeight: 42,
-                headingRowHeight: 45,
+                headingRowHeight: 35,
                 columns: [
                   DataColumn(
-                      label: Text(
-                    'Warehouse Stack',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 12.5),
-                  )),
+                      label: Expanded(
+                        child: Text(
+                          'Warehouse Stack',
+                          style:
+                              TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                        ),
+                      ),
+                  ),
+                  DataColumn(
+                      label:
+                      Text(
+                        'Mother Bags',
+                        // textScaleFactor: 0.2,
+                        style:
+                            TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                      )
+                  ),
                   DataColumn(
                       label: Text(
                     'Mother Bags',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12.5),
-                  )),
-                  DataColumn(
-                      label: Text(
-                    'Mother Bags',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12.5),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   )),
                 ],
-              rows: [
-
-                DataRow(
-
-                 color: MaterialStateProperty.resolveWith((states) =>  Colors.grey[200]),
-                  cells: [
-                    DataCell(
-                        Text('Go')),
-                    DataCell(Text('2009')),
-                    DataCell(Text('2009')),
-
-                  ],
-                ),
-                DataRow(
-                  cells: [
-                    DataCell(Text('Dart')),
-                    DataCell(Text('2018')),
-                    DataCell(Text('2009')),
-
-                  ],
-                ),
-                DataRow(
-                  color: MaterialStateProperty.resolveWith((states) =>  Colors.grey[200]),
-
-                  cells: [
-                    DataCell(Text('Java')),
+                rows: [
+                  DataRow(
+                    color: MaterialStateProperty.resolveWith(
+                        (states) => Colors.grey[200]),
+                    cells: [
+                      DataCell(Text('Go')),
+                      DataCell(Text('2009')),
+                      DataCell(Text('2009')),
+                    ],
+                  ),
+                  DataRow(
+                    cells: [
+                      DataCell(Text('Dart')),
+                      DataCell(Text('2018')),
+                      DataCell(Text('2009')),
+                    ],
+                  ),
+                  DataRow(
+                    color: MaterialStateProperty.resolveWith(
+                        (states) => Colors.grey[200]),
+                    cells: [
+                      DataCell(Text('Java')),
                       DataCell(Text('1992')),
                       DataCell(Text('2009')),
                     ],
@@ -103,21 +103,20 @@ class _TruckStackingSummaryState extends State<TruckStackingSummary> {
             padding: const EdgeInsets.only(top: 28.0),
             child: Container(
               width: MediaQuery.of(context).size.width * 0.9,
-              // color: Colors.blueAccent,
-              child:   ContinueButton('Continue Tare Weighment','/truckweightment'),
-              // RaisedButton(
-              //   color: Colors.teal,
-              //   onPressed: () {
-              //     Get.toNamed('/truckweightment');
-              //   },
-              //   child: Padding(
-              //     padding: const EdgeInsets.symmetric(vertical: 15.0),
-              //     child: Text(
-              //       'Continue Tare Weightment',
-              //       style: TextStyle(fontSize: 18, color: Colors.white),
-              //     ),
-              //   ),
-              // ),
+// color: Colors.blueAccent,
+              child: RaisedButton(
+                color: Colors.teal,
+                onPressed: () {
+                  Get.toNamed('/truckweightment');
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 15.0),
+                  child: Text(
+                    'Continue Tare Weightment',
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  ),
+                ),
+              ),
             ),
           ),
         ],
@@ -131,7 +130,7 @@ class AdaptiveTextSize {
   const AdaptiveTextSize();
 
   getadaptiveTextSize(BuildContext context, dynamic value) {
-    // 720 is medium screen height
+// 720 is medium screen height
     return (value / 720) * MediaQuery.of(context).size.height;
   }
 }

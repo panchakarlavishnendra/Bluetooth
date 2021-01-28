@@ -168,15 +168,15 @@ class _LoadBagsState extends State<LoadBags> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Card(
-                  margin: EdgeInsets.only(left: 30,top: 20),
+                  margin: EdgeInsets.only(left: 30,top: 20,bottom: 10),
                   elevation: 1,
                   child: Container(
-                      height: MediaQuery.of(context).size.height * 0.32,
+                      height: MediaQuery.of(context).size.height * 0.34,
                       width: MediaQuery.of(context).size.width * 0.8,
                       child: ListView(
                         children: <Widget>[
                           Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            padding: EdgeInsets.only(top: 10,right: 15,left:15),
                             child: Container(
                               height: MediaQuery.of(context).size.height * 0.085,
                               width: MediaQuery.of(context).size.width * 0.85,
@@ -200,8 +200,7 @@ class _LoadBagsState extends State<LoadBags> {
                             ),
                           ),
                           Padding(
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 4.0, horizontal: 15.0),
+                              padding: EdgeInsets.only(right: 15,left:15,bottom: 15),
                               // width: MediaQuery.of(context).size.width*0.80,
                               child: CustomTextField(
                                 label: "No of Bag's",
@@ -209,7 +208,7 @@ class _LoadBagsState extends State<LoadBags> {
                                 keyboardType: TextInputType.number,
                               )),
                           Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            padding: EdgeInsets.only(top: 10,right: 15,left:15),
                             child: Container(
                               height: MediaQuery.of(context).size.height * 0.085,
                               width: MediaQuery.of(context).size.width * 0.85,
@@ -232,7 +231,6 @@ class _LoadBagsState extends State<LoadBags> {
                               ),
                             ),
                           ),
-
                         ],
                       )
                       // child: ,
@@ -242,7 +240,7 @@ class _LoadBagsState extends State<LoadBags> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: SvgPicture.asset(
-                        "assets/Group 179.svg",
+                        "assets/icons/Group 179.svg",
                       ),
                     ),
               ],
@@ -253,7 +251,7 @@ class _LoadBagsState extends State<LoadBags> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SvgPicture.asset(
-                    "assets/motherbag.svg",
+                    "assets/icons/motherbag.svg",
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -262,7 +260,7 @@ class _LoadBagsState extends State<LoadBags> {
                   Padding(
                     padding: const EdgeInsets.only(top:8.0),
                     child: SvgPicture.asset(
-                      "assets/Add Stack.svg",
+                      "assets/icons/Add Stack.svg",
                     ),
                   ),
                 ],

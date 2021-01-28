@@ -10,6 +10,8 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as path;
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:flutter_svg/svg.dart';
+
 
 enum SingingCharacter {
   CaptureFontNumberPlate,
@@ -120,16 +122,15 @@ class _TruckWeightment extends State<TruckWeightment> {
                         padding: const EdgeInsets.only(top: 10.0, left: 10),
                         child: Column(
                           children: <Widget>[
-                            Container(
-                              height: 50,
-                              width: 50,
-                              child: IconButton(
-                                  iconSize: 45,
-                                  icon: Icon(
-                                    Icons.add_a_photo,
-                                    color: Colors.blueGrey[700],
-                                  ),
-                                  onPressed: () {
+                            GestureDetector(
+                                child: SvgPicture.asset(
+                                    "assets/icons/photo-add.svg",height: 55,width: 55,
+                                 ),
+                                  // Icon(
+                                  //   Icons.add_a_photo,
+                                  //   color: Colors.blueGrey[700],
+                                  // ),
+                                  onTap: () {
                                     showDialog(
                                       context: context,
                                       builder: (_) => Material(
@@ -347,7 +348,7 @@ class _TruckWeightment extends State<TruckWeightment> {
                                         ),
                                       ),
                                     );
-                                  }),
+                                  }
                             ),
                           ],
                         ),

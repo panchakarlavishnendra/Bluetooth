@@ -4,6 +4,7 @@ import 'package:flutter_bluetooth/screens/connected_devices_screen.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'package:get/get.dart';
+import 'package:flutter_svg/svg.dart';
 
 const List<String> assetNames = <String>['assets/bluetooth.svg'];
 
@@ -51,9 +52,13 @@ class _QualityCheckState extends State<QualityCheck> {
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20.0, vertical: 15.0),
-                      child: Icon(
-                        Icons.home,
-                        size: 50,
+                      child: GestureDetector(
+                        child: SvgPicture.asset(
+                          "assets/icons/storage.svg",
+                          height: 45,
+                          width: 35,
+                        ),
+                        onTap: () {},
                       ),
                     ),
                     Text(
@@ -63,10 +68,24 @@ class _QualityCheckState extends State<QualityCheck> {
                   ],
                 ),
                 SizedBox(),
-                Text('Assayer'),
-                Text('Loremepsum'),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  padding: const EdgeInsets.only(left:20.0,),
+                  child: Container(
+                      alignment: Alignment.topLeft,
+                      child: Text('Assayer')
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left:20.0,bottom: 7,top:8),
+                  child: Container(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        'Loremepsum',
+                        textAlign: TextAlign.start,
+                      )),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18),
                   child: Divider(
                     height: 20,
                     color: Colors.black,
@@ -77,7 +96,7 @@ class _QualityCheckState extends State<QualityCheck> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 35.0, vertical: 18),
+                          horizontal: 20.0, vertical: 18),
                       child: Text('QC Parameter', style: style),
                     ),
                     Text(
@@ -87,7 +106,7 @@ class _QualityCheckState extends State<QualityCheck> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Container(
                     height: 2,
                     color: Colors.black,
@@ -104,16 +123,18 @@ class _QualityCheckState extends State<QualityCheck> {
                         style: TextStyle(fontSize: 18),
                       ),
                       GestureDetector(
-                        child: Icon(
-                          Icons.bluetooth,
-                          size: 25,
+                        child: SvgPicture.asset(
+                          "assets/icons/bluetooth.svg",
+                          height: 25,
+                          width: 17,
                         ),
                         onTap: () {},
                       ),
                       GestureDetector(
-                        child: Icon(
-                          Icons.mail,
-                          size: 25,
+                        child: SvgPicture.asset(
+                          "assets/icons/w.svg",
+                          height: 25,
+                          width: 17,
                         ),
                         onTap: () {},
                       ),
@@ -140,7 +161,8 @@ class _QualityCheckState extends State<QualityCheck> {
                       ),
                       Text(
                         '%',
-                        style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       Container(
                         width: MediaQuery.of(context).size.width * 0.30,
@@ -151,16 +173,16 @@ class _QualityCheckState extends State<QualityCheck> {
                           ),
                           onPressed: () async {
                             final BluetoothDevice selectedDevice =
-                            await Navigator.of(context).push(
+                                await Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return SelectBondedDevicePage(checkAvailability: false);
+                                  return SelectBondedDevicePage(
+                                      checkAvailability: false);
                                 },
                               ),
                             );
 
-                              // _startChat(context, selectedDevice);
-
+                            // _startChat(context, selectedDevice);
                           },
                         ),
                       )
@@ -168,7 +190,7 @@ class _QualityCheckState extends State<QualityCheck> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 23),
                   child: Container(
                     height: 0.5,
                     color: Colors.black,
@@ -187,27 +209,6 @@ class _QualityCheckState extends State<QualityCheck> {
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.19,
                       ),
-                      // Container(
-                      //   decoration: BoxDecoration(
-                      //       borderRadius:
-                      //       BorderRadius.all(Radius.circular(12.0))),
-                      //   width: MediaQuery.of(context).size.width * 0.19,
-                      //   height: MediaQuery.of(context).size.width * 0.10,
-                      //   child: TextField(
-                      //     controller: _damageController,
-                      //     keyboardType: TextInputType.number,
-                      //     style: TextStyle(fontSize: 14.0),
-                      //     decoration: new InputDecoration(
-                      //       enabledBorder: OutlineInputBorder(
-                      //           borderSide: BorderSide(
-                      //               color: Colors.black, width: 1.5)),
-                      //       focusedBorder: OutlineInputBorder(
-                      //         borderSide:
-                      //         BorderSide(color: Colors.black, width: 1.5),
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
                       Container(
                         decoration: BoxDecoration(
                             borderRadius:
@@ -229,23 +230,33 @@ class _QualityCheckState extends State<QualityCheck> {
                           ),
                         ),
                       ),
-                      Text(' Units',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),)
+                      Text(
+                        ' Units',
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                      )
                     ],
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  padding: const EdgeInsets.symmetric(horizontal: 23),
                   child: Container(
                     height: 0.5,
                     color: Colors.black,
                   ),
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 20.0, vertical: 10),
+                         horizontal: 30, vertical: 10),
                       child: Text('last updated on '),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20.0, vertical: 10),
+                      child: Text(' 23:15:2'),
                     )
                   ],
                 ),

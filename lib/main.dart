@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth/screens/daily_vehicle_transaction_screen.dart';
+import 'package:flutter_bluetooth/screens/deleverey_orders.dart';
+import 'package:flutter_bluetooth/screens/quality_check_screen.dart';
 import 'package:flutter_bluetooth/screens/select_warehouse_contact_screen.dart';
+import 'package:flutter_bluetooth/screens/truck_stacking_summary.dart';
 
 import 'package:get/get.dart';
 import './routes.dart';
@@ -22,6 +25,8 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home:
+      // QualityCheck(),
+      // TruckStackingSummary(),
       // DailyVehicleTransaction(),
       // DailyVehicleTransaction(),
       // DelieveryOrders(),

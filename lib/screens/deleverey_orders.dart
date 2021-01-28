@@ -25,7 +25,7 @@ class _DelieveryOrders extends State<DelieveryOrders> {
 
   @override
   Widget build(BuildContext context) {
-    var style = TextStyle(fontSize: 17, fontWeight: FontWeight.bold);
+    var style = TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(title: Text('Delevery Options')),
@@ -44,12 +44,12 @@ class _DelieveryOrders extends State<DelieveryOrders> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 18.0),
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Container(
               child: Card(
                 child: Container(
                   color: Colors.white,
-                  height: 250.0,
+                  height: MediaQuery.of(context).size.height*0.49,
                   width: double.infinity,
                   child: Row(
                     children: <Widget>[
@@ -82,83 +82,143 @@ class _DelieveryOrders extends State<DelieveryOrders> {
                             Expanded(
                               child: Container(
                                 color: Colors.white,
-                                child: Table(
-                                  children: [
-                                    TableRow(children: [
-                                      Column(),
-                                      Column(),
-                                      Column(children: [
-
-                                        FlatButton(
-                                          child: Text(
-                                            'Flat Button',
-                                            style: TextStyle(fontSize: 18.0),
-                                          ),
-                                          color: Colors.blueAccent,
-                                          textColor: Colors.white,
-                                          onPressed: () {},
-                                        ),
-                                      ]),
-                                    ]),
-                                    TableRow(children: [
-                                      Column(children: [
-                                        Text('Contract', style: style)
-                                      ]),
-                                      Column(children: [Text(':')]),
-                                      Column(children: [Text('john doe')]),
-                                    ]),
-                                    TableRow(children: [
-                                      Column(children: [
-                                        Text('Commodity', style: style)
-                                      ]),
-                                      Column(children: [Text(':')]),
-                                      Column(children: [Text("paddy")]),
-                                    ]),
-                                    TableRow(children: [
-                                      Column(children: [
-                                        Text(
-                                          'Date',
-                                          style: style,
-                                        )
-                                      ]),
-                                      Column(children: [Text(':')]),
-                                      Column(children: [Text('20-01-2020')]),
-                                    ]),
-                                    TableRow(children: [
-                                      Column(children: [
-                                        Text(
-                                          'Toatal Trucks',
-                                          style: style,
-                                        )
-                                      ]),
-                                      Column(children: [Text(':')]),
-                                      Column(children: [Text('5')]),
-                                    ]),
-                                    TableRow(children: [
-                                      Column(children: [
-                                        Text(
-                                          'Total Weights',
-                                          style: style,
-                                        )
-                                      ]),
-                                      Column(children: [Text(':')]),
-                                      Column(children: [Text('5680MT')]),
-                                    ]),
-                                    TableRow(children: [
-                                      Column(),
-                                      Column(),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 18.0),
-                                        child: Column(children: [
-                                          Icon(
-                                            Icons.car_rental,
-                                            size: 30.0,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Table(
+                                    children: [
+                                      TableRow(children: [
+                                        Column(),
+                                        Column(),
+                                        Column(children: [
+                                          FlatButton(
+                                            child: Text(
+                                              'In Process',
+                                              style: TextStyle(fontSize: 14.0),
+                                            ),
+                                            color: Colors.deepPurpleAccent,
+                                            textColor: Colors.white,
+                                            onPressed: () {},
                                           ),
                                         ]),
-                                      ),
-                                    ]),
-                                  ],
+                                      ]),
+                                      TableRow(
+
+                                          children: [
+                                        Column(
+                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                            children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(bottom:8.0),
+                                            child: Container(
+                                                alignment: Alignment.topLeft,
+                                                child: Text(
+                                                  'Contract',
+                                                  style: style,
+                                                  textAlign: TextAlign.start,
+                                                )),
+                                          )
+                                        ]),
+                                        Column(children: [Text(':')]),
+                                        Column(children: [
+                                          Container(
+                                              alignment: Alignment.topLeft,
+                                              child: Text(
+                                                'john doe',
+                                              ))
+                                        ]),
+                                      ]),
+                                      TableRow(children: [
+                                        Column(children: [
+                                          Container(
+                                              alignment: Alignment.topLeft,
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(bottom:8.0),
+                                                child: Text(
+                                                  'Commodity',
+                                                  style: style,
+                                                  textAlign: TextAlign.start,
+                                                ),
+                                              ))
+                                        ]),
+                                        Column(children: [Text(':')]),
+                                        Column(children: [
+                                          Container(
+                                              alignment: Alignment.topLeft,
+                                              child: Text(
+                                                "paddy",
+                                              ))
+                                        ]),
+                                      ]),
+                                      TableRow(children: [
+                                        Column(children: [
+                                          Container(
+                                            alignment: Alignment.topLeft,
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(bottom:8.0),
+                                              child: Text(
+                                                'Date',
+                                                style: style,
+                                              ),
+                                            ),
+                                          )
+                                        ]),
+                                        Column(children: [Text(':')]),
+                                        Column(children: [
+                                          Container(
+                                              alignment: Alignment.topLeft,
+                                              child: Text('20-01-2020'))
+                                        ]),
+                                      ]),
+                                      TableRow(children: [
+                                        Column(children: [
+                                          Container(
+                                            alignment: Alignment.topLeft,
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(bottom:8.0),
+                                              child: Text(
+                                                'Toatal Trucks',
+                                                style: style,
+                                              ),
+                                            ),
+                                          )
+                                        ]),
+                                        Column(children: [Text(':')]),
+                                        Column(children: [
+                                          Container(
+                                              alignment: Alignment.topLeft,
+                                              child: Text('5'))
+                                        ]),
+                                      ]),
+                                      TableRow(children: [
+                                        Column(children: [
+                                          Container(
+                                            alignment: Alignment.topLeft,
+                                            child: Text(
+                                              'Total Weights',
+                                              style: style,
+                                            ),
+                                          )
+                                        ]),
+                                        Column(children: [Text(':')]),
+                                        Column(children: [
+                                          Container(
+                                              alignment: Alignment.topLeft,
+                                              child: Text('5680MT'))
+                                        ]),
+                                      ]),
+                                      TableRow(children: [
+                                        Column(),
+                                        Column(),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(top: 18.0),
+                                          child: Column(children: [
+
+                                          ]),
+                                        ),
+                                      ]),
+                                    ],
+                                  ),
                                 ),
                               ),
                             )

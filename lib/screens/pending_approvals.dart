@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
+
 /// This is the stateful widget that the main application instantiates.
 class PendingApprovals extends StatefulWidget {
   PendingApprovals({Key key}) : super(key: key);
@@ -40,7 +41,7 @@ class _PendingApprovalsState extends State<PendingApprovals> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: Text('Drawer Demo'),
+        title: Text('Pending Approvals'),
         elevation: 0,
       ),
       body: ListView(

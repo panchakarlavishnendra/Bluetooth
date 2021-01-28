@@ -4,7 +4,7 @@ import 'package:flutter_bluetooth/widgets/drop_down.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:get/get.dart';
-
+import 'package:flutter_svg/svg.dart';
 class SelectWareHouse extends StatefulWidget {
   SelectWareHouse({Key key}) : super(key: key);
   @override
@@ -104,7 +104,14 @@ class _SelectWareHouse extends State<SelectWareHouse> {
                             child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Icon(Icons.add_a_photo),
+                    Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child:
+                    SvgPicture.asset(
+                      "assets/icons/storage.svg",height: 25,width: 25,
+                    ),
+                    ),
+
                             Text('Addres'),
                             Radio(
                               value: 0,
@@ -130,7 +137,11 @@ class _SelectWareHouse extends State<SelectWareHouse> {
                             child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Icon(Icons.add_a_photo),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: SvgPicture.asset(
+                                "assets/icons/storage.svg",height: 25,width: 25,
+                              ),),
                             Text('Addres'),
                             Radio(
                               value: 1,
