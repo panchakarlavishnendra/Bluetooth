@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bluetooth/screens/main_screen_page.dart';
 import 'package:flutter_bluetooth/screens/select_warehouse_contact_screen.dart';
 import 'package:get/get.dart';
 import './routes.dart';
-
 Future<void> main() async {
   runApp(MyApp());
 }
@@ -19,7 +19,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SelectWarehouseContacts(),
+      home: MainPage(),
+      // SelectWarehouseContacts(),
       debugShowCheckedModeBanner: false,
     );
   }

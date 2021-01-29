@@ -360,8 +360,8 @@ class _PendingApprovalsState extends State<PendingApprovals> {
 
   Widget _CustomButton() {
     return Container(
-      height: 30,
-      width: 195,
+      height: MediaQuery.of(context).size.height*0.045,
+      width: MediaQuery.of(context).size.width*0.57,
       child: FlatButton(
         color: Colors.white,
         onPressed: () {

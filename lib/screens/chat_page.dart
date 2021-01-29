@@ -5,9 +5,10 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
+typedef void StringCallback(var val);
 class ChatPage extends StatefulWidget {
   final BluetoothDevice server;
-  final Function func;
+  final StringCallback func;
   const ChatPage({this.server, this.func});
 
   @override
@@ -141,6 +142,7 @@ class _ChatPage extends State<ChatPage> {
             ),
             Row(
               children: <Widget>[
+                RaisedButton(child:Text('getText'),onPressed: (){widget.func('hai');}),
                 Flexible(
                   child: Container(
                     margin: const EdgeInsets.only(left: 16.0),
@@ -167,6 +169,7 @@ class _ChatPage extends State<ChatPage> {
                           ? () => _sendMessage(textEditingController.text)
                           : null),
                 ),
+
               ],
             )
           ],
@@ -225,6 +228,8 @@ class _ChatPage extends State<ChatPage> {
     arr.add(messages);
     print(messages);
     print(arr);
+
+    widget.func(arr);
   }
 
   void _sendMessage(String text) async {

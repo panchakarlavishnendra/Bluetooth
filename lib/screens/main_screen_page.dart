@@ -12,9 +12,11 @@ import 'package:location/location.dart';
 
 class MainPage extends StatefulWidget {
   static const routeName = '/MainPage';
-
   @override
   _MainPage createState() => new _MainPage();
+  static _MainPage of(BuildContext context) =>
+      context.findAncestorStateOfType<_MainPage>();
+
 }
 
 class _MainPage extends State<MainPage> {
@@ -30,7 +32,7 @@ class _MainPage extends State<MainPage> {
   bool _autoAcceptPairingRequests = false;
 
 
-  function(value) => setState(() => _text = value);
+  // function(value) => setState(() => _text = value);
 
 
   @override
@@ -61,13 +63,13 @@ class _MainPage extends State<MainPage> {
     _address = _pickedLocation.address.toString();
     // _incident.location = _pickedLocation;
   }
-  // var data;
-  // onDataReceived(){
-  //   setState(() {
-  //     data = new ChatPage();
-  //     print(data);
-  //   });
-  // }
+  var data;
+  onDataReceived(){
+    setState(() {
+      data = new ChatPage();
+      print(data);
+    });
+  }
 
 
 
@@ -129,17 +131,7 @@ class _MainPage extends State<MainPage> {
               },
             ),
           ),
-          ListTile(
-            title: RaisedButton(
-              child: const Text('Verify'),
-              // onPressed: () {
-              //   Get.toNamed('/truckweightment');
-              //
-              // },
-              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => ChatPage(func: function)),
-              ),
-            ),
-          ),
+
           ListTile(
             title: Text(_text),
           )
@@ -155,7 +147,7 @@ class _MainPage extends State<MainPage> {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) {
-          return ChatPage(server: server);
+          return ChatPage(server: server,func:(val) => setState(() => _text = val));
         },
       ),
     );

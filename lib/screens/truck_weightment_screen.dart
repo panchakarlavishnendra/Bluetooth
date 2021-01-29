@@ -498,7 +498,7 @@ class _TruckWeightment extends State<TruckWeightment> {
                               ),
                               child: new TextField(
                                 decoration: InputDecoration(
-                                    labelText: 'Truck Gross weight'),
+                                    labelText: 'Truck Gross weight',contentPadding: EdgeInsets.all(15) ),
                                 keyboardType: TextInputType.number,
                                 inputFormatters: <TextInputFormatter>[
                                   FilteringTextInputFormatter.digitsOnly
@@ -506,6 +506,7 @@ class _TruckWeightment extends State<TruckWeightment> {
                               ),
                             )),
                         Container(
+                          // margin: EdgeInsets.only(top:2),
                           height: MediaQuery.of(context).size.height * 0.1,
                           width: MediaQuery.of(context).size.width * 0.35,
                           child: DropdownButton(
