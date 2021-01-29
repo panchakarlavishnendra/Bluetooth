@@ -239,7 +239,7 @@ class _ContractSummary extends State<ContractSummary> {
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.145,
+                height: MediaQuery.of(context).size.height * 0.055,
               ),
               Padding(
                 padding:

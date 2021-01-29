@@ -371,16 +371,13 @@ class _PendingApprovalsState extends State<PendingApprovals> {
                 return Theme(
                     data: Theme.of(context)
                         .copyWith(canvasColor: Colors.black87.withOpacity(0.8)),
-                    child: Positioned(
-                      top: 0,
-                      child: Dialog(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        elevation: 0,
-                        backgroundColor: Colors.transparent,
-                        child: CustomDialogBox(context, 'Manual Weighment'),
+                    child: Dialog(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
                       ),
+                      elevation: 0,
+                      backgroundColor: Colors.transparent,
+                      child: CustomDialogBox(context, 'Manual Weighment'),
                     ));
               });
         },

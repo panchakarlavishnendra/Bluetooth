@@ -127,10 +127,7 @@ class _TruckWeightment extends State<TruckWeightment> {
                                   height: 55,
                                   width: 55,
                                 ),
-                                // Icon(
-                                //   Icons.add_a_photo,
-                                //   color: Colors.blueGrey[700],
-                                // ),
+
                                 onTap: () {
                                   showDialog(
                                     context: context,

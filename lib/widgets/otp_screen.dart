@@ -1,4 +1,3 @@
-
 import 'dart:async';
 import 'dart:ui';
 
@@ -10,7 +9,7 @@ import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class CustomDialogBox extends StatefulWidget {
-  CustomDialogBox(this.context,this.text);
+  CustomDialogBox(this.context, this.text);
 
   var context;
   String text;
@@ -40,30 +39,16 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
-    //
-    // return Theme(
-    //     data: Theme.of(context)
-    //     .copyWith(canvasColor: Colors.black87.withOpacity(0.8)),
-    // child:Dialog(
-    //   shape: RoundedRectangleBorder(
-    //     borderRadius: BorderRadius.circular(12),
-    //   ),
-    //   elevation: 0,
-    //   backgroundColor: Colors.transparent,
-    //   child: contentBox(context),
-    // )
-    // );
+
+
 
     return Stack(
       alignment: Alignment.topCenter,
       children: <Widget>[
         Container(
-          height: MediaQuery.of(context).size.height*0.45,
+          height: MediaQuery.of(context).size.height * 0.45,
           width: MediaQuery.of(widget.context).size.width * 0.96,
-          padding: EdgeInsets.symmetric(
-            horizontal: 25,
-            vertical: 10
-          ),
+          padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
           margin: EdgeInsets.only(top: Constants.avatarRadius),
           decoration: BoxDecoration(
               shape: BoxShape.rectangle,
@@ -92,14 +77,14 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
               ),
               Text(
                 widget.text,
-                style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
               SizedBox(
                 height: 22,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 12.0,bottom: 6),
+                padding: const EdgeInsets.only(left: 12.0, bottom: 6),
                 child: Text(
                   'Enter OTP',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
@@ -107,9 +92,9 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                 ),
               ),
               Form(
-                  key: formKey,
-                  child: Padding(
-                      padding: const EdgeInsets.symmetric(
+                key: formKey,
+                child: Padding(
+                    padding: const EdgeInsets.symmetric(
                         vertical: 0.0, horizontal: 10),
                     child: PinCodeTextField(
                       appContext: context,
@@ -136,84 +121,54 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                           activeFillColor: Colors.white,
                           inactiveFillColor: Colors.white24,
                           inactiveColor: Colors.grey),
-                        cursorColor: Colors.black,
-                        animationDuration: Duration(milliseconds: 300),
-                        textStyle: TextStyle(fontSize: 20, height: 1.6),
-                        backgroundColor: Colors.white,
-                        // enableActiveFill: true,
-                        // enablePinAutofill: true,
-                        errorAnimationController: errorController,
-                        controller: textEditingController,
-                        keyboardType: TextInputType.number,
-                        // boxShadows: [
-                        //   BoxShadow(
-                        //     offset: Offset(0, 1),
-                        //     color: Colors.black12,
-                        //     blurRadius: 10,
-                        //   )
-                        // ],
-                        onCompleted: (v) {
-                          print("Completed");
-                        },
-                        onTap: () {
-                          print("Pressed");
-                        },
-                        onChanged: (value) {
-                          print(value);
-                          setState(() {
-                            currentText = value;
-                          });
-                        },
-                        beforeTextPaste: (text) {
-                          print("Allowing to paste $text");
-                          //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
-                          //but you can show anything you want here, like your pop up saying wrong paste format or etc
-                          return true;
-                        },
-                      )),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                  child: Text(
-                    hasError ? "*Please fill up all the cells properly" : "",
-                    style: TextStyle(
-                        color: Colors.black87,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400),
-                  ),
-                ),
+                      cursorColor: Colors.black,
+                      animationDuration: Duration(milliseconds: 300),
+                      textStyle: TextStyle(fontSize: 20, height: 1.6),
+                      backgroundColor: Colors.white,
+                      // enableActiveFill: true,
+                      // enablePinAutofill: true,
+                      errorAnimationController: errorController,
+                      controller: textEditingController,
+                      keyboardType: TextInputType.number,
 
-
-
-                Container(
-                  height: MediaQuery.of(context).size.height*0.065,
-                  width:MediaQuery.of(context).size.width*0.10,
-                  // margin:
-                  // const EdgeInsets.symmetric(vertical: 16.0, horizontal: 30),
-                  child: ContinueButton('Continue','/pending')
-                  // RaisedButton(
-                  //   color: Colors.teal[900],
-                  //   onPressed: () {
-                  //     Get.toNamed('/pending');
-                  //   },
-                  //   child: Text(
-                  //     "Continue",
-                  //     style: TextStyle(
-                  //     color: Colors.white,
-                  //     fontSize: 18,
-                  //     fontWeight: FontWeight.bold),
-                  //   ),
-                  // ),
-
+                      onCompleted: (v) {
+                        print("Completed");
+                      },
+                      onTap: () {
+                        print("Pressed");
+                      },
+                      onChanged: (value) {
+                        print(value);
+                        setState(() {
+                          currentText = value;
+                        });
+                      },
+                      beforeTextPaste: (text) {
+                        print("Allowing to paste $text");
+                        //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
+                        //but you can show anything you want here, like your pop up saying wrong paste format or etc
+                        return true;
+                      },
+                    )),
               ),
-                // SizedBox(
-                //   height: 1,
-                // ),
-                Container(
-                  margin:
-                  const EdgeInsets.symmetric( horizontal: 30),
-                  child: ButtonTheme(
-                    height: 10,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                child: Text(
+                  hasError ? "*Please fill up all the cells properly" : "",
+                  style: TextStyle(
+                      color: Colors.black87,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400),
+                ),
+              ),
+              Container(
+                  height: MediaQuery.of(context).size.height * 0.065,
+                  width: MediaQuery.of(context).size.width * 0.10,
+                  child: ContinueButton('Continue', '/pending')),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 30),
+                child: ButtonTheme(
+                  height: 10,
                   child: FlatButton(
                     onPressed: () {
                       Get.toNamed('/truckweightment');

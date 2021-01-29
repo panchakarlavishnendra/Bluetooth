@@ -141,7 +141,7 @@ class _SelectWareHouse extends State<SelectWareHouse> {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: SvgPicture.asset(
-                                "assets/icons/storage.svg",
+                                "assets/icons/contract.svg",
                                 height: 25,
                                 width: 25,
                               ),

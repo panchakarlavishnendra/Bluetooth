@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ContinueButton extends StatefulWidget {
-  ContinueButton(this.text,this.url);
-
+  ContinueButton(this.text, this.url);
   var url;
   String text;
 
