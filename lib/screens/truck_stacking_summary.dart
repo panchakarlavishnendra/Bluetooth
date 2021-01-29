@@ -31,7 +31,7 @@ class _TruckStackingSummaryState extends State<TruckStackingSummary> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: Text('Truck Stacking Summary'),
+        title: Text('Truck Stacking Summary',style: TextStyle(fontSize: 16),),
         elevation: 0,
       ),
       body: Column(

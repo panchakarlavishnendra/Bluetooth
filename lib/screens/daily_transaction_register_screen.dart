@@ -42,7 +42,7 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
               ),
             ],
           ),
-          title: Text('Daily Transaction Register'),
+          title: Text('Daily Transaction Register',style: TextStyle(fontSize: 16),),
         ),
         body: TabBarView(
           children: [
@@ -386,10 +386,13 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                   height: MediaQuery.of(context).size.height * 0.25,
                   width: MediaQuery.of(context).size.width * 0.10,
                   color: Colors.green[900],
-                  child: Icon(
-                    Icons.arrow_forward_ios_sharp,
-                    color: Colors.white,
-                    size: 30,
+                  child: GestureDetector(
+                    child: Icon(
+                      Icons.arrow_forward_ios_sharp,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                    onTap: (){Get.toNamed('/pending');},
                   ),
                 ),
               ],
