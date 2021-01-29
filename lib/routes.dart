@@ -1,6 +1,8 @@
+import 'package:flutter_bluetooth/screens/cad_summary_screen.dart';
 import 'package:flutter_bluetooth/screens/chat_page.dart';
 import 'package:flutter_bluetooth/screens/connected_devices_screen.dart';
 import 'package:flutter_bluetooth/screens/daily_transaction_register_screen.dart';
+import 'package:flutter_bluetooth/screens/daily_vehicle_transaction_screen.dart';
 import 'package:flutter_bluetooth/screens/loading_bags_screen.dart';
 import 'package:flutter_bluetooth/screens/main_screen_page.dart';
 import 'package:flutter_bluetooth/screens/pending_approvals.dart';
@@ -103,6 +105,17 @@ class Routes {
         name: '/notes',
         page: () => PendingNotes(),
       transition: Transition.leftToRight
-    )
+    ),
+    GetPage(
+        name: '/dailyvehicletransactions',
+        page: () => DailyVehicleTransaction(),
+        transition: Transition.zoom
+    ),
+    GetPage(
+        name: '/cadsummary',
+        page: () => CadSummary(),
+        transition: Transition.zoom
+    ),
+
   ];
 }

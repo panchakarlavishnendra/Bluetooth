@@ -271,10 +271,10 @@ class _DailyTranasactionsState extends State<DailyTranasactions> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(3.0),
                           ),
-                          onPressed: () => {Get.toNamed('/selectWareHouse')},
+                          onPressed: () => {Get.toNamed('/cadsummary')},
                           color: Colors.cyan[900],
                           textColor: Colors.white,
-                          child: Text('DRT SUMMARY',
+                          child: Text('Generate CDF',
                               style: TextStyle(fontSize: 14)),
                         ),
                       ),

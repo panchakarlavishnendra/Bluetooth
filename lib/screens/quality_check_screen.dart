@@ -39,7 +39,7 @@ class _QualityCheckState extends State<QualityCheck> {
     _moistureController.text = '15';
     return Scaffold(
       appBar: AppBar(
-        title: Text('Quality Check'),
+        title: Text('Quality Check',style: TextStyle(fontSize: 16),),
       ),
       body: SingleChildScrollView(
         child: Column(

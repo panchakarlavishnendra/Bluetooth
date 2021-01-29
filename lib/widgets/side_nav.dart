@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'dart:math' as math;
+import 'package:get/get.dart';
 
 class EndDrawer extends StatefulWidget {
   final Function _openDrawer;
@@ -28,7 +31,8 @@ class _EndDrawerState extends State<EndDrawer> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     GestureDetector(
-                      child: Icon(
+                      child:
+                      Icon(
                         Icons.close,
                         color: Colors.white,
                         size: 65,
@@ -50,22 +54,27 @@ class _EndDrawerState extends State<EndDrawer> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      GestureDetector(
-                        child: Icon(
-                          Icons.car_rental,
-                          color: Colors.white,
-                          size: 35,
+                  child: GestureDetector(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Transform(
+                          alignment: Alignment.center,
+                          transform: Matrix4.rotationY(math.pi),
+                          child:SvgPicture.asset(
+                            "assets/icons/Van.svg",
+                            height: 30,
+                            width: 30,
+                            color: Colors.white,
+                          ),
                         ),
-                        onTap: widget._closeEndDrawer,
-                      ),
-                      const Text(
-                        'All weightment',
-                        style: TextStyle(color: Colors.white, fontSize: 14),
-                      ),
-                    ],
+                        const Text(
+                          'All weightment',
+                          style: TextStyle(color: Colors.white, fontSize: 14),
+                        ),
+                      ],
+                    ),
+                    onTap: (){Get.toNamed('/truckweightment');},
                   ),
                 ),
                 Divider(
@@ -74,22 +83,23 @@ class _EndDrawerState extends State<EndDrawer> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      GestureDetector(
-                        child: Icon(
-                          Icons.close,
+                  child: GestureDetector(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        SvgPicture.asset(
+                          "assets/icons/Van.svg",
+                          height: 30,
+                          width: 30,
                           color: Colors.white,
-                          size: 40,
                         ),
-                        onTap: widget._closeEndDrawer,
-                      ),
-                      const Text(
-                        'Inward weightment',
-                        style: TextStyle(color: Colors.white, fontSize: 14),
-                      ),
-                    ],
+                        const Text(
+                          'Inward weightment',
+                          style: TextStyle(color: Colors.white, fontSize: 14),
+                        ),
+                      ],
+                    ),
+                    onTap: (){Get.toNamed('/delievery');},
                   ),
                 ),
                 Divider(
@@ -98,22 +108,23 @@ class _EndDrawerState extends State<EndDrawer> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      GestureDetector(
-                        child: Icon(
-                          Icons.close,
+                  child: GestureDetector(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        SvgPicture.asset(
+                          "assets/icons/storage.svg",
+                          height: 30,
+                          width: 30,
                           color: Colors.white,
-                          size: 40,
                         ),
-                        onTap: widget._closeEndDrawer,
-                      ),
-                      const Text(
-                        'Outward weightment',
-                        style: TextStyle(color: Colors.white, fontSize: 14),
-                      ),
-                    ],
+                        const Text(
+                          'Outward weightment',
+                          style: TextStyle(color: Colors.white, fontSize: 14),
+                        ),
+                      ],
+                    ),
+                    onTap: (){Get.toNamed('/loadbags');},
                   ),
                 ),
 
@@ -123,22 +134,22 @@ class _EndDrawerState extends State<EndDrawer> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      GestureDetector(
-                        child: Icon(
+                  child: GestureDetector(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Icon(
                           Icons.assignment,
                           color: Colors.white,
                           size: 30,
                         ),
-                        onTap: widget._closeEndDrawer,
-                      ),
-                      const Text(
-                        'Daily Transaction Register',
-                        style: TextStyle(color: Colors.white, fontSize: 12.5),
-                      ),
-                    ],
+                        const Text(
+                          'Daily Transaction Register',
+                          style: TextStyle(color: Colors.white, fontSize: 12.5),
+                        ),
+                      ],
+                    ),
+              onTap: (){Get.toNamed('/dailytranasactions');},
                   ),
                 ),
                 Divider(
@@ -147,22 +158,27 @@ class _EndDrawerState extends State<EndDrawer> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      GestureDetector(
-                        child: Icon(
-                          Icons.close,
-                          color: Colors.white,
-                          size: 35,
+                  child: GestureDetector(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Transform(
+                          alignment: Alignment.center,
+                          transform: Matrix4.rotationY(math.pi),
+                          child:SvgPicture.asset(
+                            "assets/icons/Van.svg",
+                            height: 30,
+                            width: 30,
+                            color: Colors.white,
+                          ),
                         ),
-                        onTap: widget._closeEndDrawer,
-                      ),
-                      const Text(
-                        'Approve Pending',
-                        style: TextStyle(color: Colors.white, fontSize: 14),
-                      ),
-                    ],
+                        const Text(
+                          'Approve Pending',
+                          style: TextStyle(color: Colors.white, fontSize: 14),
+                        ),
+                      ],
+                    ),
+                    onTap:(){Get.toNamed('/pending');},
                   ),
                 ),
                 Divider(

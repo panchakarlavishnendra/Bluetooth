@@ -22,7 +22,7 @@ class _UploadWeighmentDocumentScreenState
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      appBar: AppBar(title: Text('OutWard Truck Weighment')),
+      appBar: AppBar(title: Text('OutWard Truck Weighment',style: TextStyle(fontSize: 16),)),
       body: Card(
         child: Padding(
           padding: const EdgeInsets.all(18.0),

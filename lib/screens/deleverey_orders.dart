@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
+import 'package:flutter_svg/svg.dart';
 
 class DelieveryOrders extends StatefulWidget {
   DelieveryOrders({Key key}) : super(key: key);
@@ -28,7 +29,7 @@ class _DelieveryOrders extends State<DelieveryOrders> {
     var style = TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
     return Scaffold(
       key: _scaffoldKey,
-      appBar: AppBar(title: Text('Delevery Options')),
+      appBar: AppBar(title: Text('All Inwards',style: TextStyle(fontSize: 16),)),
       body: ListView(
         children: <Widget>[
           Container(
@@ -216,8 +217,12 @@ class _DelieveryOrders extends State<DelieveryOrders> {
                                         Column(),
                                         Padding(
                                           padding:
-                                              const EdgeInsets.only(top: 18.0),
-                                          child: Column(children: []),
+                                              const EdgeInsets.only(top: 18.0,left:15),
+                                          child: Column(children: [SvgPicture.asset(
+                                            "assets/icons/Van.svg",
+                                            height: 25,
+                                            width: 25,
+                                          ),]),
                                         ),
                                       ]),
                                     ],

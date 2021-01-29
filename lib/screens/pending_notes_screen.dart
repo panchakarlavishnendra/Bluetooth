@@ -81,7 +81,7 @@ class _PendingApprovalsState extends State<PendingNotes> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: Text('Pending Approvals'),
+        title: Text('Pending Approvals',style: TextStyle(fontSize: 16),),
         elevation: 0,
       ),
       body: ListView(

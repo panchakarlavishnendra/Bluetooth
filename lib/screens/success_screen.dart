@@ -74,13 +74,13 @@ class _SucessState extends State<Sucess> {
                     )),
               ),
               _customisedButton(
-                  context, 'Download Gatepass', '/dailytranasactions'),
+                  context, 'Download Gatepass', '/dailyvehicletransactions'),
               _customisedButton(
                   context, 'Daily Transaction Register', '/dailytranasactions'),
               _customisedButton(
-                  context, 'All Delivery Orders', '/dailytranasactions'),
+                  context, 'All Delivery Orders', '/delievery'),
               _customisedButton(
-                  context, 'Make a New Truck Entry', '/dailytranasactions')
+                  context, 'Make a New Truck Entry', '/truckweightment')
             ],
           ),
         ),

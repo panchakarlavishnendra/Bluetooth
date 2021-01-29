@@ -45,49 +45,46 @@ class _SelectWarehouseContacts extends State<SelectWarehouseContacts> {
         'Select Warehouse & Contract',
         style: TextStyle(fontSize: 16),
       )),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 28.0),
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              Container(
-                height: mediaHeight * 0.6,
-                width: mediaWidth * 1,
-                child: ListView(children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Container(
-                        height: mediaHeight * 0.090,
-                        width: mediaWidth * 0.85,
-                        child: CustomDropDown(
-                            _selectedLocation, _locations, 'Select Warehouse')),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Container(
-                        height: mediaHeight * 0.090,
-                        width: mediaWidth * 0.85,
-                        child: CustomDropDown(_selectedLocation2, _locations2,
-                            'Select Contract')),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Container(
-                        height: mediaHeight * 0.090,
-                        width: mediaWidth * 0.85,
-                        child: CustomDropDown(_selectedLocation3, _locations3,
-                            'Select Weigh Bridge')),
-                  ),
-                ]),
-              ),
-              // ContinueButton(routeMethod('/selectWareHouse'),),
-              Container(
-                height: mediaHeight * 0.07,
-                width: mediaWidth * 0.85,
-                child: ContinueButton('Continue', '/selectWareHouse'),
-              )
-            ]),
-      ),
+      body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            Container(
+              height: mediaHeight * 0.6,
+              width: mediaWidth * 1,
+              child: ListView(children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Container(
+                      height: mediaHeight * 0.090,
+                      width: mediaWidth * 0.85,
+                      child: CustomDropDown(
+                          _selectedLocation, _locations, 'Select Warehouse')),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Container(
+                      height: mediaHeight * 0.090,
+                      width: mediaWidth * 0.85,
+                      child: CustomDropDown(_selectedLocation2, _locations2,
+                          'Select Contract')),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Container(
+                      height: mediaHeight * 0.090,
+                      width: mediaWidth * 0.85,
+                      child: CustomDropDown(_selectedLocation3, _locations3,
+                          'Select Weigh Bridge')),
+                ),
+              ]),
+            ),
+            // ContinueButton(routeMethod('/selectWareHouse'),),
+            Container(
+              height: mediaHeight * 0.07,
+              width: mediaWidth * 0.85,
+              child: ContinueButton('Continue', '/selectWareHouse'),
+            )
+          ]),
 
       endDrawer: EndDrawer(_openEndDrawer, _closeEndDrawer),
       // Disable opening the end drawer with a swipe gesture.

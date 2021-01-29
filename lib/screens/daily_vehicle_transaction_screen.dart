@@ -260,7 +260,7 @@ class _DailyVehicleTransactionState extends State<DailyVehicleTransaction> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(3.0),
               ),
-              onPressed: () => {Get.toNamed('')},
+              onPressed: () => {Get.back()},
               color: Colors.cyan[900],
               textColor: Colors.white,
               child: Text('Done', style: TextStyle(fontSize: 14)),

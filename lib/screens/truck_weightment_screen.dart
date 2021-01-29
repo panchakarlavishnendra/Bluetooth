@@ -81,7 +81,7 @@ class _TruckWeightment extends State<TruckWeightment> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Truck Weighment'),
+          title: const Text('Truck Weighment',style: TextStyle(fontSize: 16),),
         ),
         body: SingleChildScrollView(
           child: Container(

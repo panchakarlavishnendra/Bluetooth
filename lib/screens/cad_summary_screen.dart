@@ -13,7 +13,7 @@ class _CadSummaryState extends State<CadSummary> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(title)),
+      appBar: AppBar(title: Text(title,style: TextStyle(fontSize: 16),)),
       body: ListView(children: <Widget>[
         Container(
           width: MediaQuery.of(context).size.width * 1,
