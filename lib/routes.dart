@@ -4,6 +4,7 @@ import 'package:flutter_bluetooth/screens/connected_devices_screen.dart';
 import 'package:flutter_bluetooth/screens/daily_transaction_register_screen.dart';
 import 'package:flutter_bluetooth/screens/daily_vehicle_transaction_screen.dart';
 import 'package:flutter_bluetooth/screens/loading_bags_screen.dart';
+import 'package:flutter_bluetooth/screens/login_screen.dart';
 import 'package:flutter_bluetooth/screens/main_screen_page.dart';
 import 'package:flutter_bluetooth/screens/pending_approvals.dart';
 import 'package:flutter_bluetooth/screens/pending_notes_screen.dart';
@@ -91,11 +92,11 @@ class Routes {
       page: () => SelectBondedDevicePage(),
         transition: Transition.downToUp
     ),
-    GetPage(
-      name: '/chatpage',
-      page: () => ChatPage(),
-        transition: Transition.rightToLeft
-    ),
+    // GetPage(
+    //   name: '/chatpage',
+    //   page: () => ChatPage(),
+    //     transition: Transition.rightToLeft
+    // ),
     GetPage(
         name: '/dailytranasactions',
         page: () => DailyTranasactions(),
@@ -116,6 +117,10 @@ class Routes {
         page: () => CadSummary(),
         transition: Transition.zoom
     ),
+    GetPage(
+        name: '/login',
+        page: () => LoginScreen(),
+    )
 
   ];
 }

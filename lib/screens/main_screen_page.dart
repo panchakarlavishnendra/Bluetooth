@@ -25,10 +25,10 @@ class _MainPage extends State<MainPage> {
   String _address;
   String _name = "...";
   String _text = '';
-
+  List str = ['a','b','c'];
   Timer _discoverableTimeoutTimer;
   int _discoverableTimeoutSecondsLeft = 0;
-
+  BluetoothDevice server;
   bool _autoAcceptPairingRequests = false;
 
 
@@ -64,12 +64,6 @@ class _MainPage extends State<MainPage> {
     // _incident.location = _pickedLocation;
   }
   var data;
-  onDataReceived(){
-    setState(() {
-      data = new ChatPage();
-      print(data);
-    });
-  }
 
 
 
@@ -116,14 +110,19 @@ class _MainPage extends State<MainPage> {
                 await Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) {
-                      return SelectBondedDevicePage(checkAvailability: false);
+                      return SelectBondedDevicePage(
+                          checkAvailability: false,
+                          // server: server,
+                          func:(val) => setState(() => _text = val,
+                              )
+                      );
                     },
                   ),
                 );
 
                 if (selectedDevice != null) {
                   print('Connect -> selected ' + selectedDevice.address);
-                  _startChat(context, selectedDevice);
+                  // _startChat(context, selectedDevice);
                 } else {
                   print('Connect -> no device selected');
                   String address = selectedDevice.name;
@@ -140,16 +139,16 @@ class _MainPage extends State<MainPage> {
     );
   }
 
-  void _startChat(BuildContext context, BluetoothDevice server) {
-    // ChatPage msgdata = new ChatPage();
-    // msgdata.onDataReceived();
-    // print(msgdata);
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) {
-          return ChatPage(server: server,func:(val) => setState(() => _text = val));
-        },
-      ),
-    );
-  }
+//   void _startChat(BuildContext context, BluetoothDevice server) {
+//     // ChatPage msgdata = new ChatPage();
+//     // msgdata.onDataReceived();
+//     // print(msgdata);
+//     Navigator.of(context).push(
+//       MaterialPageRoute(
+//         builder: (context) {
+//           return ChatPage(server: server,func:(val) => setState(() => _text = val));
+//         },
+//       ),
+//     );
+//   }
 }
