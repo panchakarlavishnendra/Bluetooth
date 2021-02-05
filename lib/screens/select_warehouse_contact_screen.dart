@@ -68,14 +68,14 @@ class _SelectWarehouseContacts extends State<SelectWarehouseContacts> {
                       child: CustomDropDown(_selectedLocation2, _locations2,
                           'Select Contract')),
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Container(
-                      height: mediaHeight * 0.090,
-                      width: mediaWidth * 0.85,
-                      child: CustomDropDown(_selectedLocation3, _locations3,
-                          'Select Weigh Bridge')),
-                ),
+                // Padding(
+                //   padding: EdgeInsets.symmetric(horizontal: 20),
+                //   child: Container(
+                //       height: mediaHeight * 0.090,
+                //       width: mediaWidth * 0.85,
+                //       child: CustomDropDown(_selectedLocation3, _locations3,
+                //           'Select Weigh Bridge')),
+                // ),
               ]),
             ),
             // ContinueButton(routeMethod('/selectWareHouse'),),

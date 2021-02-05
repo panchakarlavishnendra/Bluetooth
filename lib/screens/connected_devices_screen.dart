@@ -159,7 +159,9 @@ class _SelectBondedDevicePage extends State<SelectBondedDevicePage> {
     arr.add(messages);
     print(messages);
     print(arr);
-    widget.func(arr);
+    var dataa = ['h','h'];
+    widget.func(dataa.toString());
+    // widget.func(arr);
   }
 
   void _restartDiscovery() {
