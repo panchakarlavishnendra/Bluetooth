@@ -9,32 +9,30 @@ import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
 import 'bluetooth_entity_list_screen.dart';
 
-typedef void StringCallback(var val);
 class SelectBondedDevicePage extends StatefulWidget {
   /// If true, on page start there is performed discovery upon the bonded devices.
   /// Then, if they are not avaliable, they would be disabled from the selection.
   final bool checkAvailability;
 
-  const SelectBondedDevicePage({this.checkAvailability = true,this.func,this.server});
-  final BluetoothDevice server;
-  final StringCallback func;
+  final Function func;
+
+  const SelectBondedDevicePage({this.checkAvailability = true, this.func});
 
   @override
   _SelectBondedDevicePage createState() => new _SelectBondedDevicePage();
 }
+
+enum _DeviceAvailability {
+  no,
+  maybe,
+  yes,
+}
+
 class _Message {
   int whom;
   String text;
 
   _Message(this.whom, this.text);
-}
-List<_Message> messages = List<_Message>();
-List arr = ['a','b','c'];
-String _messageBuffer = '';
-enum _DeviceAvailability {
-  no,
-  maybe,
-  yes,
 }
 
 class _DeviceWithAvailability extends BluetoothDevice {
@@ -46,16 +44,39 @@ class _DeviceWithAvailability extends BluetoothDevice {
 }
 
 class _SelectBondedDevicePage extends State<SelectBondedDevicePage> {
+  static final clientID = 0;
+  BluetoothConnection connection;
+
+  List list = [];
+  List<_Message> messages = List<_Message>();
+
+  List arr = [];
+  String _messageBuffer = '';
+  String stringVal;
+  String moistureValue;
+  final TextEditingController textEditingController =
+  new TextEditingController();
+  final ScrollController listScrollController = new ScrollController();
+
+  bool isConnecting = true;
+
+  bool get isConnected => connection != null && connection.isConnected;
+
+  bool isDisconnecting = false;
+
+//  BluetoothDevice device;
+  BluetoothDevice serverDevice;
+
   List<_DeviceWithAvailability> devices = List<_DeviceWithAvailability>();
 
   // Availability
   StreamSubscription<BluetoothDiscoveryResult> _discoveryStreamSubscription;
+  Uint8List data;
+
   bool _isDiscovering;
-  BluetoothDevice server;
-  BluetoothConnection connection;
+
   _SelectBondedDevicePage();
-  bool isDisconnecting = false;
-  bool isConnecting = true;
+
   @override
   void initState() {
     super.initState();
@@ -74,38 +95,45 @@ class _SelectBondedDevicePage extends State<SelectBondedDevicePage> {
         devices = bondedDevices
             .map(
               (device) => _DeviceWithAvailability(
-                device,
-                widget.checkAvailability
-                    ? _DeviceAvailability.maybe
-                    : _DeviceAvailability.yes,
-              ),
-            )
+            device,
+            widget.checkAvailability
+                ? _DeviceAvailability.maybe
+                : _DeviceAvailability.yes,
+          ),
+        )
             .toList();
       });
     });
 
-    BluetoothConnection.toAddress(server.address).then((_connection) {
-      print('Connected to the device');
-      connection = _connection;
+  }
+
+  void _restartDiscovery() {
+    setState(() {
+      _isDiscovering = true;
+    });
+
+    _startDiscovery();
+  }
+
+  void _startDiscovery() {
+    _discoveryStreamSubscription =
+        FlutterBluetoothSerial.instance.startDiscovery().listen((r) {
+          setState(() {
+            Iterator i = devices.iterator;
+            while (i.moveNext()) {
+              var _device = i.current;
+              if (_device.device == r.device) {
+                _device.availability = _DeviceAvailability.yes;
+                _device.rssi = r.rssi;
+              }
+            }
+          });
+        });
+
+    _discoveryStreamSubscription.onDone(() {
       setState(() {
-        isConnecting = false;
-        isDisconnecting = false;
+        _isDiscovering = false;
       });
-
-      connection.input.listen(onDataReceived).onDone(() {
-
-        if (isDisconnecting) {
-          print('Disconnecting locally!');
-        } else {
-          print('Disconnected remotely!');
-        }
-        if (this.mounted) {
-          setState(() {});
-        }
-      });
-    }).catchError((error) {
-      print('Cannot connect, exception occured');
-      print(error);
     });
   }
 
@@ -136,6 +164,10 @@ class _SelectBondedDevicePage extends State<SelectBondedDevicePage> {
 
     // Create message if there is new line character
     String dataString = String.fromCharCodes(buffer);
+    setState(() {
+      stringVal = dataString;
+    });
+
     int index = buffer.indexOf(13);
     if (~index != 0) {
       setState(() {
@@ -148,6 +180,7 @@ class _SelectBondedDevicePage extends State<SelectBondedDevicePage> {
                 : _messageBuffer + dataString.substring(0, index),
           ),
         );
+
         _messageBuffer = dataString.substring(index);
       });
     } else {
@@ -156,72 +189,85 @@ class _SelectBondedDevicePage extends State<SelectBondedDevicePage> {
           0, _messageBuffer.length - backspacesCounter)
           : _messageBuffer + dataString);
     }
-    arr.add(messages);
-    print(messages);
-    print(arr);
-    var dataa = ['h','h'];
-    widget.func(dataa.toString());
-    // widget.func(arr);
-  }
 
-  void _restartDiscovery() {
-    setState(() {
-      _isDiscovering = true;
-    });
+    moistureValue = messages
+        .map((_message) => (text) {
+      return text == '/shrug' ? '¯\\_(ツ)_/¯' : text;
+    }(_message.text.replaceAll(new RegExp(r"\s+"), "")))
+        .toString();
+    if (moistureValue != null) {
+      String str = moistureValue;
+//      String start = 'MOISTURE=';
+      String end = 'SIGNATURE';
+      int startIndex = str.indexOf('MOISTURE=');
+//      int endIndex = str.indexOf(end,startIndex+start.length);
+      int endIndex = str.indexOf('SIGNATURE');
+      String moistureData = str.substring(startIndex, endIndex);
+      String strNum = moistureData;
+      final iReg = RegExp(r'(\d+)');
+      moistureData = iReg.allMatches(strNum).map((m) => m.group(0)).join('.');
+      print(moistureData);
+      widget.func(moistureData);
+    }
 
-    _startDiscovery();
-  }
 
-  void _startDiscovery() {
-    _discoveryStreamSubscription =
-        FlutterBluetoothSerial.instance.startDiscovery().listen((r) {
-      setState(() {
-        Iterator i = devices.iterator;
-        while (i.moveNext()) {
-          var _device = i.current;
-          if (_device.device == r.device) {
-            _device.availability = _DeviceAvailability.yes;
-            _device.rssi = r.rssi;
-          }
-        }
-      });
-    });
-
-    _discoveryStreamSubscription.onDone(() {
-      setState(() {
-        _isDiscovering = false;
-      });
-    });
   }
 
   @override
-  void dispose() {
-    // Avoid memory leak (`setState` after dispose) and cancel discovery
-    _discoveryStreamSubscription?.cancel();
-
-    super.dispose();
-  }
+   void dispose() {
+     // Avoid memory leak (setState after dispose) and disconnect
+     if (isConnected) {
+       isDisconnecting = true;
+       connection.dispose();
+       connection = null;
+     }
+     _discoveryStreamSubscription?.cancel();
+     super.dispose();
+   }
 
   @override
   Widget build(BuildContext context) {
     List<BluetoothDeviceListEntry> list = devices
         .map((_device) => BluetoothDeviceListEntry(
-              device: _device.device,
-              rssi: _device.rssi,
-              enabled: _device.availability == _DeviceAvailability.yes,
-              onTap: () {
-                // Text('Send Data');
-                widget.func(arr.toString());
-                Navigator.of(context).pop(_device.device);
-                // Get.toNamed('/chatpage');
+      device: _device.device,
+      rssi: _device.rssi,
+      enabled: _device.availability == _DeviceAvailability.yes,
+      onTap: () {
+//                Navigator.of(context).pop(_device.device);
+        serverDevice = _device.device;
+//              onDataReceived(data);
+        BluetoothConnection.toAddress(serverDevice.address)
+            .then((_connection) {
+          print('Connected to the device');
+          connection = _connection;
+          setState(() {
+            isConnecting = false;
+            isDisconnecting = false;
+          });
 
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(builder: (context) => Sucess()),
-                // );
-
-              },
-            ))
+          connection.input.listen(onDataReceived).onDone(() {
+            // Example: Detect which side closed the connection
+            // There should be `isDisconnecting` flag to show are we are (locally)
+            // in middle of disconnecting process, should be set before calling
+            // `dispose`, `finish` or `close`, which all causes to disconnect.
+            // If we except the disconnection, `onDone` should be fired as result.
+            // If we didn't except this (no flag set), it means closing by remote.
+            if (isDisconnecting) {
+              print('Disconnecting locally!');
+            } else {
+              print('Disconnected remotely!');
+            }
+            if (this.mounted) {
+              setState(() {});
+            }
+          });
+        }).catchError((error) {
+          print('Cannot connect, exception occured');
+          print(error);
+        });
+//                Navigator.of(context).pop();
+      },
+    ))
         .toList();
     return Scaffold(
       appBar: AppBar(
@@ -229,19 +275,19 @@ class _SelectBondedDevicePage extends State<SelectBondedDevicePage> {
         actions: <Widget>[
           _isDiscovering
               ? FittedBox(
-                  child: Container(
-                    margin: new EdgeInsets.all(16.0),
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        Colors.white,
-                      ),
-                    ),
-                  ),
-                )
+            child: Container(
+              margin: new EdgeInsets.all(16.0),
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(
+                  Colors.white,
+                ),
+              ),
+            ),
+          )
               : IconButton(
-                  icon: Icon(Icons.replay),
-                  onPressed: _restartDiscovery,
-                )
+            icon: Icon(Icons.replay),
+            onPressed: _restartDiscovery,
+          )
         ],
       ),
       body: ListView(children: list),

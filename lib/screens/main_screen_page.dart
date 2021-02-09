@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth/models/place_location.dart';
-import 'package:flutter_bluetooth/screens/chat_page.dart';
+
 import 'package:flutter_bluetooth/screens/connected_devices_screen.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'package:geocoder/geocoder.dart';
@@ -12,28 +12,31 @@ import 'package:location/location.dart';
 
 class MainPage extends StatefulWidget {
   static const routeName = '/MainPage';
+
   @override
   _MainPage createState() => new _MainPage();
-  static _MainPage of(BuildContext context) =>
-      context.findAncestorStateOfType<_MainPage>();
-
 }
 
 class _MainPage extends State<MainPage> {
   BluetoothState _bluetoothState = BluetoothState.UNKNOWN;
+  BluetoothDevice server;
 
   String _address;
   String _name = "...";
   String _text = '';
-  List str = ['a','b','c'];
+
   Timer _discoverableTimeoutTimer;
   int _discoverableTimeoutSecondsLeft = 0;
-  BluetoothDevice server;
+
   bool _autoAcceptPairingRequests = false;
 
-
-  // function(value) => setState(() => _text = value);
-
+  function(value) {
+    if (value != null) {
+      setState(() => _text = value);
+    } else
+      _text = '15%';
+//    print(value);
+  }
 
   @override
   void initState() {
@@ -63,9 +66,6 @@ class _MainPage extends State<MainPage> {
     _address = _pickedLocation.address.toString();
     // _incident.location = _pickedLocation;
   }
-  var data;
-
-
 
   @override
   void dispose() {
@@ -106,49 +106,59 @@ class _MainPage extends State<MainPage> {
             title: RaisedButton(
               child: const Text('Paired devices'),
               onPressed: () async {
-                final BluetoothDevice selectedDevice =
+//                final BluetoothDevice selectedDevice =
                 await Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) {
                       return SelectBondedDevicePage(
-                          checkAvailability: false,
-                          // server: server,
-                          func:(val) => setState(() => _text = val,
-                              )
+                        checkAvailability: false,
+                        func: function,
                       );
                     },
                   ),
                 );
-
-                if (selectedDevice != null) {
-                  print('Connect -> selected ' + selectedDevice.address);
-                  // _startChat(context, selectedDevice);
-                } else {
-                  print('Connect -> no device selected');
-                  String address = selectedDevice.name;
-                }
+//
+//                if (selectedDevice != null) {
+//                  print('Connect -> selected ' + selectedDevice.address);
+////                  _startChat(context, selectedDevice);
+//                } else {
+//                  print('Connect -> no device selected');
+////                  String address = selectedDevice.name;
+//                }
               },
             ),
           ),
-
+//          ListTile(
+//            title: RaisedButton(
+//              child: const Text('Verify'),
+//              // onPressed: () {
+//              //   Get.toNamed('/truckweightment');
+//              //
+//              // },
+//              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => ChatPage(func: function)),
+//              ),
+//            ),
+//          ),
           ListTile(
-            title: Text(_text),
+            title: _text == null ? Container() : Text(_text),
           )
         ],
       ),
     );
   }
 
-//   void _startChat(BuildContext context, BluetoothDevice server) {
-//     // ChatPage msgdata = new ChatPage();
-//     // msgdata.onDataReceived();
-//     // print(msgdata);
-//     Navigator.of(context).push(
-//       MaterialPageRoute(
-//         builder: (context) {
-//           return ChatPage(server: server,func:(val) => setState(() => _text = val));
-//         },
-//       ),
-//     );
-//   }
+//  void _startChat(BuildContext context, BluetoothDevice server) {
+//    // ChatPage msgdata = new ChatPage();
+//    // msgdata.onDataReceived();
+//    // print(msgdata);
+//    Navigator.of(context).push(
+//      MaterialPageRoute(
+//        builder: (context) {
+//          return ChatPage(server: server,func: function,);
+//        },
+//      ),
+//    );
+//  }
 }
+
+

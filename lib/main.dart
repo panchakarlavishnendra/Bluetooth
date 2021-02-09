@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: SafeArea(
-          child: LoginScreen()
+          child: MainPage()
       ),
       // initialRoute: '/login',
       // SelectWarehouseContacts(),
