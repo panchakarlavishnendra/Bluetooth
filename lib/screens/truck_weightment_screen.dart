@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bluetooth/widgets/continue_button.dart';
+import 'package:flutter_bluetooth/widgets/drop_down.dart';
+import 'package:flutter_bluetooth/widgets/text_field.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as path;
@@ -100,25 +102,12 @@ class _TruckWeightment extends State<TruckWeightment> {
                             Container(
                                 height: 70,
                                 width: MediaQuery.of(context).size.width * 0.75,
-                                child: new Theme(
-                                  data: new ThemeData(
-                                      // primaryColor: Colors.black87,
-                                      // primaryColorDark: Colors.black87,
-                                      ),
-                                  child: new TextField(
-                                    decoration: InputDecoration(
-                                        labelText: 'GatePass Number'),
-                                    keyboardType: TextInputType.number,
-                                    inputFormatters: <TextInputFormatter>[
-                                      FilteringTextInputFormatter.digitsOnly
-                                    ],
-                                  ),
-                                )),
+                                child: CustomTextField(label: 'GatePass Number',)),
                           ],
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 10.0, left: 10),
+                        padding: const EdgeInsets.only(top: 10.0, left: 25),
                         child: Column(
                           children: <Widget>[
                             GestureDetector(
@@ -417,139 +406,114 @@ class _TruckWeightment extends State<TruckWeightment> {
                         child: Column(
                           children: <Widget>[
                             Container(
-                                height: 70,
-                                width: 310,
+                                height: MediaQuery.of(context).size.height*0.085,
+                                width:  MediaQuery.of(context).size.width*0.95,
                                 child: new Theme(
                                   data: new ThemeData(
                                     primaryColor: Colors.black,
                                     primaryColorDark: Colors.black,
                                   ),
-                                  child: new TextField(
-                                    decoration: InputDecoration(
-                                        labelText: 'Vehicle Number'),
-                                  ),
+                                  child:
+                                  CustomTextField(label: 'Vehicle No',),
                                 )),
                           ],
                         ),
                       ),
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: TextField(
-                      decoration: InputDecoration(
-                          labelText: 'Latitude/Longitude',
-                          suffixIcon: Icon(Icons.gps_fixed_outlined)),
-                      keyboardType: TextInputType.number,
-                      inputFormatters: <TextInputFormatter>[
-                        FilteringTextInputFormatter.digitsOnly
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: Container(
-                      height: 60,
-                      child: DropdownButton(
-                        hint: Text('Please choose a location'),
-                        // Not necessary for Option 1
-                        value: _selectedLocation,
-                        isExpanded: true,
-                        onChanged: (newValue) {
-                          setState(() {
-                            _selectedLocation = newValue;
-                          });
-                        },
-                        items: _locations.map((location) {
-                          return DropdownMenuItem(
-                            child: new Text(location),
-                            value: location,
-                          );
-                        }).toList(),
-                      ),
-                    ),
-                  ),
+
                   Container(
-                    alignment: Alignment.topRight,
-                    height: MediaQuery.of(context).size.height * 0.05,
-                    width: MediaQuery.of(context).size.width * 0.12,
-                    child: FlatButton(
-                        color: Colors.teal[900],
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12)),
-                        child: const Text(
-                          'Auto Capture',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        onPressed: () {}),
+                    height: MediaQuery.of(context).size.height*0.12,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                      child: CustomDropDown(_selectedLocation,_locations,'Weigh Bridge Name')
+                    ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: <Widget>[
-                        Container(
-                            height: MediaQuery.of(context).size.height * 0.143,
-                            width: MediaQuery.of(context).size.width * 0.53,
-                            child: new Theme(
-                              data: new ThemeData(
-                                primaryColor: Colors.black,
-                                primaryColorDark: Colors.black,
-                              ),
-                              child: new TextField(
-                                decoration: InputDecoration(
-                                    labelText: 'Truck Gross weight',contentPadding: EdgeInsets.all(15) ),
-                                keyboardType: TextInputType.number,
-                                inputFormatters: <TextInputFormatter>[
-                                  FilteringTextInputFormatter.digitsOnly
-                                ],
-                              ),
-                            )),
-                        Container(
-                          // margin: EdgeInsets.only(top:2),
-                          height: MediaQuery.of(context).size.height * 0.1,
-                          width: MediaQuery.of(context).size.width * 0.35,
-                          child: DropdownButton(
-                            hint: Text('   ML '), // Not necessary for Option 1
-                            value: _selectedLocation,
-                            onChanged: (newValue) {
-                              setState(() {
-                                _selectedLocation = newValue;
-                              });
-                            },
-                            items: _locations.map((location) {
-                              return DropdownMenuItem(
-                                child: new Text(location),
-                                value: location,
-                              );
-                            }).toList(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      FlatButton(
+                          color: Colors.green[900],
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(35)),
+                          child: const Text(
+                            'Manual',
+                            style: TextStyle(color: Colors.white),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 2),
-                    child: ContinueButton(
-                        'Continue Document Upload', '/uploaddocuemnts'),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 3),
-                    child: RaisedButton(
-                      elevation: 5,
-                      textColor: Colors.white,
-                      color: Colors.green[900],
-                      child: Text(
-                        "Manual Weighment Entry",
-                        style: TextStyle(fontSize: 15),
+                          onPressed: () {}),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal:15.0),
+                        child: FlatButton(
+                            color: Colors.teal[900],
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(35)),
+                            child: const Text(
+                              'Auto Capture',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            onPressed: () {}),
                       ),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(1)),
-                      onPressed: () {
-                        Get.toNamed('/pending');
-                      },
+                    ],
+                  ),
+
+                 Row(
+                   // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: <Widget>[
+                                Flexible(
+                                  flex: 2,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left:10.0),
+                                    child: CustomTextField( label: 'Truck Gross weight',),
+                                  ),
+                                ),
+                                // SizedBox(width: 12,),
+                                Flexible(
+                                    flex: 1,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(top:20.0,left: 25),
+                                      child: CustomDropDown(_selectedLocation,_locations,'ML',),
+                                    ),
+                                ),
+
+                              ],
+                            ),
+
+              Container(
+                height: MediaQuery.of(context).size.height*0.095,
+                width:  MediaQuery.of(context).size.width*0.95,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal:10.0,vertical: 13),
+                  child: CustomTextField(label:'Weighment Slip SL. No.' ,),
+                ),
+              ),
+                  Container(
+                    height: MediaQuery.of(context).size.height* 0.1,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 12),
+                      child: ContinueButton(
+                          'Continue Document Upload', '/uploaddocuemnts'),
                     ),
                   ),
+                  // Container(
+                  //   height: MediaQuery.of(context).size.height* 0.07,
+                  //   child: Padding(
+                  //     padding: EdgeInsets.symmetric(horizontal: 15,),
+                  //     child: RaisedButton(
+                  //       elevation: 5,
+                  //       textColor: Colors.white,
+                  //       color: Colors.green[900],
+                  //       child: Text(
+                  //         "Manual Weighment Entry",
+                  //         style: TextStyle(fontSize: 15),
+                  //       ),
+                  //       shape: RoundedRectangleBorder(
+                  //           borderRadius: BorderRadius.circular(1)),
+                  //       onPressed: () {
+                  //         Get.toNamed('/pending');
+                  //       },
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),

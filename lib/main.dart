@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bluetooth/screens/daily_transaction_register_screen.dart';
+import 'package:flutter_bluetooth/screens/daliy_transaction_inward_screen.dart';
 import 'package:flutter_bluetooth/screens/login_screen.dart';
-import 'package:flutter_bluetooth/screens/main_screen_page.dart';
-import 'package:flutter_bluetooth/screens/read_moisture_data_screen.dart';
-import 'package:flutter_bluetooth/screens/select_warehouse_contact_screen.dart';
-import 'package:flutter_bluetooth/screens/test_screen.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:get/get.dart';
 import './routes.dart';
@@ -36,7 +34,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: SafeArea(
-          child: MainPage()
+          child: DailyTransactionsInward()
       ),
       // initialRoute: '/login',
       // SelectWarehouseContacts(),

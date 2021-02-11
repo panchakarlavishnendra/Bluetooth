@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bluetooth/screens/connected_devices_screen.dart';
+import 'package:flutter_bluetooth/screens/read_moisture_data_screen.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'package:get/get.dart';
@@ -128,7 +129,24 @@ class _QualityCheckState extends State<QualityCheck> {
                           height: 25,
                           width: 17,
                         ),
-                        onTap: () {},
+                        onTap: () {
+    showDialog(
+    context: context,
+    builder: (BuildContext context) {
+    return Theme(
+    data: Theme.of(context)
+        .copyWith(canvasColor: Colors.black87.withOpacity(0.8)),
+    child: Dialog(
+    shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(20),
+    ),
+    elevation: 0,
+    backgroundColor: Colors.transparent,
+    child: ReadMoisture(context),
+    ));
+    });
+    },
+
                       ),
                       GestureDetector(
                         child: SvgPicture.asset(

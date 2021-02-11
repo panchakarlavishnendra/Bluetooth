@@ -99,7 +99,7 @@ class Routes {
     // ),
     GetPage(
         name: '/dailytranasactions',
-        page: () => DailyTranasactions(),
+        page: () => DailyTransactions(),
         transition: Transition.rightToLeft
     ),
     GetPage(
@@ -120,6 +120,10 @@ class Routes {
     GetPage(
         name: '/login',
         page: () => LoginScreen(),
+    ),
+    GetPage(
+        name: '/storehouse',
+        page: () => SelectWarehouseContacts()
     )
 
   ];

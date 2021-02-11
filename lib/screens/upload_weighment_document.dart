@@ -99,7 +99,10 @@ class _UploadWeighmentDocumentScreenState
                   ],
                 ),
               ),
-              ContinueButton('Continue to QC', '/quality'),
+              Container(
+                height: MediaQuery.of(context).size.height*0.07,
+                  child: ContinueButton('Continue to QC', '/quality')
+              ),
             ],
           ),
         ),

@@ -43,14 +43,15 @@ class _ReadMoistureState extends State<ReadMoisture> {
       fontSize: 15.5,
       color: Colors.black,
     );
-    var tStyle = TextStyle(fontSize: 16.5);
+    var tStyle = TextStyle(fontSize: 19);
     var padding = const EdgeInsets.all(3.0);
     return Stack(
+
       alignment: Alignment.topCenter,
       children: <Widget>[
         Container(
           height: MediaQuery.of(context).size.height * 0.45,
-          width: MediaQuery.of(widget.context).size.width * 0.96,
+          width: MediaQuery.of(widget.context).size.width * 0.9,
           padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
           margin: EdgeInsets.only(top: Constants.avatarRadius),
           decoration: BoxDecoration(
@@ -80,8 +81,8 @@ class _ReadMoistureState extends State<ReadMoisture> {
               ),
               Text(
                 'Reading Moisture Data',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.start,
               ),
               Divider(),
               SizedBox(
@@ -97,14 +98,14 @@ class _ReadMoistureState extends State<ReadMoisture> {
                       TableRow(children: [
                         Padding(
                           padding: padding,
-                          child: Text('Truck Id', style: style),
+                          child: Text('Device 01', style: style),
                         ),
                         Padding(
                           padding: padding,
                           child: Text(
-                            '632',
+                            '15%',
                             textAlign: TextAlign.end,
-                            style: tStyle,
+                            style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),
                           ),
                         ),
                       ]),
@@ -112,13 +113,13 @@ class _ReadMoistureState extends State<ReadMoisture> {
                         Padding(
                           padding: padding,
                           child: Text(
-                            'Vehicle Number',
+                            'Date',
                             style: style,
                           ),
                         ),
                         Padding(
                           padding: padding,
-                          child: Text('AP-08-ST-2213',
+                          child: Text('20 MAR 2020',
                               textAlign: TextAlign.end, style: tStyle),
                         ),
                       ]),
@@ -126,14 +127,14 @@ class _ReadMoistureState extends State<ReadMoisture> {
                         Padding(
                           padding: padding,
                           child: Text(
-                            'CDF/CAD No.',
+                            'Time',
                             style: style,
                           ),
                         ),
                         Padding(
                           padding: padding,
                           child:
-                          Text('XXX', textAlign: TextAlign.end, style: tStyle),
+                          Text('20:15:53', textAlign: TextAlign.end, style: tStyle),
                         ),
                       ]),
 
@@ -143,8 +144,11 @@ class _ReadMoistureState extends State<ReadMoisture> {
               ),
               Container(
                   height: MediaQuery.of(context).size.height * 0.065,
-                  width: MediaQuery.of(context).size.width * 0.10,
-                  child: ContinueButton('Continue', '/pending')),
+                  // width: MediaQuery.of(context).size.width * 0.05,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal:28.0),
+                    child: ContinueButton('Continue', '/pending'),
+                  )),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 30),
                 child: ButtonTheme(

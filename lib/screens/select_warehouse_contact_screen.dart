@@ -68,6 +68,7 @@ class _SelectWarehouseContacts extends State<SelectWarehouseContacts> {
                       child: CustomDropDown(_selectedLocation2, _locations2,
                           'Select Contract')),
                 ),
+
                 // Padding(
                 //   padding: EdgeInsets.symmetric(horizontal: 20),
                 //   child: Container(
@@ -84,6 +85,7 @@ class _SelectWarehouseContacts extends State<SelectWarehouseContacts> {
               width: mediaWidth * 0.85,
               child: ContinueButton('Continue', '/selectWareHouse'),
             )
+
           ]),
 
       endDrawer: EndDrawer(_openEndDrawer, _closeEndDrawer),

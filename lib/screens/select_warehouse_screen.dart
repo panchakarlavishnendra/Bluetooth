@@ -86,15 +86,15 @@ class _SelectWareHouse extends State<SelectWareHouse> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Container(
-                    height: mediaHeight * 0.090,
-                    width: MediaQuery.of(context).size.width * 0.85,
-                    child: CustomDropDown(
-                        _selectedLocation2, _locations2, 'Select Weigh Bridge'),
-                  ),
-                ),
+                // Padding(
+                //   padding: EdgeInsets.symmetric(horizontal: 20),
+                //   child: Container(
+                //     height: mediaHeight * 0.090,
+                //     width: MediaQuery.of(context).size.width * 0.85,
+                //     child: CustomDropDown(
+                //         _selectedLocation2, _locations2, 'Select Weigh Bridge'),
+                //   ),
+                // ),
                 SizedBox(height: 30),
                 Container(
                   child: Card(

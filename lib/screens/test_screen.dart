@@ -8,6 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth/screens/read_moisture_data_screen.dart';
 import 'package:flutter_bluetooth/widgets/app_widget.dart';
+import 'package:flutter_bluetooth/widgets/filter_widget.dart';
 import 'package:flutter_bluetooth/widgets/side_nav.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
@@ -41,7 +42,36 @@ class _TestScreenState extends State<TestScreen> {
         title: Text('Drawer Demo'),
         elevation: 0,
       ),
-      body: ReadMoisture(context),
+      body: ListView(
+
+          children:[
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(horizontal:30.0),
+            //   child:
+            //   ReadMoisture(context),
+            // )
+            RaisedButton(
+                child: Text('click'),
+                onPressed: (){
+    showDialog(
+    context: context,
+    builder: (BuildContext context) {
+    return Theme(
+    data: Theme.of(context)
+        .copyWith(canvasColor: Colors.black87.withOpacity(0.8)),
+    child: Dialog(
+    shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(20),
+    ),
+    elevation: 0,
+    backgroundColor: Colors.transparent,
+    child: Filter(context),
+    ));
+    });
+    },
+
+                )
+          ]),
       // body: ListView(
       //   children: <Widget>[
       //     CustomWidget(),

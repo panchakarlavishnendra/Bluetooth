@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CustomDropDown extends StatefulWidget {
   CustomDropDown(this._selectedLocation, this.list, this.text);
 
